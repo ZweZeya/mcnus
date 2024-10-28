@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { robotoMono } from "./utils/font";
+import Navbar from "./components/Navbar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body
         className={`${robotoMono.variable} ${robotoMono.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>

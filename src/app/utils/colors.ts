@@ -1,0 +1,1 @@
+export const frangipani = "#FFD8A3";
