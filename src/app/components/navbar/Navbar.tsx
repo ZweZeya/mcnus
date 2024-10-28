@@ -1,4 +1,4 @@
-import { frangipani } from "../../utils/colors"
+import { frangipani } from "@/app/utils/colors";
 import NavItem from "./NavItem"
 import Logo from "../Logo"
 

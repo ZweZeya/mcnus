@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { robotoMono } from "./utils/font";
 import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,6 +21,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
