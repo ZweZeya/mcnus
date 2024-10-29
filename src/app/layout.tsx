@@ -17,10 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${robotoMono.variable} ${robotoMono.variable} antialiased`}
+        className={`${robotoMono.variable} ${robotoMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <Navbar />
-        {children}
+          {children}
         <Footer />
       </body>
     </html>

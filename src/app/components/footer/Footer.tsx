@@ -5,7 +5,7 @@ import Logo from "../Logo";
 
 const Footer = () => {
     return (
-        <div className="flex items-center py-4 px-6" style={{backgroundColor: frangipani}}>
+        <div className="flex items-center py-4 px-6 mt-auto" style={{backgroundColor: frangipani}}>
             <Logo size={40} />
             <div className="flex gap-x-5 ml-auto">
                 <FooterItem icon={<FaInstagram size={30} />} />
