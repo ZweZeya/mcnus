@@ -1,4 +1,7 @@
-# Myanmar Community @ NUS
+<p align="center">
+    <img src="./public/lion.png" alt="logo" width="150"/>
+    <h1 align="center">Myanmar Community @ NUS</h1>
+</p>
 
 Welcome to the official website for the Myanmar Community Club at National University of Singapore! This project, built with [Next.js](https://nextjs.org), aims to provide information, updates, and resources for students, alumni, and friends of the Myanmar community. 
 
