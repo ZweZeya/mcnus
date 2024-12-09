@@ -3,6 +3,7 @@ import "./globals.css";
 import { robotoMono } from "./utils/font";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
+import { navy } from "./utils/colors";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${robotoMono.variable} ${robotoMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${robotoMono.variable} antialiased min-h-screen flex flex-col`}
+        style={{color: navy}}
       >
         <Navbar />
           {children}

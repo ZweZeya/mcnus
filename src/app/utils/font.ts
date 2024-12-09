@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Roboto_Mono } from 'next/font/google'
+import { Roboto_Mono, Dynalight } from 'next/font/google'
 import "../globals.css";
 
 export const robotoMono = Roboto_Mono({
@@ -20,4 +20,9 @@ export const geistMono = localFont({
     src: "../fonts/GeistMonoVF.woff",
     variable: "--font-geist-mono",
     weight: "100 900",
+});
+
+export const dynalight = Dynalight({
+    subsets: ['latin'],
+    weight: '400',
 });

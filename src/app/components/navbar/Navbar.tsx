@@ -4,7 +4,7 @@ import Logo from "../Logo"
 
 const Navbar = () => {
     return (
-        <div className="flex items-center py-4 px-6" style={{backgroundColor: frangipani}}>
+        <div className="flex items-center py-4 px-6" style={{backgroundColor: frangipani, height: "7vh"}}>
             <Logo size={40} />
             <div className="flex gap-x-5 ml-auto">
                 <NavItem name="Who We Are" />
