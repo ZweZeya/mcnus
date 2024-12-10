@@ -1,6 +1,7 @@
 import Title from "../common/Title";
 import S from "@/app/utils/constantString";
 import { Button } from "@/components/ui/button"
+import Link from "next/link";
 
 const JoinUs = () => {
     return (
@@ -9,7 +10,9 @@ const JoinUs = () => {
             <p className="text-lg text-center">
                 {S.bePartOfDescription}
             </p>
-            <Button>{S.joinUs}</Button>
+            <Button asChild>
+                <Link href="/recruitment">Login</Link>
+            </Button>
         </div>
     )
 }
