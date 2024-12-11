@@ -2,12 +2,12 @@ import ContentBox from "../components/common/ContentBox";
 import PageLayout from "../components/layout/PageLayout"
 import S from "../utils/constantString";
 
-const RecruitmentPage = () => {
+const ContactPage = () => {
     return (
         <PageLayout>
-            <ContentBox title={S.bePartOfMcnus} content={S.bePartOfMcnusDescription} />
+            <ContentBox title={S.contactTitle} content={S.contactDescription} />
         </PageLayout>
     )
 }
 
-export default RecruitmentPage;
+export default ContactPage;

@@ -9,8 +9,12 @@ const STRING_CONSTANTS: Record<string, string> = {
     mission: "To foster cultural exchange and promote mutual support among Myanmar students at NUS and other student communities.",
     visionTitle: "Vision",
     vision: "To build a vibrant and united community of Burmese studensts through shared memorable experiences that inspires connection, growth and long-lasting bonds.",
-    bePartOf: "Be part of this wholesome community!",
-    bePartOfDescription: "Whether as a member, a subcommittee volunteer, or part of our ExCo, we welcome everyone who shares a passion for Myanmar culture and community. Join us in celebrating our heritage, supporting one another, and creating unforgettable experiences together!"
+    bePartOfCommunity: "Be part of this wholesome community!",
+    bePartOfCommunityDescription: "Whether as a member, a subcommittee volunteer, or part of our ExCo, we welcome everyone who shares a passion for Myanmar culture and community. Join us in celebrating our heritage, supporting one another, and creating unforgettable experiences together!",
+    bePartOfMcnus: "Be part of MCNUS",
+    bePartOfMcnusDescription: "It's free!",
+    contactTitle: "Get in Touch",
+    contactDescription: "we dun bite",
 }
 
 export default STRING_CONSTANTS;

@@ -14,7 +14,7 @@ const Navbar = () => {
                 <NavItem name={S.whoWeAre} to="/about" />
                 <NavItem name={S.events} to="/"/>
                 <NavItem name={S.joinUs} to="/recruitment"/>
-                <NavItem name={S.contactUs}to="/" />
+                <NavItem name={S.contactUs}to="/contact" />
             </div>
         </div>
     )
