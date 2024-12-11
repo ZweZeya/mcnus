@@ -7,18 +7,14 @@ const ImageCard: React.FC<{
     content: string, 
     isImageOnRight?: boolean
 }> = ({image, title, content, isImageOnRight}) => {
-
-    const imageElement = <div>
-            <Image src={image} alt="hero" width={500} height={500} objectFit="cover" />
-        </div>
     
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
-            {!isImageOnRight && imageElement}
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12 my-16">
+            {!isImageOnRight && <Image src={image} alt="hero" width={500} height={500} objectFit="cover" />}
             
             <ContentBox title={title} content={content} />
 
-            {isImageOnRight && imageElement}
+            {isImageOnRight && <Image className="ml-auto" src={image} alt="hero" width={500} height={500} objectFit="cover" />}
         </div>
     )
 }

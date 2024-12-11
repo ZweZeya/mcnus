@@ -5,10 +5,10 @@ import ContentBox from "../common/ContentBox";
 
 const JoinUs = () => {
     return (
-        <div className="flex flex-col items-center gap-5 mt-7">
+        <div className="flex flex-col items-center gap-5 my-16">
             <ContentBox title={S.bePartOf} content={S.bePartOfDescription} />
-            <Button asChild>
-                <Link href="/recruitment">Login</Link>
+            <Button className="font-extrabold drop-shadow-xl hover:bg-secondary" asChild>
+                <Link href="/recruitment">{S.joinUs}</Link>
             </Button>
         </div>
     )
