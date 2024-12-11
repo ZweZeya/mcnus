@@ -7,10 +7,10 @@ import S from "./utils/constantString";
 export default function Home() {
     return (
         <PageLayout>
-            {/* <Hero /> */}
+            <Hero />
             <ImageCard image="/mission.png" title={S.missionTitle} content={S.mission} />
             <ImageCard image="/vision.png" title={S.visionTitle} content={S.vision} isImageOnRight />
-            {/* <JoinUs /> */}
+            <JoinUs />
         </PageLayout>
     );
 }

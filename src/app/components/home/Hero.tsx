@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { dynalight } from "@/app/utils/font";
 import { frangipani } from "@/app/utils/colors";
-import Title from "../common/Title";
 import S from "@/app/utils/constantString";
+import ContentBox from "../common/ContentBox";
 
 const Hero = () => {
     return (
@@ -18,10 +18,7 @@ const Hero = () => {
                 </div>
             </div>
             <div className="flex flex-col items-center gap-5 mt-7 px-60">
-                <Title>{S.whoWeAre}</Title>
-                <p className="text-lg text-center">
-                    {S.whoWeAreDescription}
-                </p>
+                <ContentBox title={S.whoWeAre} content={S.whoWeAreDescription} />
             </div>
         </div>
     )
