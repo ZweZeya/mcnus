@@ -15,6 +15,13 @@ const STRING_CONSTANTS: Record<string, string> = {
     bePartOfMcnusDescription: "It's free!",
     contactTitle: "Get in Touch",
     contactDescription: "we dun bite",
+    faqs: "FAQs",
+    faqQuestion1: "Do I have to be burmese to join?",
+    faqAnswer1: "No",
+    faqQuestion2: "Is there a min commitment for the CCA?",
+    faqAnswer2: "No, just show up for our events. However, we highly encourage you to attend as many events as possible because they’re FUN!",
+    faqQuestion3: "Do I get SEP points?",
+    faqAnswer3: "No, MCNUS is not official yet but your participation would greatly help with officialising",
 }
 
 export default STRING_CONSTANTS;
