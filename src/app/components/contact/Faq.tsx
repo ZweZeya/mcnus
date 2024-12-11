@@ -6,10 +6,12 @@ import {
   } from "@/components/ui/accordion"
 import Header from "../common/Header";
 import S from "@/app/utils/constantString";
+import ColouredBox from "../common/ColouredBox";
 
 const Faq = () => {
     return (
         <div className="w-full">
+            <ColouredBox>
             <Header>{S.faqs}</Header>
             <Accordion type="single" collapsible>
                 <AccordionItem value="item-1">
@@ -25,6 +27,7 @@ const Faq = () => {
                     <AccordionContent>{S.faqAnswer3}</AccordionContent>
                 </AccordionItem>
             </Accordion>
+            </ColouredBox>
         </div>
     )
 }
