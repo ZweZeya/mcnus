@@ -1,7 +1,7 @@
-const FooterItem: React.FC<{icon: React.ReactNode}> = ({icon}) => {
+const FooterItem: React.FC<{icon: React.ReactNode, to: string}> = ({icon, to}) => {
     return (
         <div className="cursor-pointer">
-            {icon}
+            <a href={to} target="_blank">{icon}</a>
         </div>
     );
 }

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ContentBox from "./ContentBox";
+import ResponsiveGrid from "./ResponsiveGrid";
 
 const ImageCard: React.FC<{
     image: string, 
@@ -9,13 +10,13 @@ const ImageCard: React.FC<{
 }> = ({image, title, content, isImageOnRight}) => {
     
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12 my-16">
+        <ResponsiveGrid>
             {!isImageOnRight && <Image src={image} alt="hero" width={500} height={500} objectFit="cover" />}
             
             <ContentBox title={title} content={content} />
 
             {isImageOnRight && <Image className="ml-auto" src={image} alt="hero" width={500} height={500} objectFit="cover" />}
-        </div>
+        </ResponsiveGrid>
     )
 }
 

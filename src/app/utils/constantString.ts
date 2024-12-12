@@ -1,4 +1,9 @@
 const STRING_CONSTANTS: Record<string, string> = {
+    instagramLink: "https://www.instagram.com/nus_mc/",
+    telegramLink: "https://t.me/+x4sQ_J0AlJQ0NWU1",
+    linkedinLink: "https://www.linkedin.com/company/myanmar-community-national-university-of-singapore",
+    youtubeLink: "https://www.youtube.com/channel/UCU6g_X7SMe0av-3jLy3yK5A",
+    facebookLink: "https://www.facebook.com/nusmyanmar",
     events: "Events",
     joinUs: "Join Us",
     contactUs: "Contact Us",
@@ -22,6 +27,10 @@ const STRING_CONSTANTS: Record<string, string> = {
     faqAnswer2: "No, just show up for our events. However, we highly encourage you to attend as many events as possible because they’re FUN!",
     faqQuestion3: "Do I get SEP points?",
     faqAnswer3: "No, MCNUS is not official yet but your participation would greatly help with officialising",
+    unansweredQuestions: "Unanswered questions?",
+    emailUs: "Email us at mcnus@gmail.com or slide into our dms.",
+    admissioEnquiries: "For admissions-related enquiries",
+    referToAskAdmissions: "Refer to askadmissions website and follow the steps there accordingly."
 }
 
 export default STRING_CONSTANTS;
