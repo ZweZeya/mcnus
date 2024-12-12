@@ -35,6 +35,9 @@ const STRING_CONSTANTS: Record<string, string> = {
     subcomDescription: "Really excited to have you onboard the planning team. Kindly fill in the sign up form here and we will get in touch with you shortly.",
     excoTitle: "Step up as an ExCo member",
     excoDescription: "ExCo signups for this AY have been closed. Please keep a look out for recruitment for 6th MCNUS ExCo. In the meantime, do consider joining as a member or a subcommittee member.",
+    exco: "5th MC@NUS",
+    excoTermTime: "Term Time: Sept 2024 - Present",
+    executiveCommittee: "Executive Committee",
 }
 
 export default STRING_CONSTANTS;

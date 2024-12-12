@@ -12,7 +12,7 @@ import { Text } from "../textComponents";
 const RecruitmentCarouselCard: React.FC<{title: string, content: string}> = ({title, content}) => {
     return (
         <CarouselItem>
-            <ColouredContentBox title={title} className="text-center">
+            <ColouredContentBox title={title} className="text-center py-11">
                 <Text>{content}</Text>
             </ColouredContentBox>
         </CarouselItem>
