@@ -3,13 +3,16 @@ import ColouredBox from "./ColouredBox";
 import { Header} from "./textComponents";
 
 interface ColouredContentBoxProps extends React.PropsWithChildren {
-    title: string
+    title: string;
+    className?: string;
 }
 
 const ColouredContentBox = (props: ColouredContentBoxProps) => {
+    const { title, className = "" } = props;
+
     return (
-        <ColouredBox>
-            <Header>{props.title}</Header>
+        <ColouredBox className={className}>
+            <Header>{title}</Header>
             <div className="mt-4">{props.children}</div>
         </ColouredBox>
     )

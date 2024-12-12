@@ -30,7 +30,11 @@ const STRING_CONSTANTS: Record<string, string> = {
     unansweredQuestions: "Unanswered questions?",
     emailUs: "Email us at mcnus@gmail.com or slide into our dms.",
     admissioEnquiries: "For admissions-related enquiries",
-    referToAskAdmissions: "Refer to askadmissions website and follow the steps there accordingly."
+    referToAskAdmissions: "Refer to askadmissions website and follow the steps there accordingly.",
+    subcomTitle: "Step up as a subcommittee member",
+    subcomDescription: "Really excited to have you onboard the planning team. Kindly fill in the sign up form here and we will get in touch with you shortly.",
+    excoTitle: "Step up as an ExCo member",
+    excoDescription: "ExCo signups for this AY have been closed. Please keep a look out for recruitment for 6th MCNUS ExCo. In the meantime, do consider joining as a member or a subcommittee member.",
 }
 
 export default STRING_CONSTANTS;

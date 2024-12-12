@@ -1,8 +1,14 @@
 import { grey } from "@/app/utils/colors";
 
-const ColouredBox = (props: React.PropsWithChildren) => {
+interface ColouredBoxProps extends React.PropsWithChildren {
+    className?: string;
+}
+
+const ColouredBox = (props: ColouredBoxProps) => {
+    const { children, className } = props;
+
     return (
-        <div className="p-5 rounded-2xl" style={{backgroundColor: grey}}>{props.children}</div>
+        <div className={`p-5 rounded-2xl ${className}`} style={{backgroundColor: grey}}>{children}</div>
     )
 }
 
