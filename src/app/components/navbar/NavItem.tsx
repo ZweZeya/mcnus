@@ -11,7 +11,6 @@ const NavItem: React.FC<{name: string, to: string}> = ({name, to}) => {
 
     useEffect(() => {
         setSelected(pathname == to);
-
     }, [pathname, to])
 
     const handleClick = () => {
