@@ -6,6 +6,8 @@ import { useRouter, usePathname } from "next/navigation";
 const NavItem: React.FC<{name: string, to: string}> = ({name, to}) => {
     const [isHover, setHover] = useState<boolean>();
     const [isSelected, setSelected] = useState<boolean>(false);
+    const isChanged = !isSelected && isHover;
+    
     const router = useRouter();
     const pathname = usePathname();
 
@@ -22,7 +24,7 @@ const NavItem: React.FC<{name: string, to: string}> = ({name, to}) => {
     return (
         <div 
             className="cursor-pointer h-full flex flex-col justify-center px-3"
-            style={{color: !isSelected && isHover ? white : navy, backgroundColor: isSelected ? white : frangipani}} 
+            style={{color: isChanged ? white : navy, backgroundColor: isSelected ? white : frangipani}} 
             onMouseEnter={() => setHover(true)} 
             onMouseLeave={() => setHover(false)}
             onClick={handleClick}
