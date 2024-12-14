@@ -3,9 +3,16 @@ import NavItem from "./NavItem"
 import Logo from "../Logo"
 import S from "@/app/utils/constantString";
 import Link from "next/link";
-import Menu from "./Menu";
+import Menu, { MenuItem } from "./Menu";
 
 const Navbar = () => {
+    const menuItems: MenuItem[] = [
+        {name: S.whoWeAre, to: "/about"},
+        {name: S.events, to: "/events"},
+        {name: S.joinUs, to: "/recruitment"},
+        {name: S.contactUs, to: "/contact"}
+    ];
+
     return (
         <div className="flex items-center px-6" style={{backgroundColor: frangipani, height: "7vh"}}>
             <Link href="/">
@@ -13,13 +20,10 @@ const Navbar = () => {
             </Link>
             <div className="ml-auto h-full flex items-center">
                 <div className="gap-5 items-center h-full hidden md:flex">
-                    <NavItem name={S.whoWeAre} to="/about" />
-                    <NavItem name={S.events} to="/events"/>
-                    <NavItem name={S.joinUs} to="/recruitment"/>
-                    <NavItem name={S.contactUs}to="/contact" />
+                    { menuItems.map((e, i) => <NavItem key={i} name={e.name} to={e.to} />) }
                 </div>
                 <div className="md:hidden">
-                    <Menu />
+                    <Menu items={menuItems} />
                 </div>
             </div>
         </div>
