@@ -6,10 +6,10 @@ import { Text } from "../common/textComponents";
 const ContactDetails = () => {
     return (
         <ResponsiveGrid>
-            <ColouredContentBox title={S.unansweredQuestions}>
+            <ColouredContentBox className="h-full" title={S.unansweredQuestions}>
                 <Text>{S.emailUs}</Text>
             </ColouredContentBox>
-            <ColouredContentBox title={S.admissioEnquiries}>
+            <ColouredContentBox className="h-full" title={S.admissioEnquiries}>
                 <Text>{S.referToAskAdmissions}</Text>
             </ColouredContentBox>
         </ResponsiveGrid>
