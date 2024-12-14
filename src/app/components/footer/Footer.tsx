@@ -7,7 +7,9 @@ import S from "@/app/utils/constantString";
 const Footer = () => {
     return (
         <div className="flex items-center py-4 px-6 mt-auto" style={{backgroundColor: frangipani, height: "7vh"}}>
-            <Logo size={40} />
+            <div className="invisible md:visible">
+                <Logo size={40} />
+            </div>
             <div className="flex gap-x-5 ml-auto">
                 <FooterItem icon={<FaInstagram size={30} />} to={S.instagramLink}/>
                 <FooterItem icon={<FaTelegram size={30} />} to={S.telegramLink} />
