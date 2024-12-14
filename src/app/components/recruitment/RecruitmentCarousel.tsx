@@ -6,8 +6,8 @@ import {
     CarouselPrevious,
   } from "@/components/ui/carousel"
 import S from "@/app/utils/constantString";
-import ColouredContentBox from "../ColouredContentBox";
-import { Text } from "../textComponents";
+import ColouredContentBox from "../common/ColouredContentBox";
+import { Text } from "../common/textComponents";
 
 const RecruitmentCarouselCard: React.FC<{title: string, content: string}> = ({title, content}) => {
     return (
