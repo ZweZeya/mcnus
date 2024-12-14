@@ -1,5 +1,5 @@
 import ContentBox from "../components/common/ContentBox";
-import RecruitmentCarousel from "../components/common/recruitment/RecruitmentCarousel";
+import RecruitmentCarousel from "../components/recruitment/RecruitmentCarousel";
 import PageLayout from "../components/layout/PageLayout"
 import S from "../utils/constantString";
 
