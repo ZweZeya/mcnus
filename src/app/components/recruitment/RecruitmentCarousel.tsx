@@ -24,7 +24,7 @@ const RecruitmentCarousel = () => {
     const buttonClassName = "relative top-auto translate-y-0";
 
     return (
-        <ColouredBox>
+        <ColouredBox className="w-full">
             <Carousel className="flex items-center">
                 <CarouselPrevious className={`left-auto ${buttonClassName}`} />
                 <CarouselContent>
