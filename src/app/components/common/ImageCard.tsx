@@ -8,14 +8,15 @@ const ImageCard: React.FC<{
     content: string, 
     isImageOnRight?: boolean
 }> = ({image, title, content, isImageOnRight}) => {
-    
+    const itemPlacement = "place-items-center " + (isImageOnRight ? "md:place-items-end" : "md:place-items-start");
+
     return (
-        <ResponsiveGrid>
+        <ResponsiveGrid className={`${itemPlacement} md:items-center`}>
             {!isImageOnRight && <Image src={image} alt="hero" width={500} height={500} objectFit="cover" />}
             
             <ContentBox title={title} content={content} />
 
-            {isImageOnRight && <Image className="ml-auto" src={image} alt="hero" width={500} height={500} objectFit="cover" />}
+            {isImageOnRight && <Image src={image} alt="hero" width={500} height={500} objectFit="cover" />}
         </ResponsiveGrid>
     )
 }

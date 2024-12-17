@@ -1,12 +1,12 @@
 export const Text = (props: React.PropsWithChildren) => {
     return (
-        <p className="text-xl">{props.children}</p>
+        <p className="text-sm md:text-lg xl:text-xl">{props.children}</p>
     )
 }
 
 export const Title = (props: React.PropsWithChildren) => {
     return (
-        <p className="font-extrabold text-7xl">
+        <p className="font-extrabold text-2xl md:text-4xl xl:text-7xl">
             {props.children}
         </p>
     )
@@ -14,6 +14,6 @@ export const Title = (props: React.PropsWithChildren) => {
 
 export const Header = (props: React.PropsWithChildren) => {
     return (
-        <div className="font-extrabold text-4xl">{props.children}</div>
+        <div className="font-extrabold text-xl md-text-2xl xl:text-4xl">{props.children}</div>
     )
 }

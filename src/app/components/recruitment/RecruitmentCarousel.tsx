@@ -8,11 +8,12 @@ import {
 import S from "@/app/utils/constantString";
 import ColouredContentBox from "../common/ColouredContentBox";
 import { Text } from "../common/textComponents";
+import ColouredBox from "../common/ColouredBox";
 
 const RecruitmentCarouselCard: React.FC<{title: string, content: string}> = ({title, content}) => {
     return (
         <CarouselItem>
-            <ColouredContentBox title={title} className="text-center py-11">
+            <ColouredContentBox title={title} className="text-center">
                 <Text>{content}</Text>
             </ColouredContentBox>
         </CarouselItem>
@@ -20,17 +21,19 @@ const RecruitmentCarouselCard: React.FC<{title: string, content: string}> = ({ti
 }
   
 const RecruitmentCarousel = () => {
+    const buttonClassName = "relative top-auto translate-y-0";
+
     return (
-        <div className="w-full">
-            <Carousel>
+        <ColouredBox className="w-full">
+            <Carousel className="flex items-center">
+                <CarouselPrevious className={`left-auto ${buttonClassName}`} />
                 <CarouselContent>
                     <RecruitmentCarouselCard title={S.subcomTitle} content={S.subcomDescription} />
                     <RecruitmentCarouselCard title={S.excoTitle} content={S.excoDescription} />
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
+                <CarouselNext className={`right-auto ${buttonClassName}`} />
             </Carousel>
-        </div>
+        </ColouredBox>
     )
 }
 

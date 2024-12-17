@@ -13,7 +13,7 @@ const ColouredContentBox = (props: ColouredContentBoxProps) => {
     return (
         <ColouredBox className={className}>
             <Header>{title}</Header>
-            <div className="mt-4">{props.children}</div>
+            <div className="mt-1 md:mt-3 xl:mt-4">{props.children}</div>
         </ColouredBox>
     )
 }
