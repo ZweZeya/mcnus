@@ -12,7 +12,7 @@ const ExcoDetails = async ()  => {
 
     return (
         <ColouredContentBox className="w-full text-center" title={S.executiveCommittee}>
-            <div className="w-full h-full flex flex-wrap items-center justify-center gap-10">
+            <div className="w-full h-full flex flex-wrap justify-center gap-10">
                 { excoMembers }
             </div>
         </ColouredContentBox>

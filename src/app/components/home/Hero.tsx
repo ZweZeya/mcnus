@@ -12,12 +12,12 @@ const Hero = () => {
                     <Image src="/hero.jpg" alt="hero" fill objectFit="cover" />
                 </div>
                 <div className="absolute top-1/2 w-5/6">
-                    <p className={`${dynalight.className} text-center text-[76px]`} style={{color: frangipani}}>
+                    <p className={`${dynalight.className} text-center sm:text-[28px] md:text-[70px] xl:text-[76px]`} style={{color: frangipani}}>
                         {S.motto}
                     </p>
                 </div>
             </div>
-            <div className="flex flex-col items-center gap-5 mt-7 px-60">
+            <div className="flex flex-col items-center gap-5 mt-7">
                 <ContentBox title={S.whoWeAre} content={S.whoWeAreDescription} />
             </div>
         </div>

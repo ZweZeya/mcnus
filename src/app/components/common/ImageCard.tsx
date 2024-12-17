@@ -10,7 +10,7 @@ const ImageCard: React.FC<{
 }> = ({image, title, content, isImageOnRight}) => {
     
     return (
-        <ResponsiveGrid>
+        <ResponsiveGrid className="place-items-center md:place-items-start md:items-center">
             {!isImageOnRight && <Image src={image} alt="hero" width={500} height={500} objectFit="cover" />}
             
             <ContentBox title={title} content={content} />
