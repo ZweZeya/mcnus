@@ -2,6 +2,7 @@ import { formatDate } from "@/app/utils/dateUtils";
 import Image from "next/image";
 import { GoLinkExternal } from "react-icons/go";
 import { navy } from "@/app/utils/colors";
+import { Text } from "../common/textComponents";
 
 
 export interface Event {
@@ -33,6 +34,14 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
                     </a>
                 </div>
             </div>
+        </div>
+    );
+};
+
+export const EmptyEventCard = () => {
+    return (
+        <div className="w-72 h-[390px] rounded-xl shadow-md overflow-hidden bg-white text-left flex flex-col items-center justify-center">
+            <Text>Coming Soon</Text>
         </div>
     );
 };

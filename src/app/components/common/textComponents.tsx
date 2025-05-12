@@ -1,3 +1,9 @@
+export const TextSm = (props: React.PropsWithChildren) => {
+    return (
+        <p className="text-sm">{props.children}</p>
+    )
+}
+
 export const Text = (props: React.PropsWithChildren) => {
     return (
         <p className="text-sm md:text-lg xl:text-xl">{props.children}</p>

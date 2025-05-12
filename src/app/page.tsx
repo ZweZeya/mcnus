@@ -1,3 +1,4 @@
+import EntranceAnimation from "./components/common/EntranceAnimation";
 import ImageCard from "./components/common/ImageCard";
 import Hero from "./components/home/Hero";
 import JoinUs from "./components/home/JoinUs";
@@ -10,11 +11,17 @@ export default function Home() {
         <PageLayout>
             <Hero />
             <Separator />
-            <ImageCard image="/mission.png" title={S.missionTitle} content={S.mission} />
+            <EntranceAnimation>
+                <ImageCard image="/mission.png" title={S.missionTitle} content={S.mission} />
+            </EntranceAnimation>
             <Separator />
-            <ImageCard image="/vision.png" title={S.visionTitle} content={S.vision} isImageOnRight />
+            <EntranceAnimation>
+                <ImageCard image="/vision.png" title={S.visionTitle} content={S.vision} isImageOnRight />
+            </EntranceAnimation>
             <Separator />
-            <JoinUs />
+            <EntranceAnimation>
+                <JoinUs />
+            </EntranceAnimation>
         </PageLayout>
     );
 }

@@ -1,8 +1,7 @@
 import ColouredContentBox from "../common/ColouredContentBox"
 import S from "@/app/utils/constantString";
 import { promises as fs } from 'fs';
-import EventCard, { Event } from "./EventCard";
-import EmptyEventCard from "./EmptyEventCard";
+import EventCard, { Event, EmptyEventCard } from "./EventCard";
 
 const Events = async () => {
     const filePath = process.cwd() + '/src/data/events.json';

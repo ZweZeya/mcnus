@@ -1,4 +1,4 @@
-import { Text } from "../common/textComponents";
+import { Text, TextSm } from "../common/textComponents";
 import Image from "next/image";
 
 export interface ExcoMember {
@@ -14,7 +14,7 @@ const ExcoMemberCard: React.FC<{member: ExcoMember}> = ({member}) => {
                 <Image src={member.image} alt={member.name} fill objectFit="cover" />
             </div>
             <Text>{member.name}</Text>
-            <Text>{member.role}</Text>
+            <TextSm>{member.role}</TextSm>
         </div>
     )
 }
