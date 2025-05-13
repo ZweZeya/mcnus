@@ -12,7 +12,6 @@ const SelectableIcon = (props: React.PropsWithChildren) => {
             style={{color: isHover ? white : navy}}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
-            onClick={() => setHover(false)}
         >
             {props.children}
         </div>
