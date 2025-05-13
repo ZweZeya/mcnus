@@ -1,25 +1,30 @@
-export const TextSm = (props: React.PropsWithChildren) => {
+interface TextProps extends React.PropsWithChildren {
+    className?: string
+    style?: React.CSSProperties
+}
+
+export const TextSm = (props: TextProps) => {
     return (
-        <p className="text-sm">{props.children}</p>
+        <p className={`${props.className} text-sm`} style={props.style}>{props.children}</p>
     )
 }
 
-export const Text = (props: React.PropsWithChildren) => {
+export const Text = (props: TextProps) => {
     return (
-        <p className="text-sm md:text-lg xl:text-xl">{props.children}</p>
+        <p className={`${props.className} text-sm md:text-lg xl:text-xl`} style={props.style}>{props.children}</p>
     )
 }
 
-export const Title = (props: React.PropsWithChildren) => {
+export const Title = (props: TextProps) => {
     return (
-        <p className="font-extrabold text-2xl md:text-4xl xl:text-7xl">
+        <p className={`${props.className} font-extrabold text-2xl md:text-4xl xl:text-7xl`} style={props.style}>
             {props.children}
         </p>
     )
 }
 
-export const Header = (props: React.PropsWithChildren) => {
+export const Header = (props: TextProps) => {
     return (
-        <div className="font-extrabold text-xl md-text-2xl xl:text-4xl">{props.children}</div>
+        <div className={`${props.className} font-extrabold text-xl md-text-2xl xl:text-4xl`} style={props.style}>{props.children}</div>
     )
 }

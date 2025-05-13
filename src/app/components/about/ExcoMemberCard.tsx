@@ -1,5 +1,6 @@
 import { Text, TextSm } from "../common/textComponents";
 import Image from "next/image";
+import { darkerGrey } from "@/app/utils/colors";
 
 export interface ExcoMember {
     name: string;
@@ -14,7 +15,7 @@ const ExcoMemberCard: React.FC<{member: ExcoMember}> = ({member}) => {
                 <Image src={member.image} alt={member.name} fill objectFit="cover" />
             </div>
             <Text>{member.name}</Text>
-            <TextSm>{member.role}</TextSm>
+            <TextSm style={{color: darkerGrey}}>{member.role}</TextSm>
         </div>
     )
 }

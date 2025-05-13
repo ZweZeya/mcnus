@@ -1,8 +1,8 @@
 import { formatDate } from "@/app/utils/dateUtils";
 import Image from "next/image";
 import { GoLinkExternal } from "react-icons/go";
-import { navy } from "@/app/utils/colors";
-import { Text } from "../common/textComponents";
+import { darkerGrey, navy } from "@/app/utils/colors";
+import { Text, TextSm } from "../common/textComponents";
 
 
 export interface Event {
@@ -19,8 +19,8 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
                 <Image src={event.image} alt={event.name} fill className="object-fit" />
             </div>
             <div className="flex flex-col flex-1 px-3 py-2">
-                <h2 className="text-base font-semibold text-gray-800">{event.name}</h2>
-                <p className="text-sm text-gray-600">{formatDate(event.date)}</p>
+                <h2 className="text-base font-semibold">{event.name}</h2>
+                <TextSm style={{color: darkerGrey}}>{formatDate(event.date)}</TextSm>
                 <div className="mt-auto pt-2">
                     <a
                         href={event.link}
