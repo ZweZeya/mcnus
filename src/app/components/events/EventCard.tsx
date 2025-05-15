@@ -1,18 +1,18 @@
-import { formatDate } from "@/app/utils/dateUtils";
+import { formatDate, isPast } from "@/app/utils/dateUtils";
 import Image from "next/image";
 import { GoLinkExternal } from "react-icons/go";
 import { darkerGrey, navy } from "@/app/utils/colors";
 import { Text, TextSm } from "../common/textComponents";
-
-
-export interface Event {
-    name: string, 
-    date: Date, 
-    image: string, 
-    link: string
-}
+import { Event } from "@/app/api/events/route";
+import { Button } from "@/components/ui/button";
 
 const EventCard: React.FC<{ event: Event }> = ({ event }) => {
+    const isClosed = isPast(event.date)
+    
+    const handleClick = (link: string) => {
+        window.open(link, "_blank")
+    }
+
     return (
         <div className="w-72 h-[390px] rounded-xl shadow-md overflow-hidden bg-white text-left flex flex-col">
             <div className="relative w-full h-64 border border-transparent">
@@ -21,18 +21,9 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
             <div className="flex flex-col flex-1 px-3 py-2">
                 <h2 className="text-base font-semibold">{event.name}</h2>
                 <TextSm style={{color: darkerGrey}}>{formatDate(event.date)}</TextSm>
-                <div className="mt-auto pt-2">
-                    <a
-                        href={event.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 w-full text-sm px-3 py-2 text-white rounded-md"
-                        style={{backgroundColor: navy}}
-                    >
-                        Join
-                        <GoLinkExternal size={16} />
-                    </a>
-                </div>
+                <Button className="mt-auto pt-2 text-white" disabled={isClosed} onClick={() => handleClick(event.link)} style={{backgroundColor: navy}}>
+                    Join <GoLinkExternal size={16} />
+                </Button>
             </div>
         </div>
     );
