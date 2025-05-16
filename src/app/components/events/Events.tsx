@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import ColouredContentBox from "../common/ColouredContentBox"
 import EventCard from "./EventCard";
-import { Event, EventType } from "@/app/api/events/route";
+import { Event, EventType } from "@/model/event";
+import CustomButton from "../common/CustomButton";
 
 const Events = () => {
     const [eventType, setEventType] = useState<EventType>(0)
@@ -22,26 +23,18 @@ const Events = () => {
     return (
         <ColouredContentBox className="w-full text-center">
             <div className="flex gap-4 my-4">
-                <button
+                <CustomButton
+                    isSelected={eventType == EventType.UPCOMING}
                     onClick={() => setEventType(0)}
-                    className={`px-4 py-2 rounded-lg font-medium transition ${
-                    eventType === 0
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
-                    }`}
                 >
                     Upcoming Events
-                </button>
-                <button
+                </CustomButton>
+                <CustomButton
+                    isSelected={eventType == EventType.PAST}
                     onClick={() => setEventType(1)}
-                    className={`px-4 py-2 rounded-lg font-medium transition ${
-                    eventType === 1
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
-                    }`}
                 >
                     Past Events
-                </button>
+                </CustomButton>
             </div>
             <EventsGrid events={events} />
         </ColouredContentBox>
@@ -49,7 +42,6 @@ const Events = () => {
 }
 
 const EventsGrid: React.FC<{events: Event[]}> = ({events}) => {
-
     return (
         <div className="flex flex-wrap gap-4 justify-center items-center">
             {events.map((event, index) => (
@@ -60,3 +52,4 @@ const EventsGrid: React.FC<{events: Event[]}> = ({events}) => {
 }
 
 export default Events
+
