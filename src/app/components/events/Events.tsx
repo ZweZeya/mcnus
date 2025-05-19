@@ -5,6 +5,8 @@ import ColouredContentBox from "../common/ColouredContentBox"
 import EventCard from "./EventCard";
 import { Event, EventType } from "@/model/event";
 import CustomButton from "../common/CustomButton";
+import S from "@/app/utils/constantString";
+import { Text } from "../common/textComponents";
 
 const Events = () => {
     const [eventType, setEventType] = useState<EventType>(0)
@@ -27,13 +29,13 @@ const Events = () => {
                     isSelected={eventType == EventType.UPCOMING}
                     onClick={() => setEventType(0)}
                 >
-                    Upcoming Events
+                    {S.upcomingEvents}
                 </CustomButton>
                 <CustomButton
                     isSelected={eventType == EventType.PAST}
                     onClick={() => setEventType(1)}
                 >
-                    Past Events
+                     {S.pastEvents}
                 </CustomButton>
             </div>
             <EventsGrid events={events} />
@@ -44,12 +46,15 @@ const Events = () => {
 const EventsGrid: React.FC<{events: Event[]}> = ({events}) => {
     return (
         <div className="flex flex-wrap gap-4 justify-center items-center">
-            {events.map((event, index) => (
+            {events.length > 0 ?  events.map((event, index) => (
                 <EventCard key={index} event={event} />
-            ))}
+            )) : 
+                <Text>There are no events.</Text>
+            }
         </div>
     )   
 }
+
 
 export default Events
 

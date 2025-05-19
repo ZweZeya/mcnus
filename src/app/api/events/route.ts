@@ -1,9 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { NextRequest, NextResponse } from 'next/server';
-import { Event, EventType } from '@/model/event';
-
-
+import { EventType } from '@/model/event';
 
 export async function GET(request: NextRequest) {
   const eventType = request.nextUrl.searchParams.get('type');

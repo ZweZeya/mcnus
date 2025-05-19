@@ -1,5 +1,4 @@
 import { navy, white } from "@/app/utils/colors"
-import { Button } from "@/components/ui/button"
 import { CSSProperties, MouseEventHandler, PropsWithChildren } from "react"
 
 interface ButtonProps extends PropsWithChildren {
