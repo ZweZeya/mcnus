@@ -3,8 +3,8 @@ import Image from "next/image";
 import { GoLinkExternal } from "react-icons/go";
 import { darkerGrey, navy } from "@/app/utils/colors";
 import { Text, TextSm } from "../common/textComponents";
-import { Event } from "@/app/api/events/route";
 import { Button } from "@/components/ui/button";
+import { Event } from "@/model/event";
 
 const EventCard: React.FC<{ event: Event }> = ({ event }) => {
     const isClosed = isPast(event.date)
