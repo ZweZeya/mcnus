@@ -28,7 +28,7 @@ const PastEventCard: React.FC<{ event: PastEvent }> = ({ event }) => {
                 <h2 className="text-sm sm:text-base font-semibold line-clamp-2">{event.name}</h2>
                 <TextSm style={{color: darkerGrey}} className="mt-1 mb-4">{formatDate(event.date)}</TextSm>
                 <Button 
-                    className="mt-auto w-full sm:w-auto sm:self-start pt-2 text-white flex items-center justify-center gap-2" 
+                    className="mt-auto w-full pt-2 text-white flex items-center justify-center gap-2" 
                     style={{backgroundColor: navy}}
                     onClick={() => handleClick(event.link)} 
                 >
