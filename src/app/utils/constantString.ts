@@ -39,8 +39,10 @@ const STRING_CONSTANTS: Record<string, string> = {
     exco: "5th MC@NUS",
     excoTermTime: "Term Time: Sept 2024 - Present",
     executiveCommittee: "Executive Committee",
-    upcomingEvents: "Upcoming Events",
-    pastEvents: "Past Events",
+    upcomingEvents: "Upcoming",
+    pastEvents: "Past",
+    viewPhotos: "View Photos",
+    join: "Join",
 }
 
 export default STRING_CONSTANTS;

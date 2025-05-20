@@ -5,7 +5,17 @@ interface TextProps extends React.PropsWithChildren {
 
 export const TextSm = (props: TextProps) => {
     return (
-        <p className={`${props.className} text-sm`} style={props.style}>{props.children}</p>
+        <p className={`${props.className} text-sm md:text-base`} style={props.style}>
+            {props.children}
+        </p>
+    )
+}
+
+export const TextMd = (props: TextProps) => {
+    return (
+        <p className={`${props.className} text-base md:text-lg`} style={props.style}>
+            {props.children}
+        </p>
     )
 }
 

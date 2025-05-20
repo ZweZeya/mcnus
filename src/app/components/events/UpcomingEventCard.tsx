@@ -5,6 +5,7 @@ import { darkerGrey, navy } from "@/app/utils/colors";
 import { Text, TextSm } from "../common/textComponents";
 import { Button } from "@/components/ui/button";
 import { UpcomingEvent } from "@/model/event";
+import S from "@/app/utils/constantString";
 
 const UpcomingEventCard: React.FC<{ event: UpcomingEvent }> = ({ event }) => {
     const isClosed = isPast(event.date)
@@ -33,7 +34,7 @@ const UpcomingEventCard: React.FC<{ event: UpcomingEvent }> = ({ event }) => {
                     onClick={() => handleClick(event.link)} 
                     style={{backgroundColor: navy}}
                 >
-                    Join <GoLinkExternal size={16} />
+                    {S.join} <GoLinkExternal size={16} />
                 </Button>
             </div>
         </div>

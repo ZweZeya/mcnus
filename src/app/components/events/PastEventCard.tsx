@@ -5,6 +5,7 @@ import { GoLinkExternal } from "react-icons/go";
 import { darkerGrey, navy } from "@/app/utils/colors";
 import { TextSm } from "../common/textComponents";
 import { Button } from "@/components/ui/button";
+import S from "@/app/utils/constantString";
 
 const PastEventCard: React.FC<{ event: PastEvent }> = ({ event }) => {
 
@@ -31,7 +32,7 @@ const PastEventCard: React.FC<{ event: PastEvent }> = ({ event }) => {
                     style={{backgroundColor: navy}}
                     onClick={() => handleClick(event.link)} 
                 >
-                    View Photos <GoLinkExternal size={16} />
+                    {S.viewPhotos} <GoLinkExternal size={16} />
                 </Button>
             </div>
         </div>

@@ -5,7 +5,7 @@ import ColouredContentBox from "../common/ColouredContentBox"
 import { BaseEvent, EventType, PastEvent, UpcomingEvent } from "@/model/event";
 import CustomButton from "../common/CustomButton";
 import S from "@/app/utils/constantString";
-import { Text } from "../common/textComponents";
+import { Text, TextMd } from "../common/textComponents";
 import UpcomingEventCard from "./UpcomingEventCard";
 import PastEventCard from "./PastEventCard";
 
@@ -30,13 +30,13 @@ const Events = () => {
                     isSelected={eventType == EventType.UPCOMING}
                     onClick={() => setEventType(EventType.UPCOMING)}
                 >
-                    {S.upcomingEvents}
+                    <TextMd>{S.upcomingEvents}</TextMd>
                 </CustomButton>
                 <CustomButton
                     isSelected={eventType == EventType.PAST}
                     onClick={() => setEventType(EventType.PAST)}
                 >
-                     {S.pastEvents}
+                    <TextMd>{S.pastEvents}</TextMd>
                 </CustomButton>
             </div>
             <EventsGrid events={events} activeTab={eventType} />
@@ -63,7 +63,6 @@ const EventsGrid: React.FC<{
     return (
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
             {events.map((event, index) => {
-                // Type checking using the type guards
                 if (activeTab === EventType.UPCOMING) {
                     return <UpcomingEventCard key={index} event={event as UpcomingEvent} />
                 } else if (activeTab === EventType.PAST) {
