@@ -5,6 +5,7 @@ const STRING_CONSTANTS: Record<string, string> = {
     youtubeLink: "https://www.youtube.com/channel/UCU6g_X7SMe0av-3jLy3yK5A",
     facebookLink: "https://www.facebook.com/nusmyanmar",
     menu: "Menu",
+    home: "Home",
     events: "Events",
     joinUs: "Join Us",
     contactUs: "Contact Us",

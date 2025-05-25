@@ -6,6 +6,7 @@ interface ButtonProps extends PropsWithChildren {
     style?: CSSProperties
     onClick: MouseEventHandler
     isSelected?: boolean
+    disabled?: boolean
 }
 
 const CustomButton: React.FC<ButtonProps> = (props) => {
@@ -16,6 +17,7 @@ const CustomButton: React.FC<ButtonProps> = (props) => {
                 backgroundColor: props.isSelected ? navy : white,
                 ...props.style
             }} 
+            disabled={props.disabled}
             className={`${props.className} px-4 py-2 rounded-lg font-medium transition`} 
             onClick={props.onClick}
         >

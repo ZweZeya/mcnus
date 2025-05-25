@@ -1,5 +1,5 @@
 import { formatDate } from "@/app/utils/dateUtils";
-import { PastEvent } from "@/model/event";
+import { BaseEvent } from "@/model/event";
 import Image from "next/image";
 import { GoLinkExternal } from "react-icons/go";
 import { darkerGrey, navy } from "@/app/utils/colors";
@@ -7,7 +7,7 @@ import { TextSm } from "../common/textComponents";
 import { Button } from "@/components/ui/button";
 import S from "@/app/utils/constantString";
 
-const PastEventCard: React.FC<{ event: PastEvent }> = ({ event }) => {
+const PastEventCard: React.FC<{ event: BaseEvent }> = ({ event }) => {
 
     const handleClick = (link: string) => {
         window.open(link, "_blank")
@@ -30,7 +30,7 @@ const PastEventCard: React.FC<{ event: PastEvent }> = ({ event }) => {
                 <Button 
                     className="mt-auto w-full pt-2 text-white flex items-center justify-center gap-2" 
                     style={{backgroundColor: navy}}
-                    onClick={() => handleClick(event.link)} 
+                    onClick={() => handleClick(event.photos)} 
                 >
                     {S.viewPhotos} <GoLinkExternal size={16} />
                 </Button>

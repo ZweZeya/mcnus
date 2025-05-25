@@ -13,6 +13,8 @@ const Navbar = () => {
         {name: S.contactUs, to: "/contact"}
     ];
 
+    const miniNavMenuItems = [{name: S.home, to: "/"}].concat(menuItems)
+
     return (
         <div className="flex items-center px-6" style={{backgroundColor: frangipani, height: "7vh"}}>
             <Link href="/">
@@ -23,7 +25,7 @@ const Navbar = () => {
                     { menuItems.map((e, i) => <NavItem key={i} name={e.name} to={e.to} />) }
                 </div>
                 <div className="md:hidden">
-                    <Menu items={menuItems} />
+                    <Menu items={miniNavMenuItems} />
                 </div>
             </div>
         </div>

@@ -4,10 +4,10 @@ import { GoLinkExternal } from "react-icons/go";
 import { darkerGrey, navy } from "@/app/utils/colors";
 import { TextSm } from "../common/textComponents";
 import { Button } from "@/components/ui/button";
-import { UpcomingEvent } from "@/model/event";
+import { BaseEvent } from "@/model/event";
 import S from "@/app/utils/constantString";
 
-const UpcomingEventCard: React.FC<{ event: UpcomingEvent }> = ({ event }) => {
+const UpcomingEventCard: React.FC<{ event: BaseEvent }> = ({ event }) => {
     const isClosed = isPast(event.date)
     
     const handleClick = (link: string) => {
