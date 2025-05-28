@@ -14,7 +14,7 @@ const Events = () => {
     const [eventType, setEventType] = useState<EventType>(0)
     const [events, setEvents] = useState<BaseEvent[]>([])
     const [isLoading, setIsLoading] = useState(false);
-   
+
     useEffect(() => {
         setIsLoading(true)
         fetch(`/api/events?type=${eventType}`)
@@ -23,7 +23,7 @@ const Events = () => {
             setTimeout(() => {
                 setEvents(data)
                 setIsLoading(false)
-            }, 1000)
+            }, 700)
             
     })
         .catch(console.error)
@@ -61,8 +61,8 @@ const EventsGrid: React.FC<{
             <div className="text-center py-4">
                 <Text>
                     {activeTab === EventType.UPCOMING 
-                        ? "There are no upcoming events." 
-                        : "There are no past events."}
+                        ? S.noUpcomingEvents 
+                        : S.noPastEvents}
                 </Text>
             </div>
         );

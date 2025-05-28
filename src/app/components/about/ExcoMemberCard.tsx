@@ -1,13 +1,8 @@
 import { Text } from "../common/textComponents";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge"
+import { ExcoMember } from "@/model/exco";
 
-
-export interface ExcoMember {
-    name: string;
-    role: string;
-    image: string;
-}
 
 const ExcoMemberCard: React.FC<{member: ExcoMember}> = ({member}) => {
     return (

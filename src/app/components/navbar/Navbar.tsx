@@ -13,7 +13,7 @@ const Navbar = () => {
         {name: S.contactUs, to: "/contact"}
     ];
 
-    const miniNavMenuItems = [{name: S.home, to: "/"}].concat(menuItems)
+    const miniNavMenuItems = [{name: S.home, to: "/"} as MenuItem].concat(menuItems)
 
     return (
         <div className="flex items-center px-6" style={{backgroundColor: frangipani, height: "7vh"}}>
