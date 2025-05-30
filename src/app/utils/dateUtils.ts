@@ -6,3 +6,7 @@ export const formatDate = (date: Date): string => {
     day: 'numeric'   
   })
 }
+
+export const isPast = (date: Date): boolean => {
+  return new Date(date) < new Date();
+}

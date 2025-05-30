@@ -1,7 +1,8 @@
 import { promises as fs } from 'fs';
 import ColouredContentBox from "../common/ColouredContentBox";
 import S from "@/app/utils/constantString";
-import ExcoMemberCard, { ExcoMember } from './ExcoMemberCard';
+import ExcoMemberCard from './ExcoMemberCard';
+import { ExcoMember } from '@/model/exco';
 
 const ExcoDetails = async ()  => {
     const filePath = process.cwd() + '/src/data/exco.json';

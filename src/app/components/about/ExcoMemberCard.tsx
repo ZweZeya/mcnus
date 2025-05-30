@@ -1,12 +1,8 @@
-import { Text, TextSm } from "../common/textComponents";
+import { Text } from "../common/textComponents";
 import Image from "next/image";
-import { darkerGrey } from "@/app/utils/colors";
+import { Badge } from "@/components/ui/badge"
+import { ExcoMember } from "@/model/exco";
 
-export interface ExcoMember {
-    name: string;
-    role: string;
-    image: string;
-}
 
 const ExcoMemberCard: React.FC<{member: ExcoMember}> = ({member}) => {
     return (
@@ -15,7 +11,7 @@ const ExcoMemberCard: React.FC<{member: ExcoMember}> = ({member}) => {
                 <Image src={member.image} alt={member.name} fill objectFit="cover" />
             </div>
             <Text>{member.name}</Text>
-            <TextSm style={{color: darkerGrey}}>{member.role}</TextSm>
+            <Badge>{member.role}</Badge>
         </div>
     )
 }
