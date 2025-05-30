@@ -16,7 +16,7 @@ const Navbar = () => {
     return (
         <div className="flex items-center px-6" style={{ backgroundColor: frangipani, height: "7vh" }}>
             <Link href="/">
-                <Logo size={40} />
+                <Logo width={120} height={120} />
             </Link>
             <div className="ml-auto h-full flex items-center">
                 <div className="gap-5 items-center h-full hidden md:flex">

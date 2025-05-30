@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Games Master",
+        "icon": "/games.png",
+        "description": "Plan and run fun events for the community."
+    },
+    {
+        "name": "Project Director",
+        "icon": "/project.png",
+        "description": "Oversee event planning and execution."
+    },
+    {
+        "name": "Logistics Director",
+        "icon": "/logistics.png",
+        "description": "Manage resources, venues, and materials."
+    }
+]

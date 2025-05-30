@@ -1,9 +1,9 @@
 import Image from 'next/image'
 
-const Logo: React.FC<{size: number}> = ({size}) => {
+const Logo: React.FC<{ width: number, height: number }> = ({ width, height }) => {
     return (
         <div>
-            <Image src="/lion.png" alt="lion" width={size} height={size} />
+            <Image src="/logo.png" alt="lion" width={width} height={height} />
         </div>
     )
 }

@@ -14,16 +14,14 @@ const Footer = () => {
     return (
         <div className="flex items-center py-4 px-6 mt-auto" style={{ backgroundColor: frangipani }}>
             {/* Left Portion */}
-            <div className="flex-1 flex justify-center">
-                <div className="flex flex-col text-left">
-                    <div className="flex items-center mb-1">
-                        <Logo size={40} />
-                        <strong className="ml-2">MC@NUS</strong>
+            <div className="flex-1 flex justify-center items-start">
+                <div className="flex flex-row items-start gap-4">
+                    <Logo width={100} height={100} />
+                    <div className="text-left text-sm leading-snug mt-5">
+                        <h3 className="font-semibold mb-1">About Us</h3>
+                        <p>Myanmar Community @ National University of Singapore</p>
+                        <p>A community established by Myanmar Students in NUS for NUS networks.</p>
                     </div>
-                    <p className="text-sm">
-                        Myanmar Community @ National University of Singapore<br />
-                        A community established by Myanmar Students in NUS for NUS networks.
-                    </p>
                 </div>
             </div>
 
@@ -31,7 +29,7 @@ const Footer = () => {
             <div className="flex-1 flex justify-center">
                 <div className="flex flex-col text-center">
                     <h3 className="font-semibold">Quick Links</h3>
-                    <ul className="text-sm space-y-1 mt-1">
+                    <ul className="text-sm space-y-1">
                         {menuItems.map((e, i) => (
                             <li key={i}>
                                 <FooterLink name={e.name} to={e.to} />
