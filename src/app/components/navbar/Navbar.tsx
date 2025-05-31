@@ -13,12 +13,12 @@ const Navbar = () => {
         { name: S.contactUs, to: "/contact" }
     ];
 
-    const miniNavMenuItems = [{name: S.home, to: "/"} as MenuItem].concat(menuItems)
+    const miniNavMenuItems = [{ name: S.home, to: "/" } as MenuItem].concat(menuItems)
 
     return (
         <div className="flex items-center px-6" style={{ backgroundColor: frangipani, height: "7vh" }}>
             <Link href="/">
-                <Logo width={120} height={120} />
+                <Logo size={120} />
             </Link>
             <div className="ml-auto h-full flex items-center">
                 <div className="gap-5 items-center h-full hidden md:flex">

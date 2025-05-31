@@ -12,12 +12,12 @@ const Footer = () => {
         { name: S.joinUs, to: "/recruitment" },
     ];
     return (
-        <div className="flex items-center py-4 px-6 mt-auto" style={{ backgroundColor: frangipani }}>
+        <div className="flex flex-col md:flex-row items-center md:items-start py-6 px-4 sm:px-6 md:px-8 mt-auto gap-10 md:gap-0" style={{ backgroundColor: frangipani }}>
             {/* Left Portion */}
-            <div className="flex-1 flex justify-center items-start">
+            <div className="flex-1 flex justify-center md:justify-start items-center md:items-start order-3 md:order-1">
                 <div className="flex flex-row items-start gap-4">
-                    <Logo width={100} height={100} />
-                    <div className="text-left text-sm leading-snug mt-5">
+                    <Logo size={100} className="hidden md:block -mt-5" />
+                    <div className="text-center md:text-left text-sm leading-snug">
                         <h3 className="font-semibold mb-1">About Us</h3>
                         <p>Myanmar Community @ National University of Singapore</p>
                         <p>A community established by Myanmar Students in NUS for NUS networks.</p>
@@ -26,8 +26,8 @@ const Footer = () => {
             </div>
 
             {/* Middle Portion */}
-            <div className="flex-1 flex justify-center">
-                <div className="flex flex-col text-center">
+            <div className="flex-1 flex justify-center order-2 md:order-2">
+                <div className="flex flex-col text-center w-full items-center mt-6 md:mt-0">
                     <h3 className="font-semibold">Quick Links</h3>
                     <ul className="text-sm space-y-1">
                         {menuItems.map((e, i) => (
@@ -40,8 +40,8 @@ const Footer = () => {
             </div>
 
             {/* Right Portion */}
-            <div className="flex-1 flex justify-center">
-                <div className="flex flex-col text-left">
+            <div className="flex-1 flex justify-center md:justify-end pr-4 md:pr-8 order-1 md:order-3">
+                <div className="flex flex-col text-center md:text-left">
                     <h3 className="font-semibold mb-2">Follow us</h3>
                     <div className="flex gap-x-5">
                         <FooterItem icon={<FaInstagram size={30} />} to={S.instagramLink} />

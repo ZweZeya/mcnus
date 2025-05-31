@@ -24,6 +24,8 @@ const STRING_CONSTANTS = {
   visionTitle: "Vision",
   vision:
     "To build a vibrant and united community of Burmese studensts through shared memorable experiences that inspires connection, growth and long-lasting bonds.",
+  aboutUsDescription: "A community established by Myanmar Students in NUS for NUS networks.",
+  fullName: "Myanmar Community @ National University of Singapore",
 
   // Join Section
   bePartOfCommunity: "Be part of this wholesome community!",
@@ -31,6 +33,9 @@ const STRING_CONSTANTS = {
     "Whether as a member, a subcommittee volunteer, or part of our ExCo, we welcome everyone who shares a passion for Myanmar culture and community. Join us in celebrating our heritage, supporting one another, and creating unforgettable experiences together!",
   bePartOfMcnus: "Be part of MCNUS",
   bePartOfMcnusDescription: "It's free!",
+
+  // Roles
+  availableRoles: "Available Roles",
 
   // Contact
   contactTitle: "Get in Touch",
