@@ -2,6 +2,7 @@ const STRING_CONSTANTS = {
   // Social Links
   instagramLink: "https://www.instagram.com/nus_mc/",
   telegramLink: "https://t.me/+x4sQ_J0AlJQ0NWU1",
+  whatsappLink: "https://chat.whatsapp.com/EpDkQC0qNcA1Ief0Hg81bw",
   linkedinLink: "https://www.linkedin.com/company/myanmar-community-national-university-of-singapore",
   youtubeLink: "https://www.youtube.com/channel/UCU6g_X7SMe0av-3jLy3yK5A",
   facebookLink: "https://www.facebook.com/nusmyanmar",
@@ -24,8 +25,13 @@ const STRING_CONSTANTS = {
   visionTitle: "Vision",
   vision:
     "To build a vibrant and united community of Burmese studensts through shared memorable experiences that inspires connection, growth and long-lasting bonds.",
+
+  // Footer
+  aboutUs: "About Us",
   aboutUsDescription: "A community established by Myanmar Students in NUS for NUS networks.",
   fullName: "Myanmar Community @ National University of Singapore",
+  quickLinks: "Quick Links",
+  followUs: "Follow Us",
 
   // Join Section
   bePartOfCommunity: "Be part of this wholesome community!",
