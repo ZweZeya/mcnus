@@ -6,8 +6,8 @@ import Footer from "./components/footer/Footer";
 import { navy } from "./utils/colors";
 
 export const metadata: Metadata = {
-  title: "MC@NUS",
-  description: "A community established by Myanmar Students in NUS for NUS networks.",
+  title: 'Myanmar Community @ NUS | Cultural Events & Student Support',
+  description: 'Join the vibrant Myanmar Community at NUS. Connect with fellow students, celebrate culture, and build lasting bonds through events and support networks.',
   icons: {
     icon: "/lion.png",
   },
