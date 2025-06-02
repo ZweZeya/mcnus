@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./public/logo.png" alt="logo" width="150"/>
+    <img src="./public/logo.png" alt="logo" width="300"/>
     <h1 align="center">Myanmar Community @ NUS</h1>
 </p>
 
