@@ -1,23 +1,44 @@
 <p align="center">
-    <img src="./public/lion.png" alt="logo" width="150"/>
+    <img src="./public/logo.png" alt="logo" width="150"/>
     <h1 align="center">Myanmar Community @ NUS</h1>
 </p>
 
-Welcome to the official website for the Myanmar Community Club at National University of Singapore! This project, built with [Next.js](https://nextjs.org), aims to provide information, updates, and resources for students, alumni, and friends of the Myanmar community. 
+> A community-driven website for Burmese students at the National University of Singapore (NUS), built with Next.js and Tailwind CSS.
 
-## Getting Started
+🌐 **Live site:** [https://myanmarcommunitynus.com](https://myanmarcommunitynus.com)
 
-Install the `node_modules`.
-```bash
-npm install
-```
-Run the server.
-```bash
-npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
+## 📌 About
 
-## Contributing
-We welcome contributions! Please fork the repository and create a pull request with your enhancements.
+This website serves as the official digital home of the **Myanmar Community at NUS**. It helps:
+- Promote cultural exchange and understanding
+- Connect Burmese students across faculties and batches
+- Share updates about events, initiatives, and support resources
 
+🎯 **Mission:** To promote cultural exchange and mutual support amongst NUS students and alumni.  
+🌟 **Vision:** To foster a vibrant and united community through shared memorable experiences.
+
+---
+
+## 🚀 Features
+
+- 📰 Home page with mission, vision, and introduction
+- 🎉 Upcoming events and past highlights
+- 📸 Photo gallery and activity recap
+- 📬 Contact and membership information
+- ⚡ Fast and SEO-friendly with [Next.js App Router](https://nextjs.org/docs/app)
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Next.js 14](https://nextjs.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Deployment:** [Vercel](https://vercel.com/)
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions from anyone interested in supporting or improving this community website!
