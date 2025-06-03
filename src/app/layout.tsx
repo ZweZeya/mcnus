@@ -8,9 +8,6 @@ import { navy } from "./utils/colors";
 export const metadata: Metadata = {
   title: 'Myanmar Community @ NUS | Cultural Events & Student Support',
   description: 'Join the vibrant Myanmar Community at NUS. Connect with fellow students, celebrate culture, and build lasting bonds through events and support networks.',
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 export default function RootLayout({
