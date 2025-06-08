@@ -8,7 +8,9 @@ export const metadata: Metadata = {
   title: 'Events - Myanmar Community @ NUS | Cultural Celebrations & Activities',
   description: 'Join our vibrant cultural events! From traditional Myanmar festivals to networking sessions, discover upcoming activities that celebrate our heritage and strengthen our NUS Myanmar community.',
   keywords: 'Myanmar events NUS, cultural celebrations, Thingyan festival, Myanmar new year, student activities Singapore, networking events, cultural exchange NUS',
-  
+  alternates: {
+    canonical: 'https://myanmarcommunitynus.com/events',
+  },
   openGraph: {
     title: 'Events - Myanmar Community @ NUS',
     description: 'Discover upcoming Myanmar cultural events, festivals, and community activities at NUS. Join us in celebrating our heritage and building connections.',

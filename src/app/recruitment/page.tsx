@@ -9,7 +9,9 @@ export const metadata: Metadata = {
   title: 'Join Our Team - Myanmar Community @ NUS | Executive Committee Recruitment',
   description: 'Join the Myanmar Community @ NUS executive committee! Discover leadership opportunities, make a difference in our community, and help organize cultural events and student support programs.',
   keywords: 'Myanmar Community NUS recruitment, executive committee positions, student leadership NUS, Myanmar student organization jobs, community volunteer opportunities Singapore',
-  
+  alternates: {
+    canonical: 'https://myanmarcommunitynus.com/recruitment',
+  },
   openGraph: {
     title: 'Join Our Team - Myanmar Community @ NUS',
     description: 'Exciting leadership opportunities await! Join our executive committee and help shape the future of Myanmar community at NUS.',

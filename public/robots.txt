@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Allow: /favicon.ico
 
-Sitemap: https://www.myanmarcommunitynus.com/sitemap.xml
+Sitemap: https://myanmarcommunitynus.com/sitemap.xml

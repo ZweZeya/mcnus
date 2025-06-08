@@ -9,7 +9,9 @@ export const metadata: Metadata = {
   title: 'About Us - Myanmar Community @ NUS | Our Mission & Vision',
   description: 'Learn about the Myanmar Community at NUS - our mission to foster cultural exchange, our vision for unity, and the passionate students building bridges between Myanmar heritage and NUS life.',
   keywords: 'Myanmar Community NUS, about us, mission vision, Myanmar students Singapore, Burmese community history, student organization NUS',
-  
+  alternates: {
+    canonical: 'https://myanmarcommunitynus.com/about',
+  },
   openGraph: {
     title: 'About Us - Myanmar Community @ NUS',
     description: 'Discover our mission to foster cultural exchange and build a vibrant Myanmar student community at NUS through shared experiences and lasting bonds.',

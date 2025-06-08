@@ -8,9 +8,9 @@ import { navy } from "./utils/colors";
 export const metadata: Metadata = {
   title: 'Myanmar Community @ NUS | Cultural Events & Student Support',
   description: 'Join the vibrant Myanmar Community at NUS. Connect with fellow students, celebrate culture, and build lasting bonds through events and support networks.',
-  metadataBase: new URL('https://www.myanmarcommunitynus.com'),
+  metadataBase: new URL('https://myanmarcommunitynus.com'),
   alternates: {
-    canonical: 'https://www.myanmarcommunitynus.com',
+    canonical: 'https://myanmarcommunitynus.com',
   },
   appleWebApp: {
     title: 'MC@NUS',

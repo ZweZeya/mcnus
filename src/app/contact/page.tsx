@@ -9,7 +9,9 @@ export const metadata: Metadata = {
   title: 'Contact Us - Myanmar Community @ NUS | Get In Touch',
   description: 'Get in touch with the Myanmar Community @ NUS executive committee. Contact us for inquiries, collaboration opportunities, or to learn more about joining our vibrant community.',
   keywords: 'contact Myanmar Community NUS, executive committee, student organization contact, Myanmar students Singapore contact, community inquiries NUS',
-  
+  alternates: {
+    canonical: 'https://myanmarcommunitynus.com/contact',
+  },
   openGraph: {
     title: 'Contact Us - Myanmar Community @ NUS',
     description: 'Reach out to our executive committee for inquiries, collaborations, or to learn more about joining our Myanmar community at NUS.',
