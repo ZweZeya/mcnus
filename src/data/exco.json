@@ -1,8 +1,8 @@
 [
-    {"name": "Zwe Zeya", "role": "President", "image": "/zwe.jpg"},
-    {"name": "Wai Yan Paing", "role": "Vice President", "image": "/andy.jpg"},
-    {"name": "Aung Oakgar", "role": "Vice President", "image": "/oakgar.jpg"},
-    {"name": "Swan Htet Myo Thaw", "role": "General Secretary", "image": "/swan.jpg"},
-    {"name": "Ingyin San", "role": "Publicity Director", "image": "/ingyin.jpg"},
-    {"name": "Ei Mon Htoo", "role": "Publicity Director", "image": "/ei-mon.jpg"}
+    {"name": "Zwe Zeya", "role": "President", "image": "/zwe.jpg", "caption": "I love ice cream!"},
+    {"name": "Wai Yan Paing", "role": "Vice President", "image": "/andy.jpg", "caption": "aka the rap-god"},
+    {"name": "Aung Oakgar", "role": "Vice President", "image": "/oakgar.jpg", "caption": "To be or not to be."},
+    {"name": "Swan Htet Myo Thaw", "role": "General Secretary", "image": "/swan.jpg", "caption": "Fight me!"},
+    {"name": "Ingyin San", "role": "Publicity Director", "image": "/ingyin.jpg", "caption": "isAsleep = true"},
+    {"name": "Ei Mon Htoo", "role": "Publicity Director", "image": "/ei-mon.jpg", "caption": "Hello!"}
 ]

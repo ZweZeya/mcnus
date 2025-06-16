@@ -3,6 +3,15 @@ interface TextProps extends React.PropsWithChildren {
     style?: React.CSSProperties
 }
 
+
+export const TextExSm = (props: TextProps) => {
+    return (
+        <p className={`${props.className} text-xs md:text-base`} style={props.style}>
+            {props.children}
+        </p>
+    )
+}
+
 export const TextSm = (props: TextProps) => {
     return (
         <p className={`${props.className} text-sm md:text-base`} style={props.style}>

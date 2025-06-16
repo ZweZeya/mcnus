@@ -27,6 +27,7 @@ export default function RootLayout({
       <body
         className={`${robotoMono.variable} antialiased min-h-screen flex flex-col`}
         style={{ color: navy }}
+        suppressHydrationWarning={true}
       >
         <Navbar />
         {children}
