@@ -67,6 +67,8 @@ const STRING_CONSTANTS = {
   executiveCommittee: "Executive Committee",
 
   // Events
+  comingSoon: "Coming soon",
+  dateToBeConfirmed: "Date TBC",
   upcomingEvents: "Upcoming",
   pastEvents: "Past",
   noUpcomingEvents: "There are no upcoming events.",
