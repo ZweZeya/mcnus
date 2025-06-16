@@ -11,7 +11,7 @@ import {
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
 import { useRouter } from "next/navigation"; 
-import S from "@/app/utils/constantString"; 
+import S from "@/app/resources/strings/constantStrings"; 
 
 export interface MenuItem {
     name: string;

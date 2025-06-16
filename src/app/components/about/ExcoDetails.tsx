@@ -1,7 +1,7 @@
 "use client"
 
 import ColouredContentBox from "../common/ColouredContentBox";
-import S from "@/app/utils/constantString";
+import S from "@/app/resources/strings/constantStrings";
 import ExcoMemberCard from './ExcoMemberCard';
 import { ExcoMember } from '@/model/exco';
 import { useEffect, useState } from 'react';

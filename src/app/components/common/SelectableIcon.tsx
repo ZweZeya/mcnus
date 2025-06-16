@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { navy, white } from "@/app/utils/colors";
+import { navy, white } from "@/app/resources/colors";
 
 const SelectableIcon = (props: React.PropsWithChildren) => {
     const [isHover, setHover] = useState<boolean>(false);

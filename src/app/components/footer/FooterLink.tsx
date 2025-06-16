@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { navy, white } from "@/app/utils/colors";
+import { navy, white } from "@/app/resources/colors";
 
 const FooterLink: React.FC<{ name: string; to: string }> = ({ name, to }) => {
     const [isHover, setHover] = useState(false);

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import ColouredContentBox from "../common/ColouredContentBox"
 import { BaseEvent, EventType } from "@/model/event";
 import CustomButton from "../common/CustomButton";
-import S from "@/app/utils/constantString";
+import S from "@/app/resources/strings/constantStrings";
 import { Text, TextMd } from "../common/textComponents";
 import UpcomingEventCard from "./UpcomingEventCard";
 import PastEventCard from "./PastEventCard";

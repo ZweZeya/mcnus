@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import RoleCard, { Role } from "./RoleCard";
-import S from "@/app/utils/constantString";
+import S from "@/app/resources/strings/constantStrings";
 
 const Roles = async () => {
     const filePath = path.join(process.cwd(), "src/data/roles.json");

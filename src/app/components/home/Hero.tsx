@@ -1,9 +1,9 @@
 "use client"
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { dynalight } from "@/app/utils/font";
-import { frangipani } from "@/app/utils/colors";
-import S from "@/app/utils/constantString";
+import { dynalight } from "@/app/resources/font";
+import { frangipani } from "@/app/resources/colors";
+import S from "@/app/resources/strings/constantStrings";
 import ContentBox from "../common/ContentBox";
 
 const Hero = () => {

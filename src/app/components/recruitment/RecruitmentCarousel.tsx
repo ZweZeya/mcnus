@@ -5,7 +5,7 @@ import {
     CarouselNext,
     CarouselPrevious,
   } from "@/components/ui/carousel"
-import S from "@/app/utils/constantString";
+import S from "@/app/resources/strings/constantStrings";
 import ColouredContentBox from "../common/ColouredContentBox";
 import { Text } from "../common/textComponents";
 import ColouredBox from "../common/ColouredBox";

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import ContentBox from "../components/common/ContentBox";
 import Events from "../components/events/Events";
 import PageLayout from "../components/layout/PageLayout"
-import S from "../utils/constantString";
+import S from "../resources/strings/constantStrings";
 
 export const metadata: Metadata = {
   title: 'Events - Myanmar Community @ NUS | Cultural Celebrations & Activities',

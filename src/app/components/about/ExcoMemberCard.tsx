@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge"
 import { ExcoMember } from "@/model/exco";
 import CaptionBubble from "./CaptionBubble";
-import { isNotEmptyString } from "@/app/utils/validators";
+import { isNotEmptyString } from "@/utils/validators";
 
 
 const ExcoMemberCard: React.FC<{member: ExcoMember}> = ({member}) => {

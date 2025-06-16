@@ -1,7 +1,7 @@
-import { frangipani } from "@/app/utils/colors";
+import { frangipani } from "@/app/resources/colors";
 import NavItem from "./NavItem";
 import Logo from "../Logo";
-import S from "@/app/utils/constantString";
+import S from "@/app/resources/strings/constantStrings";
 import Link from "next/link";
 import Menu, { MenuItem } from "./Menu";
 

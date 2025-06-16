@@ -1,4 +1,4 @@
-import S from "@/app/utils/constantString";
+import S from "@/app/resources/strings/constantStrings";
 import { Button } from "@/components/ui/button"
 import Link from "next/link";
 import ContentBox from "../common/ContentBox";

@@ -1,12 +1,12 @@
-import { formatDate } from "@/app/utils/dateUtils";
+import { formatDate } from "@/utils/dateUtils";
 import Image from "next/image";
 import { GoLinkExternal } from "react-icons/go";
-import { darkerGrey, navy } from "@/app/utils/colors";
+import { darkerGrey, navy } from "@/app/resources/colors";
 import { TextSm } from "../common/textComponents";
 import { Button } from "@/components/ui/button";
 import { BaseEvent } from "@/model/event";
-import S from "@/app/utils/constantString";
-import { isNotEmptyString, isValidDate } from "@/app/utils/validators";
+import S from "@/app/resources/strings/constantStrings";
+import { isNotEmptyString, isValidDate } from "@/utils/validators";
 
 const UpcomingEventCard: React.FC<{ event: BaseEvent }> = ({ event }) => {
     const isEnabled = isNotEmptyString(event.link)

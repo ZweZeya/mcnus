@@ -3,7 +3,7 @@ import ContentBox from "../components/common/ContentBox";
 import RecruitmentCarousel from "../components/recruitment/RecruitmentCarousel";
 import PageLayout from "../components/layout/PageLayout";
 import Roles from "../components/roles/Roles";
-import S from "../utils/constantString";
+import S from "../resources/strings/constantStrings";
 
 export const metadata: Metadata = {
   title: 'Join Our Team - Myanmar Community @ NUS | Executive Committee Recruitment',

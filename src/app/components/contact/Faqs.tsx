@@ -4,7 +4,7 @@ import {
     AccordionItem,
     AccordionTrigger,
   } from "@/components/ui/accordion"
-import S from "@/app/utils/constantString";
+import S from "@/app/resources/strings/constantStrings";
 import ColouredContentBox from "../common/ColouredContentBox";
 import { Text } from "../common/textComponents";
 import { promises as fs } from 'fs';

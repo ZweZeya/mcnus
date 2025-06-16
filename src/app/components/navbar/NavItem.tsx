@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react"
-import { frangipani, navy, white } from "../../utils/colors"
+import { frangipani, navy, white } from "../../resources/colors"
 import { useRouter, usePathname } from "next/navigation";
 
 const NavItem: React.FC<{ name: string, to: string }> = ({ name, to }) => {

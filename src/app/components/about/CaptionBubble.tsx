@@ -1,4 +1,4 @@
-import { black, white } from "@/app/utils/colors"
+import { black, white } from "@/app/resources/colors"
 import { TextExSm } from "../common/textComponents"
 import clsx from "clsx"
 

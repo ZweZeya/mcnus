@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { robotoMono } from "./utils/font";
+import { robotoMono } from "./resources/font";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
-import { navy } from "./utils/colors";
+import { navy } from "./resources/colors";
 
 export const metadata: Metadata = {
   title: 'Myanmar Community @ NUS | Cultural Events & Student Support',

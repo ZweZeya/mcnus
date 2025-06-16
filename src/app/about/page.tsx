@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import ExcoDetails from "../components/about/ExcoDetails";
 import ContentBox from "../components/common/ContentBox";
 import PageLayout from "../components/layout/PageLayout"
-import S from "../utils/constantString";
-import { darkerGrey } from "../utils/colors";
+import S from "../resources/strings/constantStrings";
+import { darkerGrey } from "../resources/colors";
 
 export const metadata: Metadata = {
   title: 'About Us - Myanmar Community @ NUS | Our Mission & Vision',

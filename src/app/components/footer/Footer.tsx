@@ -1,8 +1,8 @@
-import { frangipani } from "@/app/utils/colors";
+import { frangipani } from "@/app/resources/colors";
 import { FaInstagram, FaTelegram, FaWhatsapp, FaLinkedin, FaFacebook, FaYoutube } from "react-icons/fa";
 import FooterItem from "./FooterItem";
 import Logo from "../Logo";
-import S from "@/app/utils/constantString";
+import S from "@/app/resources/strings/constantStrings";
 import { MenuItem } from "../navbar/Menu";
 import FooterLink from "./FooterLink";
 

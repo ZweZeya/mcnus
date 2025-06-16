@@ -1,4 +1,4 @@
-import { grey } from "@/app/utils/colors";
+import { grey } from "@/app/resources/colors";
 
 interface ColouredBoxProps extends React.PropsWithChildren {
     className?: string;

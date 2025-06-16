@@ -3,7 +3,7 @@ import ContentBox from "../components/common/ContentBox";
 import ContactDetails from "../components/contact/ContactDetails";
 import Faqs from "../components/contact/Faqs";
 import PageLayout from "../components/layout/PageLayout"
-import S from "../utils/constantString";
+import S from "../resources/strings/constantStrings";
 
 export const metadata: Metadata = {
   title: 'Contact Us - Myanmar Community @ NUS | Get In Touch',

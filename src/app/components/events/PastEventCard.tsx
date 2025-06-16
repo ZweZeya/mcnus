@@ -1,11 +1,11 @@
-import { formatDate } from "@/app/utils/dateUtils";
+import { formatDate } from "@/utils/dateUtils";
 import { BaseEvent } from "@/model/event";
 import Image from "next/image";
 import { GoLinkExternal } from "react-icons/go";
-import { darkerGrey, navy } from "@/app/utils/colors";
+import { darkerGrey, navy } from "@/app/resources/colors";
 import { TextSm } from "../common/textComponents";
 import { Button } from "@/components/ui/button";
-import S from "@/app/utils/constantString";
+import S from "@/app/resources/strings/constantStrings";
 
 const PastEventCard: React.FC<{ event: BaseEvent }> = ({ event }) => {
 

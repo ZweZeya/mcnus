@@ -1,5 +1,5 @@
 import ResponsiveGrid from "../common/ResponsiveGrid"
-import S from "@/app/utils/constantString";
+import S from "@/app/resources/strings/constantStrings";
 import ColouredContentBox from "../common/ColouredContentBox";
 import { Text } from "../common/textComponents";
 
