@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   appleWebApp: {
     title: 'MC@NUS',
   },
+  openGraph: {
+    title: 'Myanmar Community @ NUS',
+    siteName: 'Myanmar Community at NUS',
+    url: 'https://myanmarcommunitynus.com',
+    description: 'Join the vibrant Myanmar Community at NUS. Connect with fellow students, celebrate culture, and build lasting bonds through events and support networks.',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({
