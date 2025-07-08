@@ -39,7 +39,7 @@ const UpcomingEventCard: React.FC<{ event: BaseEvent }> = ({ event }) => {
                     onClick={() => handleClick(event.link)} 
                     style={{backgroundColor: navy}}
                 >
-                    {S.join} <GoLinkExternal size={16} />
+                    {isEnabled ? <>{S.join} <GoLinkExternal size={16} /></> : <>{S.comingSoon}</>}
                 </Button>
             </div>
         </div>
