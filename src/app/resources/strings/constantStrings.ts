@@ -24,7 +24,7 @@ const STRING_CONSTANTS = {
     "To support Burmese students and engage the NUS community through cultural exchange, academic collaboration, and inclusive initiatives.",
   visionTitle: "Vision",
   vision:
-    "To build a vibrant and united community of Burmese studensts through shared memorable experiences that inspires connection, growth and long-lasting bonds.",
+    "To build a strong, connected Myanmar student community that enriches both Burmese students and the wider NUS community through culture, unity and growth.",
 
   // Footer
   aboutUs: "About Us",
