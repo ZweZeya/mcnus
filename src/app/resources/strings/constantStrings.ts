@@ -21,7 +21,7 @@ const STRING_CONSTANTS = {
     "We are a community of current NUS Myanmar students and alumni that aim to provide NUS Myanmar students that organises events and celebrations that bring us closer to our roots.",
   missionTitle: "Mission",
   mission:
-    "To foster cultural exchange and promote mutual support among Myanmar students at NUS and other student communities.",
+    "To support Burmese students and engage the NUS community through cultural exchange, academic collaboration, and inclusive initiatives.",
   visionTitle: "Vision",
   vision:
     "To build a vibrant and united community of Burmese studensts through shared memorable experiences that inspires connection, growth and long-lasting bonds.",
