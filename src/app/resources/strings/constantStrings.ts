@@ -62,8 +62,8 @@ const STRING_CONSTANTS = {
   excoTitle: "Step up as an ExCo member",
   excoDescription:
     "ExCo signups for this AY have been closed. Please keep a look out for recruitment for 6th MCNUS ExCo. In the meantime, do consider joining as a member or a subcommittee member.",
-  exco: "5th MC@NUS",
-  excoTermTime: "Term Time: Sept 2024 - Present",
+  exco: "6th MC@NUS",
+  excoTermTime: "Term Time: Sept 2025 - Present",
   executiveCommittee: "Executive Committee",
 
   // Events

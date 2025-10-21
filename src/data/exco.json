@@ -1,8 +1,9 @@
 [
-    {"name": "Zwe Zeya", "role": "President", "image": "/zwe.jpg", "caption": "I love ice cream!"},
-    {"name": "Wai Yan Paing", "role": "Vice President", "image": "/andy.jpg", "caption": "aka the rap-god"},
-    {"name": "Aung Oakgar", "role": "Vice President", "image": "/oakgar.jpg", "caption": "To be or not to be."},
-    {"name": "Swan Htet Myo Thaw", "role": "General Secretary", "image": "/swan.jpg", "caption": "Fight me!"},
-    {"name": "Ingyin San", "role": "Publicity Director", "image": "/ingyin.jpg", "caption": "isAsleep = true"},
-    {"name": "Ei Mon Htoo", "role": "Publicity Director", "image": "/ei-mon.jpg", "caption": "Hello!"}
+    {"name": "Shwe Yati Oo", "role": "President", "image": "/bella.jpg", "caption": "23:59 🏃🏻‍♀️🏃🏻‍♀️"},
+    {"name": "Win Htut Khaung Soe", "role": "Vice President", "image": "/win_htut.jpg", "caption": "Live when young"},
+    {"name": "Win Paing Oo", "role": "Vice President", "image": "/win.jpg", "caption": "Sup"},
+    {"name": "Khant Lin Thant", "role": "General Secretary", "image": "/lin_thant.jpg", "caption": "Ambitious"},
+    {"name": "Nant Kyi Sin Lin", "role": "Publicity Director", "image": "/starlyn.jpg", "caption": "One Day or Day One"},
+    {"name": "Chaw Thiri May", "role": "Publicity Director", "image": "/may.jpg", "caption": ""},
+    {"name": "Saw Yoon Nwe", "role": "Publicity Director", "image": "/lily.jpg", "caption": ""}
 ]
