@@ -21,10 +21,10 @@ const STRING_CONSTANTS = {
     "We are a community of current NUS Myanmar students and alumni that aim to provide NUS Myanmar students that organises events and celebrations that bring us closer to our roots.",
   missionTitle: "Mission",
   mission:
-    "To foster cultural exchange and promote mutual support among Myanmar students at NUS and other student communities.",
+    "To support Burmese students and engage the NUS community through cultural exchange, academic collaboration, and inclusive initiatives.",
   visionTitle: "Vision",
   vision:
-    "To build a vibrant and united community of Burmese studensts through shared memorable experiences that inspires connection, growth and long-lasting bonds.",
+    "To build a strong, connected Myanmar student community that enriches both Burmese students and the wider NUS community through culture, unity and growth.",
 
   // Footer
   aboutUs: "About Us",
@@ -62,8 +62,8 @@ const STRING_CONSTANTS = {
   excoTitle: "Step up as an ExCo member",
   excoDescription:
     "ExCo signups for this AY have been closed. Please keep a look out for recruitment for 6th MCNUS ExCo. In the meantime, do consider joining as a member or a subcommittee member.",
-  exco: "5th MC@NUS",
-  excoTermTime: "Term Time: Sept 2024 - Present",
+  exco: "6th MC@NUS",
+  excoTermTime: "Term Time: Sept 2025 - Present",
   executiveCommittee: "Executive Committee",
 
   // Events
