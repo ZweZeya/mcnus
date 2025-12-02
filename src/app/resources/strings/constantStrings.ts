@@ -13,6 +13,7 @@ const STRING_CONSTANTS = {
   events: "Events",
   joinUs: "Join Us",
   contactUs: "Contact Us",
+  games: "Games",
 
   // About
   motto: "Connecting NUS through Myanmar Culture",
