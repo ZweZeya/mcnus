@@ -22,7 +22,7 @@ const Obstacle = ({params}: {params: ObstacleParams}) => {
                     display: params.isVisible ? "block" : "none",
                     height: `${topBarHeight}rem`
                 }}></div>
-            <div className="h-2/5 w-full bg-green-500 absolute" 
+            <div className="w-full bg-green-500 absolute" 
                 style={{
                     left: `${params.x}rem`, 
                     bottom: 0,
