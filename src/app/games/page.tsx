@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import ContentBox from "../components/common/ContentBox";
 import PageLayout from "../components/layout/PageLayout"
 import S from "../resources/strings/constantStrings";
-import Box from "../components/games/Box";
+import FlappyBird from "../components/games/flappybird/FlappyBird";
 
 export const metadata: Metadata = {
   title: 'Games - Myanmar Community @ NUS | Cultural Celebrations & Activities',
@@ -28,7 +28,7 @@ const GamesPage = () => {
     return (
         <PageLayout>
             <ContentBox title={S.games} content="" />
-            <Box />
+            <FlappyBird />
         </PageLayout>
     )
 }
