@@ -1,7 +1,7 @@
 const STRING_CONSTANTS = {
   // Social Links
   instagramLink: "https://www.instagram.com/nus_mc/",
-  telegramLink: "https://t.me/+x4sQ_J0AlJQ0NWU1",
+  telegramLink: "https://t.me/+u-lNYkyclLxmZGM1",
   whatsappLink: "https://chat.whatsapp.com/EpDkQC0qNcA1Ief0Hg81bw",
   linkedinLink: "https://www.linkedin.com/company/myanmar-community-national-university-of-singapore",
   youtubeLink: "https://www.youtube.com/channel/UCU6g_X7SMe0av-3jLy3yK5A",
