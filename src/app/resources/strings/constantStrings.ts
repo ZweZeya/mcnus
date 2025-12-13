@@ -58,10 +58,10 @@ const STRING_CONSTANTS = {
   // Subcom & Exco
   subcomTitle: "Step up as a subcommittee member",
   subcomDescription:
-    "Really excited to have you onboard the planning team. Kindly fill in the sign up form here and we will get in touch with you shortly.",
+    "Subcommittee recruitment for this AY is currently closed. Please follow us for more updates on future openings.",
   excoTitle: "Step up as an ExCo member",
   excoDescription:
-    "ExCo signups for this AY have been closed. Please keep a look out for recruitment for 6th MCNUS ExCo. In the meantime, do consider joining as a member or a subcommittee member.",
+    "ExCo signups for this AY have been closed. Please keep a look out for recruitment for 7th MCNUS ExCo. In the meantime, do consider joining as a member or a subcommittee member.",
   exco: "6th MC@NUS",
   excoTermTime: "Term Time: Sept 2025 - Present",
   executiveCommittee: "Executive Committee",
