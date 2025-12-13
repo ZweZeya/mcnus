@@ -50,7 +50,7 @@ const STRING_CONSTANTS = {
   // FAQs
   faqs: "FAQs",
   unansweredQuestions: "Unanswered questions?",
-  emailUs: "Email us at mcnus@gmail.com or slide into our dms.",
+  emailUs: "Email us at nus.myanmarcommunity@gmail.com or slide into our dms.",
   admissioEnquiries: "For admissions-related enquiries",
   referToAskAdmissions:
     "Refer to askadmissions website and follow the steps there accordingly.",
