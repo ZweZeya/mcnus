@@ -8,12 +8,12 @@ const REFRESH_INTERVAL = 0.05
 const OBSTACLE_GAP = 15
 const OBSTACLE_COUNT = 5
 const OBSTACLE_DELTA_X = 0.3
-const FLY_DELTA_X = 30
+const FLY_DELTA_X = 2
 const BACKGROUND_WIDTH = 50
 export const BACKGROUND_HEIGHT = 32
 
 const FlappyBird = () => {
-    const [position, setPosition] = useState<Position>({x: 0, y: 500, vx: 0, vy: 0});
+    const [position, setPosition] = useState<Position>({x: 0, y: 16, vx: 0, vy: 0});
     const [obstacles, setObstacles] = useState<ObstacleParams[]>([])
 
     useEffect(() => {

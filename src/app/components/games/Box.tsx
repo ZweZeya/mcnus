@@ -9,11 +9,11 @@ type Coordinates = {
 }
 
 const Box = () => {
-    const [position, setPosition] = useState<Coordinates>({x: 0, y: 500, vx: 0, vy: 0});
+    const [position, setPosition] = useState<Coordinates>({x: 0, y: 10, vx: 0, vy: 0});
 
     useEffect(() => {
         const t = 0.05;
-        const g = -9.81 * 30;
+        const g = -9.81 * 3;
         const intervalId = setInterval(() => {
             setPosition(prev => {
                 const new_vy = prev.vy + t * g;
@@ -48,7 +48,7 @@ const Box = () => {
         if (position.y > 0) return
 
         setPosition(prev => {
-            return {x: prev.x, y: 50, vx: prev.vx, vy: 0}
+            return {x: prev.x, y: 3, vx: prev.vx, vy: 0}
         })
     }
 

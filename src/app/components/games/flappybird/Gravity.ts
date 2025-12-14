@@ -6,7 +6,7 @@ export type Position = {
 }
 
 export default class Gravity {
-    private static acceleration = -9.81 * 30;
+    private static acceleration = -9.81 * 3;
 
     private constructor() {}
 
