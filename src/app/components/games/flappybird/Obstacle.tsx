@@ -7,7 +7,7 @@ export interface ObstacleParams {
 }
 
 export const OBSTACLE_WIDTH = 2;
-const GAP_WIDTH = 6;
+export const GAP_WIDTH = 7;
 
 const Obstacle = ({params}: {params: ObstacleParams}) => {
     const topBarHeight = BACKGROUND_HEIGHT * params.gapHeight
