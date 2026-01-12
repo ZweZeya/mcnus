@@ -66,7 +66,7 @@ const Events = () => {
                     <TextMd>{S.pastEvents}</TextMd>
                 </CustomButton>
             </div>
-            {isLoading || events.length == 0 ? <Loading /> : <EventsGrid events={events} activeTab={eventType} />}
+            {isLoading && events.length == 0 ? <Loading /> : <EventsGrid events={events} activeTab={eventType} />}
         </ColouredContentBox>
     )
 }
