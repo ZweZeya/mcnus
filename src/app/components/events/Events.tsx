@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import ColouredContentBox from "../common/ColouredContentBox"
 import { BaseEvent, EventType, isEventType } from "@/model/event";
@@ -49,25 +49,27 @@ const Events = () => {
     }, [eventType])
 
     return (
-        <ColouredContentBox className="w-full text-center">
-            <div className="flex gap-4 my-4">
-                <CustomButton
-                    isSelected={eventType == EventType.UPCOMING}
-                    onClick={() => handleEventTypeChange(EventType.UPCOMING)}
-                    disabled={isLoading}
-                >
-                    <TextMd>{S.upcomingEvents}</TextMd>
-                </CustomButton>
-                <CustomButton
-                    isSelected={eventType == EventType.PAST}
-                    onClick={() => handleEventTypeChange(EventType.PAST)}
-                    disabled={isLoading}
-                >
-                    <TextMd>{S.pastEvents}</TextMd>
-                </CustomButton>
-            </div>
-            {isLoading ? <Loading /> : <EventsGrid events={events} activeTab={eventType} />}
-        </ColouredContentBox>
+        <Suspense>
+            <ColouredContentBox className="w-full text-center">
+                <div className="flex gap-4 my-4">
+                    <CustomButton
+                        isSelected={eventType == EventType.UPCOMING}
+                        onClick={() => handleEventTypeChange(EventType.UPCOMING)}
+                        disabled={isLoading}
+                    >
+                        <TextMd>{S.upcomingEvents}</TextMd>
+                    </CustomButton>
+                    <CustomButton
+                        isSelected={eventType == EventType.PAST}
+                        onClick={() => handleEventTypeChange(EventType.PAST)}
+                        disabled={isLoading}
+                    >
+                        <TextMd>{S.pastEvents}</TextMd>
+                    </CustomButton>
+                </div>
+                {isLoading || events.length == 0 ? <Loading /> : <EventsGrid events={events} activeTab={eventType} />}
+            </ColouredContentBox>
+        </Suspense>
     )
 }
 
