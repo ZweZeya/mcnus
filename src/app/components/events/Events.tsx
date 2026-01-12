@@ -11,7 +11,7 @@ import PastEventCard from "./PastEventCard";
 import Loading from "../common/Loading";
 
 const Events = () => {
-    const [eventType, setEventType] = useState<EventType>(0)
+    const [eventType, setEventType] = useState<EventType>(1)
     const [events, setEvents] = useState<BaseEvent[]>([])
     const [isLoading, setIsLoading] = useState(false);
 
