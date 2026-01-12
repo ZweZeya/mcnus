@@ -7,6 +7,10 @@ export interface BaseEvent {
 }
 
 export enum EventType {
-    UPCOMING = 0,
-    PAST = 1,
+    UPCOMING = "upcoming",
+    PAST = "past",
+}
+
+export function isEventType(value: string | null): value is EventType {
+  return value === EventType.UPCOMING || value === EventType.PAST;
 }

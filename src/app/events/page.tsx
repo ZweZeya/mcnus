@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 import ContentBox from "../components/common/ContentBox";
 import Events from "../components/events/Events";
 import PageLayout from "../components/layout/PageLayout"
@@ -36,7 +37,9 @@ const EventsPage = () => {
     return (
         <PageLayout>
             <ContentBox title={S.events} content="" />
-            <Events />
+            <Suspense>
+              <Events />
+            </Suspense>
         </PageLayout>
     )
 }
