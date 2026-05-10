@@ -1,9 +1,13 @@
 export interface BaseEvent {
+    id: number,
     name: string, 
-    date: Date, 
-    image: string, 
-    link: string,
-    photos: string
+    description: string,
+    event_time: Date, 
+    image_path: string, 
+    image_url: string, 
+    registration_link: string,
+    recap_link: string,
+    created_at: Date
 }
 
 export enum EventType {
