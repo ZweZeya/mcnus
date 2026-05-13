@@ -18,5 +18,5 @@ export const addUpcomingEventToSupabase = async (event: BaseEvent) => {
             event_time: event.event_time, 
             image_path: event.image_path, 
             registration_link: event.registration_link,
-        })
+        });
 }
