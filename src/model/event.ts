@@ -7,7 +7,9 @@ export interface BaseEvent {
     image_url: string, 
     registration_link: string,
     recap_link: string,
-    created_at: Date
+    created_at: Date,
+    type: EventType,
+    image_file?: File
 }
 
 export enum EventType {
