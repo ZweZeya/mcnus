@@ -37,7 +37,7 @@ values
     'Thingyan by the Beach',
     '2026-05-09',
     'upcoming',
-    '/thingyan-2026.png',
+    'events/thingyan-2026.png',
     'https://forms.gle/jWXb9D4AB66gu1Vf9',
     null
 ),
@@ -46,7 +46,7 @@ values
     'Tri-Uni MC Picnic',
     '2026-01-10',
     'past',
-    '/new-year-gathering-2026.jpg',
+    'events/new-year-gathering-2026.jpg',
     'https://tinyurl.com/triunimcpicnic',
     'https://www.instagram.com/p/DTYgk8iEwk2/'
 ),
@@ -55,7 +55,7 @@ values
     'End of Semester Gathering',
     '2025-12-07',
     'past',
-    '/end-of-sem-2025.jpeg',
+    'events/end-of-sem-2025.jpeg',
     'https://docs.google.com/forms/d/e/1FAIpQLSf6z2bT8oRBIdV_mVpaidmBNDUYjP3rtXyjgsh6CKTknw5ZBQ/viewform?usp=dialog',
     'https://www.instagram.com/p/DR_AgGUEtcQ/'
 ),
@@ -64,7 +64,7 @@ values
     'Thadingyut',
     '2025-10-24',
     'past',
-    '/thadingyut-2025.jpeg',
+    'events/thadingyut-2025.jpeg',
     'https://docs.google.com/forms/d/e/1FAIpQLSdqYCJzyjzTyfRRizkLu0-LXvPcFSrBvIxPkm27D4FJSgBzyA/viewform?usp=share_link&ouid=114337614910155975084',
     'https://www.instagram.com/p/DROYFc8CRkY/'
 ),
@@ -73,7 +73,7 @@ values
     'Freshman Orientation 2025',
     '2025-08-02',
     'past',
-    '/freshman-welcome-party-2025.jpeg',
+    'events/freshman-welcome-party-2025.jpeg',
     'https://forms.gle/yZURc5P9b33DyPBC9',
     null
 ),
@@ -82,7 +82,7 @@ values
     'Summer Potluck Picnic',
     '2025-06-28',
     'past',
-    '/summer-potluck-picnic-2025.jpeg',
+    'events/summer-potluck-picnic-2025.jpeg',
     'https://forms.gle/FiTtsPwpEfAVYAxW6',
     null
 ),
@@ -91,7 +91,7 @@ values
     'Summer Beach Event',
     '2025-05-17',
     'past',
-    '/summer-beach-event-2025.jpeg',
+    'events/summer-beach-event-2025.jpeg',
     'https://forms.gle/jjMWGFNrba1AG1pa7',
     'https://www.instagram.com/p/DKRShPYy9QK/'
 ),
@@ -100,7 +100,7 @@ values
     'Chat and Chow!',
     '2025-03-29',
     'past',
-    '/chat-and-chow-2025.jpeg',
+    'events/chat-and-chow-2025.jpeg',
     'https://docs.google.com/forms/d/e/1FAIpQLScH8cZKY5nDWlL6lozdLoiqTvRWgIjkxzr-Y9cvGOPU4dHN0A/viewform',
     'https://www.instagram.com/p/DHh-SPrS_Qf/'
 ),
@@ -109,7 +109,7 @@ values
     'New Year Gathering',
     '2025-01-11',
     'past',
-    '/new-year-gathering-2025.jpeg',
+    'events/new-year-gathering-2025.jpeg',
     'https://forms.gle/jAvAdErtKVb4EsWd6',
     'https://www.instagram.com/p/DGM-hktypHo/'
 ),
@@ -118,7 +118,7 @@ values
     'End of Semester Dinner',
     '2024-12-07',
     'past',
-    '/end-of-sem-dinner-2024.jpeg',
+    'events/end-of-sem-dinner-2024.jpeg',
     'https://forms.gle/HKaxNwHzcgMu8WkQ8',
     'https://www.instagram.com/p/DDmZSqxSgGG/'
 ),
@@ -127,7 +127,7 @@ values
     'Thadingyut',
     '2024-10-25',
     'past',
-    '/thadingyut-2024.jpeg',
+    'events/thadingyut-2024.jpeg',
     'https://forms.gle/HQwjF8m6r41oVi9K7',
     'https://www.instagram.com/p/DB3jbBcTegT/'
 );
