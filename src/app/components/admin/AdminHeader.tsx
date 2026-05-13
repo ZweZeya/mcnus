@@ -14,7 +14,7 @@ const AdminHeader = () => {
             <div className="ml-auto h-full flex items-center">
                 <CustomButton 
                     onClick={() => { }} 
-                    className="flex items-center justify-center w-[6vw] h-[4vh] border-1 border-black font-semibold">
+                    className="flex items-center justify-center w-[7vw] h-[4vh] border-1 border-black font-semibold">
                     Sign out
                 </CustomButton>
             </div>
