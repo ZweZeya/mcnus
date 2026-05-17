@@ -9,9 +9,22 @@ export const getPublicImageUrl = (path: string): string => {
         .publicUrl;
 }
 
-export const uploadEventImage = async (imagePath: string, imageFile: File) => {
+export const uploadImage = async (imagePath: string, imageFile: File) => {
     await supabase
         .storage
         .from('images')
         .upload(imagePath, imageFile);
+}
+
+export const deleteImage = async(imagePath: string) => {
+    await supabase
+        .storage
+        .from('images')
+        .remove([imagePath]);
+}
+export const updateImage = async (imagePath: string, imageFile: File) => {
+    await supabase
+        .storage
+        .from('images')
+        .update(imagePath, imageFile);
 }
