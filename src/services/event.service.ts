@@ -14,12 +14,22 @@ export const eventService = {
         return eventsWithImages as BaseEvent[]
     },
     
-    /** 
+    
     async addUpcomingEvent(event: BaseEvent) {
-        if (event.image_file) {
-            await uploadImage(event.image_path, event.image_file);
+        try {
+            if (!event.name) {
+                throw new Error("Event name is required");
+            }
+
+            if (event.image_file) {
+                await uploadImage(event.image_path, event.image_file);
+            }
+
+            await addEvent(event);
+        } catch (error) {
+            console.error("Error in eventService.addUpcomingEvent:", error);
+            throw error;
         }
-        await addEvent(event);
     },
 
     async deleteEvent(event: BaseEvent) {
@@ -36,39 +46,5 @@ export const eventService = {
             await updateImage(event.image_path, event.image_file);
         }
         await updateEvent(event);
-    }
-}
-    },
-
-    async createNewEvent(eventData: BaseEvent) {
-        try {
-            if (!eventData.name) throw new Error("Event name is required");
-
-            const newEvent = await insertEventToSupabase(eventData);
-      
-            return newEvent;
-        } catch (err) {
-            console.error("Error in eventService.createNewEvent:", err);
-            throw err;
-        }
-    },
-    */
-
-    async createEvent(event: BaseEvent) {
-        try {
-            if (!event.name) {
-                throw new Error("Event name is required");
-            }
-
-            if (event.image_file) {
-                await uploadEventImage(event.image_path, event.image_file);
-            }
-
-            const newEvent = await insertEventToSupabase(event);
-            return newEvent;
-        } catch (err) {
-            console.error("Error in eventService.createEvent: ", err);
-            throw err;
-        }
     }
 };
