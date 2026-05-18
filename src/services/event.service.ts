@@ -1,8 +1,6 @@
 import { BaseEvent } from '@/model/event';
 import { addEvent, deleteEventById, fetchAllEvents, fetchEventById, updateEvent } from '@/repositories/event.repository';
 import { deleteImage, getPublicImageUrl, updateImage, uploadImage } from '@/storage/image-storage';
-import { addUpcomingEventToSupabase, fetchEventsFromSupabase, insertEventToSupabase } from '@/repositories/event.repository';
-import { getPublicImageUrl, uploadEventImage } from '@/storage/image-storage';
 
 export const eventService = {
     async getEvents(type: string) : Promise<BaseEvent[]> {
