@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { BaseEvent } from "@/model/event"; 
+import { BaseEvent } from "@/model/event";
 import EventModal from "./EventModal";
 import { deleteEventAction, createEventAction, updateEventAction } from "@/actions/event.actions";
+import { eventService } from "@/services/event.service";
 
 export default function AdminEvents() {
   const [events, setEvents] = useState<BaseEvent[]>([]);
@@ -14,37 +15,35 @@ export default function AdminEvents() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        // NOTE: Replace '/api/events' with the actual URL your backend dev gives you later
-        const response = await fetch("/api/events"); 
-        
-        if (!response.ok) {
-          throw new Error("Failed to fetch events");
-        }
+        const types = ["upcoming", "past"]
 
-        const data = await response.json();
-        setEvents(data); // Put the database data into our table
+        const promises = types.map(type => eventService.getEvents(type))
+        const results = await Promise.all(promises)
+
+        const eventData = results.flat()
+        setEvents(eventData)
       } catch (error) {
         console.error("Error fetching events, falling back to dummy data:", error);
-        
+
         // Fallback dummy data so you can keep building the UI while the backend is WIP
         setEvents([
-          { 
-            id: 1, 
-            name: "Thingyan Festival", 
+          {
+            id: 1,
+            name: "Thingyan Festival",
             description: "Myanmar New Year Water Festival celebration.",
-            event_time: new Date("2026-04-13T10:00:00"), 
+            event_time: new Date("2026-04-13T10:00:00"),
             image_path: "",
             image_url: "",
             registration_link: "https://forms.gle/example1",
             recap_link: "",
             created_at: new Date(),
-            type: "UPCOMING" as any 
+            type: "UPCOMING" as any
           } as BaseEvent,
-          { 
-            id: 2, 
-            name: "Freshmen Welcome", 
+          {
+            id: 2,
+            name: "Freshmen Welcome",
             description: "Welcoming the new batch of students.",
-            event_time: new Date("2026-08-15T18:00:00"), 
+            event_time: new Date("2026-08-15T18:00:00"),
             image_path: "",
             image_url: "",
             registration_link: "",
@@ -93,19 +92,19 @@ export default function AdminEvents() {
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold mb-6 text-slate-800">Manage Events</h1>
-      
+
       {/* Create Event Button */}
-      <button 
-        onClick={() => setIsModalOpen(true)} 
+      <button
+        onClick={() => setIsModalOpen(true)}
         className="bg-blue-600 text-white px-4 py-2 rounded mb-6 hover:bg-blue-700 transition"
       >
         + Create New Event
       </button>
 
-      <EventModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        onSave={handleSaveEvent} 
+      <EventModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSave={handleSaveEvent}
       />
 
       {/* Events Table */}
@@ -123,7 +122,7 @@ export default function AdminEvents() {
             {events.map((event) => (
               <tr key={event.id} className="border-b border-gray-100 hover:bg-gray-50">
                 <td className="py-4 font-medium">{event.name}</td>
-                
+
                 {/* Format the date to be human-readable */}
                 <td className="py-4 text-gray-600">
                   {new Date(event.event_time).toLocaleString("en-US", {
@@ -131,19 +130,18 @@ export default function AdminEvents() {
                     timeStyle: "short",
                   })}
                 </td>
-                
+
                 {/* Show Event Type (e.g., UPCOMING / PAST) */}
                 <td className="py-4">
-                  <span className={`px-2 py-1 rounded text-xs font-semibold ${
-                    String(event.type) === "UPCOMING" ? "bg-green-100 text-green-800" : "bg-gray-100 text-gray-800"
-                  }`}>
-                    {String(event.type)}
+                  <span className={`px-2 py-1 rounded text-xs font-semibold ${String(event.type).toUpperCase() === "UPCOMING" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                    }`}>
+                    {String(event.type).toUpperCase()}
                   </span>
                 </td>
-                
+
                 {/* Action Buttons */}
                 <td className="flex gap-4 py-4">
-                  <button 
+                  <button
                     onClick={async () => {
                       setEditingEvent(event);
                       setIsModalOpen(true);
@@ -151,7 +149,7 @@ export default function AdminEvents() {
                     className="text-blue-500 hover:text-blue-700 font-medium">
                     Edit
                   </button>
-                  <button 
+                  <button
                     onClick={async () => {
                       if (window.confirm("Are you sure you want to delete this event?")) {
                         const result = await deleteEventAction(event);
@@ -169,7 +167,7 @@ export default function AdminEvents() {
                 </td>
               </tr>
             ))}
-            
+
             {/* Show a message if the array is completely empty */}
             {events.length === 0 && (
               <tr>

@@ -4,7 +4,17 @@ import { BaseEvent } from "@/model/event";
 export const fetchAllEvents = async (type: string): Promise<BaseEvent[]> => {
     const { data } = await supabase
         .from('events')
-        .select()
+        .select(`
+            id,
+            name,
+            description,
+            event_time,
+            image_path,
+            registration_link,
+            recap_link,
+            created_at,
+            type: event_type
+        `)
         .eq('event_type', type);
     return data as BaseEvent[]
 }
