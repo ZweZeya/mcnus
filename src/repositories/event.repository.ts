@@ -20,3 +20,23 @@ export const addUpcomingEventToSupabase = async (event: BaseEvent) => {
             registration_link: event.registration_link,
         });
 }
+
+export const insertEventToSupabase = async (event: BaseEvent) => {
+  const { data, error } = await supabase
+    .from('events')
+    .insert([
+      { 
+        name: event.name, 
+        description: event.description,
+        event_time: event.event_time, 
+        image_path: event.image_path,
+        registration_link: event.registration_link,
+        recap_link: event.recap_link,
+        event_type: event.type 
+      }
+    ])
+    .select();
+
+  if (error) throw error;
+  return data[0];
+};
