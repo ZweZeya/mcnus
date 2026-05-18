@@ -5,8 +5,11 @@ import { BaseEvent } from "@/model/event";
 import EventModal from "./EventModal";
 import { deleteEventAction, createEventAction, updateEventAction } from "@/actions/event.actions";
 import { eventService } from "@/services/event.service";
+import { useRouter } from "next/navigation";
 
 export default function AdminEvents() {
+  const router = useRouter()
+  
   const [events, setEvents] = useState<BaseEvent[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,35 +26,7 @@ export default function AdminEvents() {
         const eventData = results.flat()
         setEvents(eventData)
       } catch (error) {
-        console.error("Error fetching events, falling back to dummy data:", error);
-
-        // Fallback dummy data so you can keep building the UI while the backend is WIP
-        setEvents([
-          {
-            id: 1,
-            name: "Thingyan Festival",
-            description: "Myanmar New Year Water Festival celebration.",
-            event_time: new Date("2026-04-13T10:00:00"),
-            image_path: "",
-            image_url: "",
-            registration_link: "https://forms.gle/example1",
-            recap_link: "",
-            created_at: new Date(),
-            type: "UPCOMING" as any
-          } as BaseEvent,
-          {
-            id: 2,
-            name: "Freshmen Welcome",
-            description: "Welcoming the new batch of students.",
-            event_time: new Date("2026-08-15T18:00:00"),
-            image_path: "",
-            image_url: "",
-            registration_link: "",
-            recap_link: "https://youtube.com/example2",
-            created_at: new Date(),
-            type: "PAST" as any
-          } as BaseEvent,
-        ]);
+        console.error("Error fetching events:", error);
       } finally {
         setIsLoading(false); // Turn off the loading spinner
       }
