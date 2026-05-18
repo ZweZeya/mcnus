@@ -26,6 +26,8 @@ const UpcomingEventCard: React.FC<{ event: BaseEvent }> = ({ event }) => {
                         src={event.image_url} 
                         alt={event.name} 
                         fill 
+                        loading="eager"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover" /> :
                     <ComingSoonImage />
                 }
