@@ -9,6 +9,7 @@ export const eventService = {
             const image_url = getPublicImageUrl(event.image_path)
             return {...event, image_url: image_url}
         }) 
+        console.log(eventsWithImages)
         return eventsWithImages as BaseEvent[]
     },
     

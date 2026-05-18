@@ -68,8 +68,8 @@ export default function EventModal({ isOpen, onClose, onSave }: EventModalProps)
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium mb-1">Date & Time *</label>
-              <input required type="datetime-local" name="event_time" value={formData.event_time} onChange={handleChange} className="w-full border rounded p-2" />
+              <label className="block text-sm font-medium mb-1">Date *</label>
+              <input required type="date" name="event_time" value={formData.event_time} onChange={handleChange} className="w-full border rounded p-2" />
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Status</label>

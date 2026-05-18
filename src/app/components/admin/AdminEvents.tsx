@@ -113,7 +113,7 @@ export default function AdminEvents() {
           <thead>
             <tr className="border-b-2 border-gray-200">
               <th className="pb-3 font-semibold">Event Name</th>
-              <th className="pb-3 font-semibold">Date & Time</th>
+              <th className="pb-3 font-semibold">Date</th>
               <th className="pb-3 font-semibold">Status</th>
               <th className="pb-3 font-semibold">Actions</th>
             </tr>
@@ -127,7 +127,6 @@ export default function AdminEvents() {
                 <td className="py-4 text-gray-600">
                   {new Date(event.event_time).toLocaleString("en-US", {
                     dateStyle: "medium",
-                    timeStyle: "short",
                   })}
                 </td>
 
