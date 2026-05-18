@@ -3,11 +3,13 @@
 import React, { useState, useEffect } from "react";
 import { BaseEvent } from "@/model/event"; 
 import EventModal from "./EventModal";
+import { deleteEventAction, createEventAction, updateEventAction } from "@/actions/event.actions";
 
 export default function AdminEvents() {
   const [events, setEvents] = useState<BaseEvent[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingEvent, setEditingEvent] = useState<BaseEvent | null>(null); // For tracking which event is being edited
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -64,17 +66,29 @@ export default function AdminEvents() {
     return <div className="p-8 text-center text-gray-500">Loading events...</div>;
   }
 
-  const handleSaveEvent = async (newEvent: Partial<BaseEvent>) => {
-    // 1. Ideally, here you would do a POST request to '/api/events'
-    // const response = await fetch('/api/events', { method: 'POST', body: JSON.stringify(newEvent) });
-    
-    // 2. For now, we will just simulate it by adding it to our local state!
-    const fakeId = Math.floor(Math.random() * 10000); 
-    setEvents((prev) => [...prev, { ...newEvent, id: fakeId } as BaseEvent]);
-    
-    // 3. Close the modal
-    setIsModalOpen(false);
-  };
+  const handleSaveEvent = async (eventData: Partial<BaseEvent>) => {
+    if (eventData.id) {
+      // This is an update to an existing event
+      const result = await updateEventAction(eventData as BaseEvent);
+
+      if (result.success) {
+        alert("Event updated successfully!");
+        window.location.reload();
+      } else {
+        alert("Failed to update event: " + result.error);
+      }
+    } else {
+      // This is a new event creation
+      const result = await createEventAction(eventData);
+
+      if (result.success) {
+        alert("Event created successfully!");
+        window.location.reload();
+      } else {
+        alert("Failed to create event: " + result.error);
+      }
+    }
+  }
 
   return (
     <div className="p-8">
@@ -129,8 +143,29 @@ export default function AdminEvents() {
                 
                 {/* Action Buttons */}
                 <td className="flex gap-4 py-4">
-                  <button className="text-blue-500 hover:text-blue-700 font-medium">Edit</button>
-                  <button className="text-red-500 hover:text-red-700 font-medium">Delete</button>
+                  <button 
+                    onClick={async () => {
+                      setEditingEvent(event);
+                      setIsModalOpen(true);
+                    }}
+                    className="text-blue-500 hover:text-blue-700 font-medium">
+                    Edit
+                  </button>
+                  <button 
+                    onClick={async () => {
+                      if (window.confirm("Are you sure you want to delete this event?")) {
+                        const result = await deleteEventAction(event);
+                        if (result.success) {
+                          alert("Event deleted successfully!");
+                          setEvents((prev) => prev.filter((e) => e.id !== event.id));
+                        } else {
+                          alert("Failed to delete event from the database: " + result.error);
+                        }
+                      }
+                    }}
+                    className="text-red-500 hover:text-red-700 font-medium">
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
