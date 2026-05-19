@@ -7,7 +7,8 @@ import S from "@/app/resources/strings/constantStrings";
 import { Text, TextMd } from "../common/textComponents";
 import CustomButton from "../common/CustomButton";
 import ColouredContentBox from "../common/ColouredContentBox"
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import SingleEventModal from "./SingleEventModal";
 
 const EventsClient: 
     React.FC<{
@@ -16,9 +17,24 @@ const EventsClient:
 }> = ({ events, eventType }) => {
     const router = useRouter()
     const pathname = usePathname()
+    const searchParams = useSearchParams()
 
     const handleEventTypeChange = (eventType: EventType) => {
         router.push(`${pathname}?type=${eventType}`)
+    }
+
+    const activeEventId = searchParams.get("id")
+
+    const handleOpenEventModal = (id : number) => {
+        const params = new URLSearchParams(searchParams.toString())
+        params.set("id", id.toString())
+        router.push(`${pathname}?${params.toString()}`)
+    }
+
+    const handleCloseEventModal = () => {
+        const params = new URLSearchParams(searchParams.toString())
+        params.delete("id")
+        router.push(`${pathname}?${params.toString()}`)
     }
 
     return (
@@ -37,7 +53,10 @@ const EventsClient:
                     <TextMd>{S.pastEvents}</TextMd>
                 </CustomButton>
             </div>
-            <EventsGrid events={events} activeTab={eventType} />
+            <EventsGrid events={events} activeTab={eventType} onClick={handleOpenEventModal}/>
+            {
+                activeEventId && <SingleEventModal eventId={Number(activeEventId)} onClose={handleCloseEventModal}/>
+            }
         </ColouredContentBox>
     )
 }
@@ -45,7 +64,8 @@ const EventsClient:
 const EventsGrid: React.FC<{
     events: BaseEvent[], 
     activeTab: EventType
-}> = ({ events, activeTab }) => {
+    onClick: (id : number) => void
+}> = ({ events, activeTab, onClick }) => {
     if (events.length === 0) {
         return (
             <div className="text-center py-4">
@@ -61,9 +81,9 @@ const EventsGrid: React.FC<{
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
             {events.map((event, index) => {
                 if (activeTab === EventType.UPCOMING) {
-                    return <UpcomingEventCard key={index} event={event} />
+                    return <UpcomingEventCard key={index} event={event} onClick={onClick}/>
                 } else if (activeTab === EventType.PAST) {
-                    return <PastEventCard key={index} event={event} />
+                    return <PastEventCard key={index} event={event} onClick={onClick}/>
                 }
                 return null
             })}
