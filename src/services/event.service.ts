@@ -36,7 +36,12 @@ export const eventService = {
     },
 
     async getEventById(id: number) : Promise<BaseEvent | null> {
-        return await fetchEventById(id);
+        const event = await fetchEventById(id)
+        if (!event) {
+            return null
+        }
+        const image_url = getPublicImageUrl(event.image_path)
+        return {...event, image_url: image_url};
     },
 
     async updateEventInfo(event: BaseEvent) {

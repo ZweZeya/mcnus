@@ -28,13 +28,13 @@ const EventsClient:
     const handleOpenEventModal = (id : number) => {
         const params = new URLSearchParams(searchParams.toString())
         params.set("id", id.toString())
-        router.push(`${pathname}?${params.toString()}`)
+        router.push(`${pathname}?${params.toString()}`, {scroll : false})
     }
 
     const handleCloseEventModal = () => {
         const params = new URLSearchParams(searchParams.toString())
         params.delete("id")
-        router.push(`${pathname}?${params.toString()}`)
+        router.push(`${pathname}?${params.toString()}`, {scroll : false})
     }
 
     return (
