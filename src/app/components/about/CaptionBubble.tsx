@@ -11,7 +11,7 @@ const CaptionBubble: React.FC<{ caption: string; isVisible: boolean }> = ({ capt
                 border: `1px solid ${black}`,
             }}
             className={clsx(
-                "absolute z-[2] px-1 rounded bottom-[70px] transition-opacity duration-700",
+                "absolute z-2 px-1 rounded bottom-[70px] transition-opacity duration-700",
                 isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
             )}
         >

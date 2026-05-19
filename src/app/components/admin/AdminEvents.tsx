@@ -83,7 +83,7 @@ export default function AdminEvents() {
       />
 
       {/* Events Table */}
-      <div className="bg-white shadow rounded-lg p-4 text-black overflow-x-auto">
+      <div className="bg-white shadow-sm rounded-lg p-4 text-black overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="border-b-2 border-gray-200">
