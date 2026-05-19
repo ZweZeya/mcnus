@@ -29,7 +29,8 @@ const SingleEventModal: React.FC<{ eventId: number, onClose: () => void}> = ({ e
         )
     }
 
-    const isEnabled = isNotEmptyString(event.registration_link)
+    const isRecapEnabled = isNotEmptyString(event.recap_link)
+    const isRegisterEnabled = isNotEmptyString(event.registration_link)
     const isDateTbc = !isValidDate(event.event_time)
     const isImageAvailable = isNotEmptyString(event.image_url)
 
@@ -67,11 +68,19 @@ const SingleEventModal: React.FC<{ eventId: number, onClose: () => void}> = ({ e
                             <div className="flex flex-col gap-3">
                                 <Button
                                     className="mt-auto w-full pt-2 text-white flex items-center justify-center gap-2 p-6 text-lg cursor-pointer font-bold"
-                                    disabled={!isEnabled}
+                                    disabled={!isRegisterEnabled}
                                     onClick={() => handleClick(event.registration_link)}
                                     style={{ backgroundColor: navy }}
                                 >
-                                    {isEnabled ? <>{S.join} <GoLinkExternal size={16} /></> : <>{S.comingSoon}</>}
+                                    <>{S.join} <GoLinkExternal size={16} /></>
+                                </Button>
+                                <Button
+                                    className="mt-auto w-full pt-2 text-white flex items-center justify-center gap-2 p-6 text-lg cursor-pointer font-bold"
+                                    disabled={!isRecapEnabled}
+                                    onClick={() => handleClick(event.recap_link)}
+                                    style={{ backgroundColor: navy }}
+                                >
+                                    <>{S.viewPhotos} <GoLinkExternal size={16} /></>
                                 </Button>
                                 <Button
                                     className="mt-auto w-full pt-2 text-white flex items-center justify-center gap-2 p-6 text-lg cursor-pointer font-bold"
