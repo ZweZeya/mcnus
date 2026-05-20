@@ -9,6 +9,7 @@ import S from "@/app/resources/strings/constantStrings";
 import { formatDate } from "@/utils/dateUtils";
 import { Button } from "@/components/ui/button";
 import { GoLinkExternal } from "react-icons/go";
+import { IoCloseCircle } from "react-icons/io5";
 
 const SingleEventModal: React.FC<{ eventId: number, onClose: () => void}> = ({ eventId, onClose }) => {
     const [event, setEvent] = useState<BaseEvent | null>(null)
@@ -42,8 +43,11 @@ const SingleEventModal: React.FC<{ eventId: number, onClose: () => void}> = ({ e
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
             <div className="absolute inset-0 bg-black/65 flex items-center justify-center">
-                <div className="relative w-full max-w-lg rounded-2xl shadow-2xl z-10 h-[90vh] overflow-hidden" style={{ backgroundColor: grey}}>
-                    <div className="overflow-y-auto h-full w-full p-4 ">
+                <div className="relative w-full max-w-lg rounded-2xl shadow-2xl z-10  h-auto overflow-hidden" style={{ backgroundColor: grey}}>
+                    <div className="absolute top-0 right-0 p-3 z-50">
+                        <IoCloseCircle size={40} onClick={onClose} className="cursor-pointer hover:opacity-100 opacity-30"/>
+                    </div>
+                    <div className="overflow-y-auto max-h-[90vh] w-full p-4 ">
                         <div className="relative w-full pb-[100%]">
                             {isImageAvailable ? 
                                 <Image 
@@ -81,13 +85,6 @@ const SingleEventModal: React.FC<{ eventId: number, onClose: () => void}> = ({ e
                                     style={{ backgroundColor: navy }}
                                 >
                                     <>{S.viewPhotos} <GoLinkExternal size={16} /></>
-                                </Button>
-                                <Button
-                                    className="mt-auto w-full pt-2 text-white flex items-center justify-center gap-2 p-6 text-lg cursor-pointer font-bold"
-                                    onClick={onClose}
-                                    style={{ backgroundColor: navy }}
-                                >
-                                    Close
                                 </Button>
                             </div>
                         </div>
