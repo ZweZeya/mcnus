@@ -9,6 +9,7 @@ import CustomButton from "../common/CustomButton";
 import ColouredContentBox from "../common/ColouredContentBox"
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import SingleEventModal from "./SingleEventModal";
+import { useEffect } from "react";
 
 const EventsClient: 
     React.FC<{
@@ -36,6 +37,18 @@ const EventsClient:
         params.delete("id")
         router.push(`${pathname}?${params.toString()}`, {scroll : false})
     }
+
+    useEffect(() => {
+        if (activeEventId !== null) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [activeEventId]);
 
     return (
         <ColouredContentBox className="w-full text-center">

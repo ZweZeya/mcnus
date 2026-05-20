@@ -41,9 +41,9 @@ const SingleEventModal: React.FC<{ eventId: number, onClose: () => void}> = ({ e
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-            <div className="absolute inset-0 bg-black/65 flex items-center justify-center ">
+            <div className="absolute inset-0 bg-black/65 flex items-center justify-center">
                 <div className="relative w-full max-w-lg rounded-2xl shadow-2xl z-10 h-[90vh] overflow-hidden" style={{ backgroundColor: grey}}>
-                    <div className="overflow-y-auto h-full w-full p-4 scrollbar-track-inherit">
+                    <div className="overflow-y-auto h-full w-full p-4 ">
                         <div className="relative w-full pb-[100%]">
                             {isImageAvailable ? 
                                 <Image 
