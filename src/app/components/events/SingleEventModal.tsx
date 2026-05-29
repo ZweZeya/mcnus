@@ -1,9 +1,8 @@
-import { frangipani, darkerGrey, navy, grey } from "@/app/resources/colors"
+import { darkerGrey, navy, grey } from "@/app/resources/colors"
 import { BaseEvent } from "@/model/event"
 import { eventService } from "@/services/event.service"
 import { useEffect, useState } from "react"
 import { isNotEmptyString, isValidDate } from "@/utils/validators";
-import Loading from "../common/Loading";
 import Image from "next/image";
 import S from "@/app/resources/strings/constantStrings";
 import { formatDate } from "@/utils/dateUtils";
@@ -18,10 +17,9 @@ const SingleEventModal: React.FC<{ eventId: number, onClose: () => void}> = ({ e
         const fetchEventById = async () => {
             const eventBaseEvent = await eventService.getEventById(eventId)
             setEvent(eventBaseEvent)
-            console.log(event)
         }
         fetchEventById()
-    }, [])
+    }, [eventId])
 
 
     if (!event) {
