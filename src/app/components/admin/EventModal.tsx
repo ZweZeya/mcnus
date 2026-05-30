@@ -6,8 +6,7 @@ import { BaseEvent } from "@/model/event";
 interface EventModalProps {
   isOpen: boolean;
   onClose: () => void;
-  // We pass a function to handle what happens when the admin clicks "Save"
-  onSave: (newEvent: Partial<BaseEvent>) => void; 
+  onSave: (newEvent: Partial<BaseEvent>) => void;
 }
 
 export default function EventModal({ isOpen, onClose, onSave }: EventModalProps) {
@@ -20,7 +19,10 @@ export default function EventModal({ isOpen, onClose, onSave }: EventModalProps)
     recap_link: "",
   });
 
-  // If the modal is not open, don't render anything
+  // State for the single image upload
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
   if (!isOpen) return null;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -28,29 +30,38 @@ export default function EventModal({ isOpen, onClose, onSave }: EventModalProps)
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // Handler for capturing the file and creating a preview URL
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      const file = e.target.files[0];
+      setSelectedFile(file);
+      setPreviewUrl(URL.createObjectURL(file));
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Convert the string date back to a Date object before saving
     const newEvent = {
       ...formData,
       event_time: new Date(formData.event_time),
       created_at: new Date(),
+      image_url: previewUrl || "", 
+      image_file: selectedFile || undefined
     };
     
     onSave(newEvent as Partial<BaseEvent>);
     
-    // Reset form after saving
+    // Reset form and image states after saving
     setFormData({
       name: "", description: "", event_time: "", type: "UPCOMING", registration_link: "", recap_link: ""
     });
+    setSelectedFile(null);
+    setPreviewUrl(null);
   };
 
   return (
-    // The dark transparent overlay
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
-      
-      {/* The white modal box */}
       <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl p-6 max-h-[90vh] overflow-y-auto text-black">
         <h2 className="text-2xl font-bold mb-4">Create New Event</h2>
         
@@ -91,9 +102,40 @@ export default function EventModal({ isOpen, onClose, onSave }: EventModalProps)
             </div>
           </div>
 
+          {/* IMAGE UPLOAD FIELD - Inserted right above the action buttons */}
+          <div>
+            <label className="block text-sm font-medium mb-1">Event Image</label>
+            <input 
+              type="file" 
+              accept="image/*" 
+              onChange={handleFileChange} 
+              className="w-full border rounded p-2 bg-white" 
+            />
+            
+            {/* Renders a preview of the image once selected */}
+            {previewUrl && (
+              <div className="mt-3">
+                <p className="text-xs text-gray-500 mb-1">Preview:</p>
+                <img 
+                  src={previewUrl} 
+                  alt="Event Preview" 
+                  className="w-full h-48 object-cover rounded border"
+                />
+              </div>
+            )}
+          </div>
+
           {/* Action Buttons */}
           <div className="flex justify-end gap-3 mt-6 pt-4 border-t">
-            <button type="button" onClick={onClose} className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded transition">
+            <button 
+              type="button" 
+              onClick={() => {
+                setSelectedFile(null);
+                setPreviewUrl(null);
+                onClose();
+              }} 
+              className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded transition"
+            >
               Cancel
             </button>
             <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
