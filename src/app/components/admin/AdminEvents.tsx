@@ -53,7 +53,7 @@ export default function AdminEvents() {
       const formData = new FormData()
 
       formData.append("name", eventData.name)
-      formData.append("description", eventData.description)
+      formData.append("description", eventData.description || "")
       formData.append("event_time", eventData.event_time.toISOString())
       formData.append("type", eventData.type)
       formData.append("registration_link", eventData.registration_link || "")

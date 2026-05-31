@@ -1,7 +1,7 @@
 export interface BaseEvent {
     id: number,
     name: string, 
-    description: string,
+    description: string | null,
     event_time: Date, 
     image_path: string | null, 
     image_url?: string, 

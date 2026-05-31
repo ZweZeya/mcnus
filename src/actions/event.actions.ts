@@ -30,9 +30,9 @@ export async function createEventAction(formData: FormData) {
 
         const newEvent : NewEvent = {
             name: name,
-            description: description,
+            description: description.length == 0 ? null : description,
             event_time: event_time,
-            image_path: image_path,
+            image_path: image_path.length == 0 ? null : image_path,
             registration_link: registration_link || null,
             recap_link: recap_link || null,
             created_at: created_at,
