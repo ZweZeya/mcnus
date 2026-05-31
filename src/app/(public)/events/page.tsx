@@ -33,12 +33,12 @@ export const metadata: Metadata = {
   },
 }
 
-const EventsPage = ({ searchParams }: { searchParams: { type?: string } }) => {
+const EventsPage = ({ searchParams }: { searchParams: { type?: string, page?: string } }) => {
     return (
         <PageLayout>
             <ContentBox title={S.events} content="" />
             <Suspense>
-              <Events type={searchParams.type} />
+              <Events type={searchParams.type} page={searchParams.page} />
             </Suspense>
         </PageLayout>
     )
