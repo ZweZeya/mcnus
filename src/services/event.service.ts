@@ -29,7 +29,7 @@ export const eventService = {
 
             await addEvent(event);
         } catch (error) {
-            throw new Error("Error in eventService.addUpcomingEvent", { cause : error });
+            throw new Error("eventService.addUpcomingEvent failed", { cause : error });
         }
     },
 
@@ -40,7 +40,7 @@ export const eventService = {
                 await deleteImage(event.image_path);
             }
         } catch (error) {
-            throw new Error("Error in eventService.deleteEvent", { cause : error })
+            throw new Error("eventService.deleteEvent failed", { cause : error })
         }
     },
 
@@ -64,7 +64,7 @@ export const eventService = {
             }
             await updateEvent(event);
         } catch (error) {
-            throw new Error("Error in eventService.updateEventInfo", { cause : error })
+            throw new Error("eventService.updateEventInfo failed", { cause : error })
         }
     }
 };
