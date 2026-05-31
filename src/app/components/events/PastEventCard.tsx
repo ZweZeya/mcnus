@@ -17,13 +17,16 @@ const PastEventCard: React.FC<{ event: BaseEvent, onClick: (id : number) => void
          <div className="w-full rounded-xl shadow-md overflow-hidden bg-white text-left flex flex-col hover:scale-105 hover:shadow-xl" onClick={() => onClick(event.id)}>
             {/* Image container with aspect ratio */}
             <div className="relative w-full pb-[100%]">
-                <Image 
-                    src={event.image_url} 
-                    alt={event.name} 
-                    fill 
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover" 
-                />
+                {event.image_url ?
+                    <Image
+                        src={event.image_url || ""}
+                        alt={event.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover"
+                    />:
+                    <ComingSoonImage/>
+                }
             </div>
             <div className="flex flex-col flex-1 p-3 md:p-4">
                 <h2 className="text-sm sm:text-base font-semibold line-clamp-2">{event.name}</h2>
@@ -38,6 +41,16 @@ const PastEventCard: React.FC<{ event: BaseEvent, onClick: (id : number) => void
                 </Button> */}
             </div>
         </div>
+    )
+}
+
+const ComingSoonImage = () => {
+    return (
+       <Image 
+        src="/coming-soon.png" 
+        alt="coming-soon" 
+        fill 
+        className="object-cover" />
     )
 }
 
