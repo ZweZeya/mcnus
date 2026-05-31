@@ -47,7 +47,7 @@ export async function createEventAction(formData: FormData) {
         
         return { success: true };
     } catch (error) {
-        console.error("Action failed:", error);
+        console.error("createEventAction failed", error);
         return { success: false, error: "Failed to create event" };
     }
 };
@@ -57,7 +57,7 @@ export async function deleteEventAction(event: BaseEvent) {
         await eventService.deleteEvent(event);
         return { success: true };
     } catch (error) {
-        console.error("Delete action failed:", error);
+        console.error("deleteEventAction failed", error);
         return { success: false, error: "Failed to delete event" };
     }
 };
@@ -67,7 +67,7 @@ export async function updateEventAction(event: BaseEvent) {
         await eventService.updateEventInfo(event);
         return { success: true };
     } catch (error) {
-        console.error("Update action failed:", error);
+        console.error("updateEventAction failed", error);
         return { success: false, error: "Failed to update event" };
     }
 };
