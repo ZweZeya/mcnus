@@ -23,7 +23,7 @@ export async function createEventAction(formData: FormData) {
 
         const file = formData.get('image_file') as File || null
         if (file && file.size > 0) {
-            const uniqueFilename = `${Date.now()}-${file.name}`
+            const uniqueFilename = `events/${Date.now()}-${file.name}`
             image_path = uniqueFilename
 
         }
@@ -44,8 +44,6 @@ export async function createEventAction(formData: FormData) {
         // Optional but recommended: Tell Next.js to refresh the cached page data
         revalidatePath('/admin/events'); 
         revalidatePath('events')
-
-        console.log("Server action")
         
         return { success: true };
     } catch (error) {

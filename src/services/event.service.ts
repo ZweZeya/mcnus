@@ -5,7 +5,6 @@ import { deleteImage, getPublicImageUrl, updateImage, uploadImage } from '@/stor
 export const eventService = {
     async getEvents(type: string) : Promise<BaseEvent[]> {
         const events = await fetchAllEvents(type);
-        console.log(events)
         const eventsWithImages = events.map(event => {
             let image_url = undefined
 
@@ -29,7 +28,6 @@ export const eventService = {
             }
 
             await addEvent(event);
-            console.log("Service")
         } catch (error) {
             console.error("Error in eventService.addUpcomingEvent:", error);
             throw error;

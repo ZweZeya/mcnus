@@ -59,6 +59,7 @@ export default function AdminEvents() {
       formData.append("registration_link", eventData.registration_link || "")
       formData.append("recap_link", eventData.recap_link || "")
       formData.append("created_at", eventData.created_at.toISOString())
+      formData.append("image_file", eventData.image_file || "")
       
       const result = await createEventAction(formData);
 
