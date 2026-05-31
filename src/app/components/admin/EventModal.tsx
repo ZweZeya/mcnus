@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { BaseEvent } from "@/model/event";
+import { EventType, NewEvent } from "@/model/event";
 
 interface EventModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSave: (newEvent: Partial<BaseEvent>) => void;
+  onSave: (newEvent: NewEvent) => void;
 }
 
 export default function EventModal({ isOpen, onClose, onSave }: EventModalProps) {
@@ -46,15 +46,16 @@ export default function EventModal({ isOpen, onClose, onSave }: EventModalProps)
       ...formData,
       event_time: new Date(formData.event_time),
       created_at: new Date(),
-      image_url: previewUrl || "", 
-      image_file: selectedFile || undefined
+      image_file: selectedFile || undefined,
+      image_path: null,
+      type: formData.type as EventType
     };
     
-    onSave(newEvent as Partial<BaseEvent>);
+    onSave(newEvent);
     
     // Reset form and image states after saving
     setFormData({
-      name: "", description: "", event_time: "", type: "UPCOMING", registration_link: "", recap_link: ""
+      name: "", description: "", event_time: "", type: "upcoming", registration_link: "", recap_link: ""
     });
     setSelectedFile(null);
     setPreviewUrl(null);
@@ -85,8 +86,8 @@ export default function EventModal({ isOpen, onClose, onSave }: EventModalProps)
             <div>
               <label className="block text-sm font-medium mb-1">Status</label>
               <select name="type" value={formData.type} onChange={handleChange} className="w-full border rounded p-2 bg-white">
-                <option value="UPCOMING">Upcoming</option>
-                <option value="PAST">Past</option>
+                <option value="upcoming">Upcoming</option>
+                <option value="past">Past</option>
               </select>
             </div>
           </div>

@@ -1,15 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { BaseEvent } from "@/model/event";
+import { BaseEvent, NewEvent } from "@/model/event";
 import EventModal from "./EventModal";
 import { deleteEventAction, createEventAction, updateEventAction } from "@/actions/event.actions";
 import { eventService } from "@/services/event.service";
-import { useRouter } from "next/navigation";
 
 export default function AdminEvents() {
-  const router = useRouter()
-  
   const [events, setEvents] = useState<BaseEvent[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -40,8 +37,8 @@ export default function AdminEvents() {
     return <div className="p-8 text-center text-gray-500">Loading events...</div>;
   }
 
-  const handleSaveEvent = async (eventData: Partial<BaseEvent>) => {
-    if (eventData.id) {
+  const handleSaveEvent = async (eventData: BaseEvent | NewEvent) => {
+    if ('id' in eventData) {
       // This is an update to an existing event
       const result = await updateEventAction(eventData as BaseEvent);
 
@@ -53,11 +50,20 @@ export default function AdminEvents() {
       }
     } else {
       // This is a new event creation
-      const result = await createEventAction(eventData);
+      const formData = new FormData()
+
+      formData.append("name", eventData.name)
+      formData.append("description", eventData.description)
+      formData.append("event_time", eventData.event_time.toISOString())
+      formData.append("type", eventData.type)
+      formData.append("registration_link", eventData.registration_link || "")
+      formData.append("recap_link", eventData.recap_link || "")
+      formData.append("created_at", eventData.created_at.toISOString())
+      
+      const result = await createEventAction(formData);
 
       if (result.success) {
         alert("Event created successfully!");
-        window.location.reload();
       } else {
         alert("Failed to create event: " + result.error);
       }
@@ -146,7 +152,7 @@ export default function AdminEvents() {
             {events.length === 0 && (
               <tr>
                 <td colSpan={4} className="py-8 text-center text-gray-500">
-                  No events found. Click "+ Create New Event" to add one.
+                  No events found. Click `&quot;` + Create New Event `&quot;` to add one.
                 </td>
               </tr>
             )}

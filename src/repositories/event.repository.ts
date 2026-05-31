@@ -1,5 +1,5 @@
 import { supabase } from "@/lib/supabase";
-import { BaseEvent } from "@/model/event";
+import { BaseEvent, NewEvent } from "@/model/event";
 
 export const fetchAllEvents = async (type: string): Promise<BaseEvent[]> => {
     const { data } = await supabase
@@ -19,16 +19,24 @@ export const fetchAllEvents = async (type: string): Promise<BaseEvent[]> => {
     return data as BaseEvent[]
 }
 
-export const addEvent = async (event: BaseEvent) => {
-    await supabase
+export const addEvent = async (event: NewEvent) => {
+    const { error } = await supabase
         .from('events')
         .insert({
-            name: event.name, 
+            name: event.name,
             description: event.description,
-            event_time: event.event_time, 
-            image_path: event.image_path, 
+            event_time: event.event_time,
+            image_path: event.image_path,
             registration_link: event.registration_link,
+            event_type: event.type,
+            created_at: event.created_at,
+            recap_link: event.recap_link
         });
+    
+    if (error) {
+        console.log("Error adding event to supabase:", error)
+        throw new Error(`Supabase event insertion failed ${error}`)
+    }
 }
 
 export const fetchEventById = async (id: number) : Promise<BaseEvent | null> => {

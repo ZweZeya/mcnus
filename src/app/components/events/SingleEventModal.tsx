@@ -33,8 +33,10 @@ const SingleEventModal: React.FC<{ eventId: number, onClose: () => void}> = ({ e
     const isDateTbc = !isValidDate(event.event_time)
     const isImageAvailable = isNotEmptyString(event.image_url)
 
-    const handleClick = (link: string) => {
-        window.open(link, "_blank")
+    const handleClick = (link: string | null) => {
+        if (link) {
+            window.open(link, "_blank")
+        }
     }
 
 
@@ -49,7 +51,7 @@ const SingleEventModal: React.FC<{ eventId: number, onClose: () => void}> = ({ e
                         <div className="relative w-full pb-[100%]">
                             {isImageAvailable ? 
                                 <Image 
-                                    src={event.image_url} 
+                                    src={event.image_url || ""} 
                                     alt={event.name} 
                                     fill 
                                     loading="eager"

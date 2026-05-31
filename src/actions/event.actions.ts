@@ -1,16 +1,51 @@
 "use server"
 
 import { eventService } from "@/services/event.service";
-import { BaseEvent } from "@/model/event";
+import { BaseEvent, EventType, isEventType, NewEvent } from "@/model/event";
+import { revalidatePath } from "next/cache";
 
-export async function createEventAction(formData: FormData | Partial<BaseEvent>) {
+export async function createEventAction(formData: FormData) {
     try {
-        // Here, you extract the data from the frontend and pass it to your service.
-        // Assuming the frontend passes a formatted object for now:
-        await eventService.addUpcomingEvent(formData as BaseEvent);
+        // Extract fields from form data to create a BaseEvent object
+        const name = formData.get('name') as string
+        const description = formData.get('description') as string
+        const event_time = new Date(formData.get('event_time') as string) 
+        const type = (formData.get('type') as string).toLowerCase()
+
+        if (!isEventType(type)) {
+            throw new Error('Invalid event type')
+        }
+
+        const registration_link = formData.get('registration_link') as string
+        const recap_link = formData.get('recap_link') as string
+        const created_at = new Date(formData.get('created_at') as string)
+        let image_path = ''
+
+        const file = formData.get('image_file') as File || null
+        if (file && file.size > 0) {
+            const uniqueFilename = `${Date.now()}-${file.name}`
+            image_path = uniqueFilename
+
+        }
+
+        const newEvent : NewEvent = {
+            name: name,
+            description: description,
+            event_time: event_time,
+            image_path: image_path,
+            registration_link: registration_link || null,
+            recap_link: recap_link || null,
+            created_at: created_at,
+            type: type as EventType,
+            image_file: file 
+        }
+        await eventService.addUpcomingEvent(newEvent);
         
         // Optional but recommended: Tell Next.js to refresh the cached page data
-        // revalidatePath('/admin/events'); 
+        revalidatePath('/admin/events'); 
+        revalidatePath('events')
+
+        console.log("Server action")
         
         return { success: true };
     } catch (error) {
