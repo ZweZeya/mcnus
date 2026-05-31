@@ -34,8 +34,7 @@ export const addEvent = async (event: NewEvent) => {
         });
     
     if (error) {
-        console.log("Error adding event to supabase:", error)
-        throw new Error(`Supabase event insertion failed ${error}`)
+        throw new Error("Supabase event insertion failed", { cause : error })
     }
 }
 
@@ -51,21 +50,29 @@ export const fetchEventById = async (id: number) : Promise<BaseEvent | null> => 
 }
 
 export const deleteEventById = async (id: number) => {
-    await supabase  
+    const { error } = await supabase
         .from('events')
         .delete()
         .eq('id', id);
+    
+    if (error) {
+        throw new Error("Supabase event deletion failed", { cause : error })
+    }
 }
 
 export const updateEvent = async (event: BaseEvent) => {
-    await supabase
+    const { error } = await supabase
         .from('events')
         .update({
-            name: event.name, 
+            name: event.name,
             description: event.description,
-            event_time: event.event_time, 
-            image_path: event.image_path, 
+            event_time: event.event_time,
+            image_path: event.image_path,
             registration_link: event.registration_link,
         })
         .eq('id', event.id);
+
+    if (error) {
+        throw new Error("Supabase event update failed", { cause: error })
+    }
 }
