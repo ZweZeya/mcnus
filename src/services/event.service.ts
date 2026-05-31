@@ -29,15 +29,18 @@ export const eventService = {
 
             await addEvent(event);
         } catch (error) {
-            console.error("Error in eventService.addUpcomingEvent:", error);
-            throw error;
+            throw new Error("Error in eventService.addUpcomingEvent", { cause : error });
         }
     },
 
     async deleteEvent(event: BaseEvent) {
-        await deleteEventById(event.id);
-        if (event.image_path) {
-            await deleteImage(event.image_path);
+        try {
+            await deleteEventById(event.id);
+            if (event.image_path) {
+                await deleteImage(event.image_path);
+            }
+        } catch (error) {
+            throw new Error("Error in eventService.deleteEvent", { cause : error })
         }
     },
 
@@ -55,9 +58,13 @@ export const eventService = {
     },
 
     async updateEventInfo(event: BaseEvent) {
-        if (event.image_file && event.image_path) {
-            await updateImage(event.image_path, event.image_file);
+        try {
+            if (event.image_file && event.image_path) {
+                await updateImage(event.image_path, event.image_file);
+            }
+            await updateEvent(event);
+        } catch (error) {
+            throw new Error("Error in eventService.updateEventInfo", { cause : error })
         }
-        await updateEvent(event);
     }
 };
