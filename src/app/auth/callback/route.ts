@@ -8,7 +8,7 @@ export async function GET(request: Request) {
   const next = searchParams.get('next') ?? '/admin'
 
   if (code) {
-    const cookieStore = cookies()
+    const cookieStore = await cookies()
     
     // The variables here must match your .env.local exactly
     const supabase = createServerClient(

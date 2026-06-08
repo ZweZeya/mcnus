@@ -9,9 +9,9 @@ import S from "@/app/resources/strings/constantStrings";
 import { isNotEmptyString, isValidDate } from "@/utils/validators";
 
 const UpcomingEventCard: React.FC<{ event: BaseEvent }> = ({ event }) => {
-    const isEnabled = isNotEmptyString(event.link)
-    const isDateTbc = !isValidDate(event.date)
-    const isImageAvailable = isNotEmptyString(event.image)
+    const isEnabled = isNotEmptyString(event.registration_link)
+    const isDateTbc = !isValidDate(event.event_time)
+    const isImageAvailable = isNotEmptyString(event.image_url)
 
     const handleClick = (link: string) => {
         window.open(link, "_blank")
@@ -23,7 +23,7 @@ const UpcomingEventCard: React.FC<{ event: BaseEvent }> = ({ event }) => {
             <div className="relative w-full pb-[100%]">
                 {isImageAvailable ? 
                     <Image 
-                        src={event.image} 
+                        src={event.image_url} 
                         alt={event.name} 
                         fill 
                         className="object-cover" /> :
@@ -32,11 +32,11 @@ const UpcomingEventCard: React.FC<{ event: BaseEvent }> = ({ event }) => {
             </div>
             <div className="flex flex-col flex-1 p-3 md:p-4">
                 <h2 className="text-sm sm:text-base font-semibold line-clamp-2">{event.name}</h2>
-                <TextSm style={{color: darkerGrey}} className="mt-1 mb-4">{isDateTbc ? S.dateToBeConfirmed : formatDate(event.date)}</TextSm>
+                <TextSm style={{color: darkerGrey}} className="mt-1 mb-4">{isDateTbc ? S.dateToBeConfirmed : formatDate(event.event_time)}</TextSm>
                 <Button 
                     className="mt-auto w-full pt-2 text-white flex items-center justify-center gap-2" 
                     disabled={!isEnabled} 
-                    onClick={() => handleClick(event.link)} 
+                    onClick={() => handleClick(event.registration_link)} 
                     style={{backgroundColor: navy}}
                 >
                     {isEnabled ? <>{S.join} <GoLinkExternal size={16} /></> : <>{S.comingSoon}</>}
