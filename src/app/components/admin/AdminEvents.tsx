@@ -8,6 +8,7 @@ export default function AdminEvents() {
   const [events, setEvents] = useState<BaseEvent[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingEvent, setEditingEvent] = useState<BaseEvent | null>(null);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -59,22 +60,33 @@ export default function AdminEvents() {
     fetchEvents();
   }, []);
 
+  const handleSaveEvent = async (savedEventData: Partial<BaseEvent>) => {
+    if (editingEvent) {
+      setEvents((prev) => 
+        prev.map((evt) => (evt.id === editingEvent.id ? { ...evt, ...savedEventData } as BaseEvent : evt))
+      );
+    } else {
+      const fakeId = Math.floor(Math.random() * 10000); 
+      setEvents((prev) => [...prev, { ...savedEventData, id: fakeId, created_at: new Date() } as BaseEvent]);
+    }
+    setIsModalOpen(false);
+    setEditingEvent(null); 
+  };
+
+  const handleEditClick = (event: BaseEvent) => {
+    setEditingEvent(event);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setEditingEvent(null);
+  };
+
   // Show a loading message while we wait for the data
   if (isLoading) {
     return <div className="p-8 text-center text-gray-500">Loading events...</div>;
   }
-
-  const handleSaveEvent = async (newEvent: Partial<BaseEvent>) => {
-    // 1. Ideally, here you would do a POST request to '/api/events'
-    // const response = await fetch('/api/events', { method: 'POST', body: JSON.stringify(newEvent) });
-    
-    // 2. For now, we will just simulate it by adding it to our local state!
-    const fakeId = Math.floor(Math.random() * 10000); 
-    setEvents((prev) => [...prev, { ...newEvent, id: fakeId } as BaseEvent]);
-    
-    // 3. Close the modal
-    setIsModalOpen(false);
-  };
 
   return (
     <div className="p-8">
@@ -90,8 +102,9 @@ export default function AdminEvents() {
 
       <EventModal 
         isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+        onClose={handleCloseModal} 
         onSave={handleSaveEvent} 
+        eventToEdit={editingEvent}
       />
 
       {/* Events Table */}
@@ -129,7 +142,12 @@ export default function AdminEvents() {
                 
                 {/* Action Buttons */}
                 <td className="flex gap-4 py-4">
-                  <button className="text-blue-500 hover:text-blue-700 font-medium">Edit</button>
+                  <button 
+                    onClick={() => handleEditClick(event)}
+                    className="text-blue-500 hover:text-blue-700 font-medium"
+                  >
+                    Edit
+                  </button>
                   <button className="text-red-500 hover:text-red-700 font-medium">Delete</button>
                 </td>
               </tr>
