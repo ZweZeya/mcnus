@@ -3,8 +3,6 @@
 import { createBrowserClient } from '@supabase/ssr'
 
 export default function AdminLoginPage() {
-  console.log("Checking URL:", process.env.NEXT_PUBLIC_SUPABASE_URL)
-  // Initialize the Supabase client using your environment variables
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!

@@ -10,7 +10,6 @@ export async function GET(request: Request) {
   if (code) {
     const cookieStore = await cookies()
     
-    // The variables here must match your .env.local exactly
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
@@ -34,7 +33,7 @@ export async function GET(request: Request) {
     if (data?.session?.user?.email) {
       const userEmail = data.session.user.email
       
-      const isAuthorized = userEmail === 'nus.myanmarcommunity@gmail.com' 
+      const isAuthorized = userEmail === process.env.ADMIN_EMAIL 
       
       if (!isAuthorized) {
         await supabase.auth.signOut()
