@@ -10,18 +10,26 @@ import ColouredContentBox from "../common/ColouredContentBox"
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import SingleEventModal from "./SingleEventModal";
 import { useEffect } from "react";
+import { EventsData } from "@/services/event.service";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 
 const EventsClient: 
     React.FC<{
-        events: BaseEvent[], 
+        data: EventsData, 
         eventType: EventType
-}> = ({ events, eventType }) => {
+}> = ({ data, eventType }) => {
     const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()
 
-    const handleEventTypeChange = (eventType: EventType) => {
-        router.push(`${pathname}?type=${eventType}`)
+    const handleEventTypeChange = (newEventType: EventType) => {
+        router.push(`${pathname}?type=${newEventType}`)
+    }
+
+    const handlePageChange = (direction: number) => {
+        const newFirstPage = data.firstPage + direction * data.pageSize;
+        if (newFirstPage < 0 || newFirstPage >= data.totalCount) return;
+        router.push(`${pathname}?type=${eventType}&page=${data.index + direction}`)
     }
 
     const activeEventId = searchParams.get("id")
@@ -52,21 +60,34 @@ const EventsClient:
 
     return (
         <ColouredContentBox className="w-full text-center">
-            <div className="flex gap-4 my-4">
-                <CustomButton
-                    isSelected={eventType == EventType.UPCOMING}
-                    onClick={() => handleEventTypeChange(EventType.UPCOMING)}
-                >
-                    <TextMd>{S.upcomingEvents}</TextMd>
-                </CustomButton>
-                <CustomButton
-                    isSelected={eventType == EventType.PAST}
-                    onClick={() => handleEventTypeChange(EventType.PAST)}
-                >
-                    <TextMd>{S.pastEvents}</TextMd>
-                </CustomButton>
+            <div className="flex justify-between items-center my-4">
+                <div className="flex gap-4">
+                    <CustomButton
+                        isSelected={eventType == EventType.UPCOMING}
+                        onClick={() => handleEventTypeChange(EventType.UPCOMING)}
+                    >
+                        <TextMd>{S.upcomingEvents}</TextMd>
+                    </CustomButton>
+
+                    <CustomButton
+                        isSelected={eventType == EventType.PAST}
+                        onClick={() => handleEventTypeChange(EventType.PAST)}
+                    >
+                        <TextMd>{S.pastEvents}</TextMd>
+                    </CustomButton>
+                </div>
+
+                <div className="flex gap-2">
+                    <CustomButton onClick={() => handlePageChange(-1)}>
+                        <FaChevronLeft size={20} />
+                    </CustomButton>
+
+                    <CustomButton onClick={() => handlePageChange(1)}>
+                        <FaChevronRight size={20} />
+                    </CustomButton>
+                </div>
             </div>
-            <EventsGrid events={events} activeTab={eventType} onClick={handleOpenEventModal}/>
+            <EventsGrid events={data.events} activeTab={eventType} onClick={handleOpenEventModal}/>
             {
                 activeEventId && <SingleEventModal eventId={Number(activeEventId)} onClose={handleCloseEventModal}/>
             }

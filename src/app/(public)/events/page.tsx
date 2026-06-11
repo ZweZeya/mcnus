@@ -33,15 +33,19 @@ export const metadata: Metadata = {
   },
 }
 
+
 const EventsPage = async ({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) => {
-    const { type } = await searchParams
+    const { type, page } = await searchParams
     const eventTypeParam = Array.isArray(type) ? type[0] : type;
+    const eventPageParam = Array.isArray(page) ? page[0] : page
 
     return (
         <PageLayout>
             <ContentBox title={S.events} content="" />
             <Suspense>
-              <Events type={eventTypeParam} />
+
+              <Events type={eventTypeParam} page={eventPageParam}/>
+
             </Suspense>
         </PageLayout>
     )

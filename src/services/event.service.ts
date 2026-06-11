@@ -1,6 +1,14 @@
 import { BaseEvent, NewEvent } from '@/model/event';
-import { fetchAllEvents, fetchEventById, addEvent, updateEvent, deleteEventById } from '@/repositories/event.repository';
+import { fetchAllEvents, fetchEventById, addEvent, updateEvent, deleteEventById, fetchNEvents } from '@/repositories/event.repository';
 import { deleteImage, getPublicImageUrl, updateImage, uploadImage } from '@/storage/image-storage';
+
+export type EventsData = {
+    events: BaseEvent[],
+    firstPage: number, 
+    pageSize: number,
+    totalCount: number,
+    index: number
+}
 
 export const eventService = {
     async getEvents(type: string) : Promise<BaseEvent[]> {
@@ -66,5 +74,19 @@ export const eventService = {
         } catch (error) {
             throw new Error("eventService.updateEventInfo failed", { cause : error })
         }
+    },
+
+    async getNEvents(type: string, index: number): Promise<EventsData> {
+        const eventsData = await fetchNEvents(type, index);
+        eventsData.events = eventsData.events.map(event => {
+            let image_url = undefined
+
+            if (event.image_path) {
+                image_url = getPublicImageUrl(event.image_path)
+            }
+    
+            return {...event, image_url: image_url}
+        }) 
+        return eventsData
     }
 };

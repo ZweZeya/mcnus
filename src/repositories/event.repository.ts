@@ -1,5 +1,8 @@
 import { supabase } from "@/lib/supabase";
 import { BaseEvent, NewEvent } from "@/model/event";
+import { EventsData } from "@/services/event.service";
+
+const PAGE_SIZE = 8;
 
 export const fetchAllEvents = async (type: string): Promise<BaseEvent[]> => {
     const { data } = await supabase
@@ -22,7 +25,7 @@ export const fetchAllEvents = async (type: string): Promise<BaseEvent[]> => {
 export const addEvent = async (event: NewEvent) => {
     const { error } = await supabase
         .from('events')
-        .insert({
+        .upsert({
             name: event.name,
             description: event.description,
             event_time: event.event_time,
@@ -75,4 +78,30 @@ export const updateEvent = async (event: BaseEvent) => {
     if (error) {
         throw new Error("Supabase event update failed", { cause: error })
     }
+}
+
+export const fetchNEvents = async (type: string, index: number): Promise<EventsData> => {
+    const { data: events } = await supabase
+        .from('events')
+        .select()
+        .eq('event_type', type)
+        .order('event_time', { ascending: false})
+        .range(index * PAGE_SIZE, (index + 1) * PAGE_SIZE - 1);
+
+    const { count: totalCount, error } = await supabase
+        .from('events')
+        .select('*', { count: 'exact', head: true })
+        .eq('event_type', type);
+
+    if (error) {
+        throw new Error("Supabase event fetch failed", { cause : error });
+    }
+
+    return {
+        events: events ?? [],
+        totalCount: totalCount ?? 0,
+        pageSize: PAGE_SIZE,
+        firstPage: index * PAGE_SIZE,
+        index: index
+    } as EventsData;
 }
