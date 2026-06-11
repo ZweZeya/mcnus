@@ -11,7 +11,8 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import SingleEventModal from "./SingleEventModal";
 import { useEffect } from "react";
 import { EventsData } from "@/services/event.service";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
+import { FaChevronLeft} from "react-icons/fa6"
+import { FaChevronRight } from "react-icons/fa6"
 
 const EventsClient: 
     React.FC<{
