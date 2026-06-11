@@ -10,7 +10,7 @@ export default function AdminEvents() {
   const [events, setEvents] = useState<BaseEvent[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingEvent, setEditingEvent] = useState<BaseEvent | null>(null); // For tracking which event is being edited
+  const [editingEvent, setEditingEvent] = useState<BaseEvent | null>(null);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -31,6 +31,16 @@ export default function AdminEvents() {
 
     fetchEvents();
   }, []);
+
+  const handleEditClick = (event: BaseEvent) => {
+    setEditingEvent(event);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setEditingEvent(null);
+  };
 
   // Show a loading message while we wait for the data
   if (isLoading) {
@@ -83,10 +93,11 @@ export default function AdminEvents() {
         + Create New Event
       </button>
 
-      <EventModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onSave={handleSaveEvent}
+      <EventModal 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal} 
+        onSave={handleSaveEvent} 
+        eventToEdit={editingEvent}
       />
 
       {/* Events Table */}
@@ -145,6 +156,13 @@ export default function AdminEvents() {
                     className="text-red-500 hover:text-red-700 font-medium">
                     Delete
                   </button>
+                  <button 
+                    onClick={() => handleEditClick(event)}
+                    className="text-blue-500 hover:text-blue-700 font-medium"
+                  >
+                    Edit
+                  </button>
+                  <button className="text-red-500 hover:text-red-700 font-medium">Delete</button>
                 </td>
               </tr>
             ))}

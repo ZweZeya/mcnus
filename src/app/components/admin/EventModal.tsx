@@ -1,27 +1,51 @@
 "use client";
 
-import React, { useState } from "react";
-import { EventType, NewEvent } from "@/model/event";
+import React, { useState, useEffect } from "react";
+import { EventType, NewEvent, BaseEvent } from "@/model/event";
 
 interface EventModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSave: (newEvent: NewEvent) => void;
+  eventToEdit: BaseEvent | null
 }
 
-export default function EventModal({ isOpen, onClose, onSave }: EventModalProps) {
-  const [formData, setFormData] = useState({
+export default function EventModal({ isOpen, onClose, onSave, eventToEdit }: EventModalProps) {
+  const defaultForm = {
     name: "",
     description: "",
     event_time: "",
     type: "UPCOMING",
     registration_link: "",
     recap_link: "",
-  });
+  };
 
   // State for the single image upload
+  const [formData, setFormData] = useState(defaultForm);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (isOpen && eventToEdit) {
+      const eventDate = new Date(eventToEdit.event_time);
+      eventDate.setMinutes(eventDate.getMinutes() - eventDate.getTimezoneOffset()); // Adjust for local time
+      const formattedDate = eventDate.toISOString().slice(0, 16);
+
+      setFormData({
+        name: eventToEdit.name,
+        description: eventToEdit.description || "",
+        event_time: formattedDate,
+        type: String(eventToEdit.type),
+        registration_link: eventToEdit.registration_link || "",
+        recap_link: eventToEdit.recap_link || "",
+      });
+      setPreviewUrl(eventToEdit.image_url || null);
+    } else if (isOpen && !eventToEdit) {
+      setFormData(defaultForm);
+      setPreviewUrl(null);
+      setSelectedFile(null);
+    }
+  }, [isOpen, eventToEdit]);
 
   if (!isOpen) return null;
 
@@ -30,7 +54,6 @@ export default function EventModal({ isOpen, onClose, onSave }: EventModalProps)
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handler for capturing the file and creating a preview URL
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0];
