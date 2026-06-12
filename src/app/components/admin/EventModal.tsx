@@ -29,7 +29,7 @@ export default function EventModal({ isOpen, onClose, onSave, eventToEdit }: Eve
     if (isOpen && eventToEdit) {
       const eventDate = new Date(eventToEdit.event_time);
       eventDate.setMinutes(eventDate.getMinutes() - eventDate.getTimezoneOffset()); // Adjust for local time
-      const formattedDate = eventDate.toISOString().slice(0, 16);
+      const formattedDate = eventDate.toISOString().slice(0, 10);
 
       setFormData({
         name: eventToEdit.name,

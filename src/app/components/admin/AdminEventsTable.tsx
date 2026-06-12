@@ -51,6 +51,7 @@ export default function AdminEventsTable({ initialEvents } : { initialEvents : B
         alert("Failed to create event: " + result.error);
       }
     }
+    setIsModalOpen(false)
   }
 
   return (
