@@ -1,5 +1,6 @@
 import { BaseEvent, NewEvent } from "@/model/event";
-import { addEvent, deleteEventById } from "@/repositories/event.serverRepository";
+import { addEvent, deleteEventById, updateEvent } from "@/repositories/event.server.repository";
+import { uploadImage, deleteImage } from "@/storage/image-storage.server";
 
 export type EventsData = {
     events: BaseEvent[],
@@ -15,9 +16,11 @@ export const eventServerService = {
                 if (!event.name) {
                     throw new Error("Event name is required");
                 }
+
+                console.log(event.image_path)
     
-                if (event.image_path && event.image_file) {
-                    await uploadImage(event.image_path, event.image_file);
+                if (event.image_path && event.image_buffer && event.image_mime) {
+                    await uploadImage(event.image_path, event.image_buffer, event.image_mime);
                 }
     
                 await addEvent(event);
@@ -39,8 +42,8 @@ export const eventServerService = {
 
         async updateEventInfo(event: BaseEvent) {
             try {
-                if (event.image_file && event.image_path) {
-                    await updateImage(event.image_path, event.image_file);
+                if (event.image_buffer && event.image_path && event.image_mime) {
+                    await uploadImage(event.image_path, event.image_buffer, event.image_mime);
                 }
                 await updateEvent(event);
             } catch (error) {

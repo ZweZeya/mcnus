@@ -9,7 +9,9 @@ export interface BaseEvent {
     recap_link: string | null,
     created_at: Date,
     type: EventType,
-    image_file?: File
+    image_file?: File,
+    image_buffer?: Buffer; 
+    image_mime?: string;
 }
 
 export enum EventType {

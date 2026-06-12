@@ -1,4 +1,4 @@
-import { eventService } from "@/services/event.service"
+import { eventService } from "@/services/event.client.service"
 import AdminEventsTable from "./AdminEventsTable"
 
 

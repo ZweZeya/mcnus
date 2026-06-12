@@ -1,6 +1,6 @@
 import { darkerGrey, navy, grey } from "@/app/resources/colors"
 import { BaseEvent } from "@/model/event"
-import { eventService } from "@/services/event.service"
+import { eventService } from "@/services/event.client.service"
 import { useEffect, useState } from "react"
 import { isNotEmptyString, isValidDate } from "@/utils/validators";
 import Image from "next/image";

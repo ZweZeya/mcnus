@@ -1,5 +1,5 @@
 import { EventType, isEventType } from "@/model/event";
-import { eventService } from "@/services/event.service";
+import { eventService } from "@/services/event.client.service";
 import EventsClient from "./EventsClient";
 
 const Events = async ({ type, page }: { type?: string, page?: string }) => {

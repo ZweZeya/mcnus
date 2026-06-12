@@ -1,6 +1,6 @@
 "use server"
 
-import { eventServerService } from "@/services/event.serverService";
+import { eventServerService } from "@/services/event.server.service";
 import { BaseEvent, EventType, isEventType, NewEvent } from "@/model/event";
 import { revalidatePath } from "next/cache";
 
@@ -20,13 +20,21 @@ export async function createEventAction(formData: FormData) {
         const recap_link = formData.get('recap_link') as string
         const created_at = new Date(formData.get('created_at') as string)
         let image_path = ''
+        let buffer : Buffer | undefined
+        let mimeType : string | undefined
 
         const file = formData.get('image_file') as File || null
         if (file && file.size > 0) {
             const uniqueFilename = `events/${Date.now()}-${file.name}`
             image_path = uniqueFilename
 
+            const arrayBuffer = await file.arrayBuffer();
+            buffer = Buffer.from(arrayBuffer);
+
+            mimeType = file.type
+
         }
+        console.log(image_path)
 
         const newEvent : NewEvent = {
             name: name,
@@ -37,11 +45,12 @@ export async function createEventAction(formData: FormData) {
             recap_link: recap_link || null,
             created_at: created_at,
             type: type as EventType,
-            image_file: file 
+            image_file: file,
+            image_buffer: buffer,
+            image_mime: mimeType
         }
         await eventServerService.addUpcomingEvent(newEvent);
-        
-        // Optional but recommended: Tell Next.js to refresh the cached page data
+
         revalidatePath('/admin/events'); 
         revalidatePath('events')
         
