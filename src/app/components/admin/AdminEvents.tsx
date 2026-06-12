@@ -8,8 +8,6 @@ export default async function AdminEvents() {
     const results = await Promise.all(promises)
     const eventData = results.flat()
 
-    console.log(eventData)
-
     return (
         <AdminEventsTable initialEvents={eventData}/>
     )

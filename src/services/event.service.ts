@@ -25,32 +25,32 @@ export const eventService = {
     },
     
     
-    async addUpcomingEvent(event: NewEvent) {
-        try {
-            if (!event.name) {
-                throw new Error("Event name is required");
-            }
+    // async addUpcomingEvent(event: NewEvent) {
+    //     try {
+    //         if (!event.name) {
+    //             throw new Error("Event name is required");
+    //         }
 
-            if (event.image_path && event.image_file) {
-                await uploadImage(event.image_path, event.image_file);
-            }
+    //         if (event.image_path && event.image_file) {
+    //             await uploadImage(event.image_path, event.image_file);
+    //         }
 
-            await addEvent(event);
-        } catch (error) {
-            throw new Error("eventService.addUpcomingEvent failed", { cause : error });
-        }
-    },
+    //         await addEvent(event);
+    //     } catch (error) {
+    //         throw new Error("eventService.addUpcomingEvent failed", { cause : error });
+    //     }
+    // },
 
-    async deleteEvent(event: BaseEvent) {
-        try {
-            await deleteEventById(event.id);
-            if (event.image_path) {
-                await deleteImage(event.image_path);
-            }
-        } catch (error) {
-            throw new Error("eventService.deleteEvent failed", { cause : error })
-        }
-    },
+    // async deleteEvent(event: BaseEvent) {
+    //     try {
+    //         await deleteEventById(event.id);
+    //         if (event.image_path) {
+    //             await deleteImage(event.image_path);
+    //         }
+    //     } catch (error) {
+    //         throw new Error("eventService.deleteEvent failed", { cause : error })
+    //     }
+    // },
 
     async getEventById(id: number) : Promise<BaseEvent | null> {
         const event = await fetchEventById(id)
@@ -65,16 +65,16 @@ export const eventService = {
         return {...event, image_url: image_url};
     },
 
-    async updateEventInfo(event: BaseEvent) {
-        try {
-            if (event.image_file && event.image_path) {
-                await updateImage(event.image_path, event.image_file);
-            }
-            await updateEvent(event);
-        } catch (error) {
-            throw new Error("eventService.updateEventInfo failed", { cause : error })
-        }
-    },
+    // async updateEventInfo(event: BaseEvent) {
+    //     try {
+    //         if (event.image_file && event.image_path) {
+    //             await updateImage(event.image_path, event.image_file);
+    //         }
+    //         await updateEvent(event);
+    //     } catch (error) {
+    //         throw new Error("eventService.updateEventInfo failed", { cause : error })
+    //     }
+    // },
 
     async getNEvents(type: string, index: number): Promise<EventsData> {
         const eventsData = await fetchNEvents(type, index);

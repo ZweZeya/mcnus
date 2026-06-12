@@ -22,24 +22,27 @@ export const fetchAllEvents = async (type: string): Promise<BaseEvent[]> => {
     return data as BaseEvent[]
 }
 
-export const addEvent = async (event: NewEvent) => {
-    const { error } = await supabase
-        .from('events')
-        .upsert({
-            name: event.name,
-            description: event.description,
-            event_time: event.event_time,
-            image_path: event.image_path,
-            registration_link: event.registration_link,
-            event_type: event.type,
-            created_at: event.created_at,
-            recap_link: event.recap_link
-        });
+// export const addEvent = async (event: NewEvent) => {
+//     const { createClient } = await import("@/lib/server/supabaseServer");
+//     const client = await createClient();
+
+//     const { error } = await client
+//         .from('events')
+//         .upsert({
+//             name: event.name,
+//             description: event.description,
+//             event_time: event.event_time,
+//             image_path: event.image_path,
+//             registration_link: event.registration_link,
+//             event_type: event.type,
+//             created_at: event.created_at,
+//             recap_link: event.recap_link
+//         });
     
-    if (error) {
-        throw new Error("Supabase event insertion failed", { cause : error })
-    }
-}
+//     if (error) {
+//         throw new Error("Supabase event insertion failed", { cause : error })
+//     }
+// }
 
 export const fetchEventById = async (id: number) : Promise<BaseEvent | null> => {
     const { data } = await supabase
@@ -52,33 +55,39 @@ export const fetchEventById = async (id: number) : Promise<BaseEvent | null> => 
     return null
 }
 
-export const deleteEventById = async (id: number) => {
-    const { error } = await supabase
-        .from('events')
-        .delete()
-        .eq('id', id);
+// export const deleteEventById = async (id: number) => {
+//     const { createClient } = await import("@/lib/server/supabaseServer");
+//     const client = await createClient();
+
+//     const { error } = await client
+//         .from('events')
+//         .delete()
+//         .eq('id', id);
     
-    if (error) {
-        throw new Error("Supabase event deletion failed", { cause : error })
-    }
-}
+//     if (error) {
+//         throw new Error("Supabase event deletion failed", { cause : error })
+//     }
+// }
 
-export const updateEvent = async (event: BaseEvent) => {
-    const { error } = await supabase
-        .from('events')
-        .update({
-            name: event.name,
-            description: event.description,
-            event_time: event.event_time,
-            image_path: event.image_path,
-            registration_link: event.registration_link,
-        })
-        .eq('id', event.id);
+// export const updateEvent = async (event: BaseEvent) => {
+//     const { createClient } = await import("@/lib/server/supabaseServer");
+//     const client = await createClient();
 
-    if (error) {
-        throw new Error("Supabase event update failed", { cause: error })
-    }
-}
+//     const { error } = await client
+//         .from('events')
+//         .update({
+//             name: event.name,
+//             description: event.description,
+//             event_time: event.event_time,
+//             image_path: event.image_path,
+//             registration_link: event.registration_link,
+//         })
+//         .eq('id', event.id);
+
+//     if (error) {
+//         throw new Error("Supabase event update failed", { cause: error })
+//     }
+// }
 
 export const fetchNEvents = async (type: string, index: number): Promise<EventsData> => {
     const { data: events } = await supabase

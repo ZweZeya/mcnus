@@ -1,6 +1,6 @@
 "use server"
 
-import { eventService } from "@/services/event.service";
+import { eventServerService } from "@/services/event.serverService";
 import { BaseEvent, EventType, isEventType, NewEvent } from "@/model/event";
 import { revalidatePath } from "next/cache";
 
@@ -39,7 +39,7 @@ export async function createEventAction(formData: FormData) {
             type: type as EventType,
             image_file: file 
         }
-        await eventService.addUpcomingEvent(newEvent);
+        await eventServerService.addUpcomingEvent(newEvent);
         
         // Optional but recommended: Tell Next.js to refresh the cached page data
         revalidatePath('/admin/events'); 
@@ -54,7 +54,7 @@ export async function createEventAction(formData: FormData) {
 
 export async function deleteEventAction(event: BaseEvent) {
     try {
-        await eventService.deleteEvent(event);
+        await eventServerService.deleteEvent(event);
 
         revalidatePath('/admin/events'); 
         revalidatePath('events')
@@ -67,7 +67,7 @@ export async function deleteEventAction(event: BaseEvent) {
 
 export async function updateEventAction(event: BaseEvent) {
     try {
-        await eventService.updateEventInfo(event);
+        await eventServerService.updateEventInfo(event);
 
         revalidatePath('/admin/events'); 
         revalidatePath('events')
