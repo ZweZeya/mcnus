@@ -68,10 +68,11 @@ export default function EventModal({ isOpen, onClose, onSave, eventToEdit }: Eve
     
     const newEvent = {
       ...formData,
+      ...(eventToEdit?.id ? { id: eventToEdit.id } : {}),
       event_time: new Date(formData.event_time),
       created_at: new Date(),
       image_file: selectedFile || undefined,
-      image_path: null,
+      image_path: eventToEdit?.image_path || null,
       type: formData.type as EventType
     };
     
@@ -88,8 +89,10 @@ export default function EventModal({ isOpen, onClose, onSave, eventToEdit }: Eve
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
       <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl p-6 max-h-[90vh] overflow-y-auto text-black">
-        <h2 className="text-2xl font-bold mb-4">Create New Event</h2>
-        
+        <h2 className="text-2xl font-bold mb-4">
+          {eventToEdit ? "Edit Event" : "Create New Event"}
+        </h2>
+
         <form onSubmit={handleSubmit} className="space-y-4">
           
           <div>
@@ -134,7 +137,7 @@ export default function EventModal({ isOpen, onClose, onSave, eventToEdit }: Eve
               type="file" 
               accept="image/*" 
               onChange={handleFileChange} 
-              className="w-full border rounded p-2 bg-white" 
+              className="w-full border rounded p-2 bg-white file:bg-blue-600 file:text-white file:rounded file:p-2" 
             />
             
             {/* Renders a preview of the image once selected */}
