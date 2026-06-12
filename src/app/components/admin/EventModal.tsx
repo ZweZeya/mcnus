@@ -144,7 +144,7 @@ export default function EventModal({ isOpen, onClose, onSave, eventToEdit }: Eve
                 <img 
                   src={previewUrl} 
                   alt="Event Preview" 
-                  className="w-full h-48 object-cover rounded border"
+                  className="w-full h-auto object-cover rounded border"
                 />
               </div>
             )}
