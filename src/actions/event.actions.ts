@@ -34,7 +34,6 @@ export async function createEventAction(formData: FormData) {
             mimeType = file.type
 
         }
-        console.log(image_path)
 
         const newEvent : NewEvent = {
             name: name,
@@ -74,9 +73,53 @@ export async function deleteEventAction(event: BaseEvent) {
     }
 };
 
-export async function updateEventAction(event: BaseEvent) {
+export async function updateEventAction(formData : FormData) {
     try {
-        await eventServerService.updateEventInfo(event);
+        const id = Number(formData.get('id') as string)
+        const name = formData.get('name') as string
+        const description = formData.get('description') as string
+        const event_time = new Date(formData.get('event_time') as string) 
+        const type = (formData.get('type') as string).toLowerCase()
+
+        if (!isEventType(type)) {
+            throw new Error('Invalid event type')
+        }
+
+        const registration_link = formData.get('registration_link') as string
+        const recap_link = formData.get('recap_link') as string
+        const created_at = new Date(formData.get('created_at') as string)
+        let image_path = formData.get('current_image_path') as string || null;
+        let buffer : Buffer | undefined
+        let mimeType : string | undefined
+
+        const file = formData.get('image_file') as File || null
+        if (file && file.size > 0) {
+            const uniqueFilename = `events/${Date.now()}-${file.name}`
+            image_path = uniqueFilename
+
+            const arrayBuffer = await file.arrayBuffer();
+            buffer = Buffer.from(arrayBuffer);
+
+            mimeType = file.type
+
+        }
+
+        const newEvent : BaseEvent = {
+            id: id,
+            name: name,
+            description: description.length == 0 ? null : description,
+            event_time: event_time,
+            image_path: image_path,
+            registration_link: registration_link || null,
+            recap_link: recap_link || null,
+            created_at: created_at,
+            type: type as EventType,
+            image_file: file,
+            image_buffer: buffer,
+            image_mime: mimeType
+        }
+
+        await eventServerService.updateEventInfo(newEvent);
 
         revalidatePath('/admin/events'); 
         revalidatePath('events')

@@ -46,6 +46,8 @@ export const updateEvent = async (event: BaseEvent) => {
             event_time: event.event_time,
             image_path: event.image_path,
             registration_link: event.registration_link,
+            event_type: event.type,
+            recap_link: event.recap_link
         })
         .eq('id', event.id);
 

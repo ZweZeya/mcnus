@@ -22,7 +22,20 @@ export default function AdminEventsTable({ initialEvents } : { initialEvents : B
   const handleSaveEvent = async (eventData: BaseEvent | NewEvent) => {
     if ('id' in eventData) {
       // This is an update to an existing event
-      const result = await updateEventAction(eventData as BaseEvent);
+      const formData = new FormData()
+
+      formData.append("id", eventData.id.toString())
+      formData.append("name", eventData.name)
+      formData.append("description", eventData.description || "")
+      formData.append("event_time", eventData.event_time.toISOString())
+      formData.append("type", eventData.type)
+      formData.append("registration_link", eventData.registration_link || "")
+      formData.append("recap_link", eventData.recap_link || "")
+      formData.append("created_at", eventData.created_at.toISOString())
+      formData.append("image_file", eventData.image_file || "")
+      formData.append("current_image_path", eventData.image_path || "")
+
+        const result = await updateEventAction(formData);
 
       if (result.success) {
         alert("Event updated successfully!");
@@ -42,7 +55,7 @@ export default function AdminEventsTable({ initialEvents } : { initialEvents : B
       formData.append("recap_link", eventData.recap_link || "")
       formData.append("created_at", eventData.created_at.toISOString())
       formData.append("image_file", eventData.image_file || "")
-      
+
       const result = await createEventAction(formData);
 
       if (result.success) {
