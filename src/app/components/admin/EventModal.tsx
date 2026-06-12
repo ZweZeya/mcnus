@@ -10,15 +10,16 @@ interface EventModalProps {
   eventToEdit: BaseEvent | null
 }
 
+const defaultForm = {
+  name: "",
+  description: "",
+  event_time: "",
+  type: "UPCOMING",
+  registration_link: "",
+  recap_link: "",
+};
+
 export default function EventModal({ isOpen, onClose, onSave, eventToEdit }: EventModalProps) {
-  const defaultForm = {
-    name: "",
-    description: "",
-    event_time: "",
-    type: "UPCOMING",
-    registration_link: "",
-    recap_link: "",
-  };
 
   // State for the single image upload
   const [formData, setFormData] = useState(defaultForm);
