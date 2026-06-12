@@ -55,6 +55,9 @@ export async function createEventAction(formData: FormData) {
 export async function deleteEventAction(event: BaseEvent) {
     try {
         await eventService.deleteEvent(event);
+
+        revalidatePath('/admin/events'); 
+        revalidatePath('events')
         return { success: true };
     } catch (error) {
         console.error("deleteEventAction failed", error);
@@ -65,6 +68,9 @@ export async function deleteEventAction(event: BaseEvent) {
 export async function updateEventAction(event: BaseEvent) {
     try {
         await eventService.updateEventInfo(event);
+
+        revalidatePath('/admin/events'); 
+        revalidatePath('events')
         return { success: true };
     } catch (error) {
         console.error("updateEventAction failed", error);

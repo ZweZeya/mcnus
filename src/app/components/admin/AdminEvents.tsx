@@ -132,13 +132,12 @@ export default function AdminEvents() {
                 </td>
 
                 {/* Action Buttons */}
+
                 <td className="flex gap-4 py-4">
                   <button
-                    onClick={async () => {
-                      setEditingEvent(event);
-                      setIsModalOpen(true);
-                    }}
-                    className="text-blue-500 hover:text-blue-700 font-medium">
+                    onClick={() => handleEditClick(event)}
+                    className="text-blue-500 hover:text-blue-700 font-medium"
+                  >
                     Edit
                   </button>
                   <button
@@ -156,13 +155,6 @@ export default function AdminEvents() {
                     className="text-red-500 hover:text-red-700 font-medium">
                     Delete
                   </button>
-                  <button 
-                    onClick={() => handleEditClick(event)}
-                    className="text-blue-500 hover:text-blue-700 font-medium"
-                  >
-                    Edit
-                  </button>
-                  <button className="text-red-500 hover:text-red-700 font-medium">Delete</button>
                 </td>
               </tr>
             ))}
