@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { BaseEvent, NewEvent } from "@/model/event";
 import EventModal from "./EventModal";
 import { deleteEventAction, createEventAction, updateEventAction } from "@/actions/event.actions";
+import CustomButton from "../common/CustomButton";
+import { TextSm } from "../common/textComponents";
 
 export default function AdminEventsTable({ initialEvents } : { initialEvents : BaseEvent[]}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,51 +22,46 @@ export default function AdminEventsTable({ initialEvents } : { initialEvents : B
   };
 
   const handleSaveEvent = async (eventData: BaseEvent | NewEvent) => {
-    if ('id' in eventData) {
-      // This is an update to an existing event
-      const formData = new FormData()
+    const formData = new FormData()
 
+    formData.append("name", eventData.name)
+    formData.append("description", eventData.description || "")
+    formData.append("event_time", eventData.event_time.toISOString())
+    formData.append("type", eventData.type)
+    formData.append("registration_link", eventData.registration_link || "")
+    formData.append("recap_link", eventData.recap_link || "")
+    formData.append("created_at", eventData.created_at.toISOString())
+    formData.append("image_file", eventData.image_file || "")
+
+    const isEditing = 'id' in eventData
+
+    if (isEditing) {
       formData.append("id", eventData.id.toString())
-      formData.append("name", eventData.name)
-      formData.append("description", eventData.description || "")
-      formData.append("event_time", eventData.event_time.toISOString())
-      formData.append("type", eventData.type)
-      formData.append("registration_link", eventData.registration_link || "")
-      formData.append("recap_link", eventData.recap_link || "")
-      formData.append("created_at", eventData.created_at.toISOString())
-      formData.append("image_file", eventData.image_file || "")
       formData.append("current_image_path", eventData.image_path || "")
+    }
 
-        const result = await updateEventAction(formData);
+    const result = isEditing
+      ? await updateEventAction(formData)
+      : await createEventAction(formData)
 
-      if (result.success) {
-        alert("Event updated successfully!");
-        window.location.reload();
-      } else {
-        alert("Failed to update event: " + result.error);
-      }
+    if (result.success) {
+      alert(`Event ${isEditing ? "updated" : "created"} successfully!`);
     } else {
-      // This is a new event creation
-      const formData = new FormData()
+      alert(`Failed to ${isEditing ? "update" : "create"} event:  ${result.error}`);
+    }
 
-      formData.append("name", eventData.name)
-      formData.append("description", eventData.description || "")
-      formData.append("event_time", eventData.event_time.toISOString())
-      formData.append("type", eventData.type)
-      formData.append("registration_link", eventData.registration_link || "")
-      formData.append("recap_link", eventData.recap_link || "")
-      formData.append("created_at", eventData.created_at.toISOString())
-      formData.append("image_file", eventData.image_file || "")
+    setIsModalOpen(false)
+  }
 
-      const result = await createEventAction(formData);
-
+  const handleDeleteEvent = async (event : BaseEvent) => {
+    if (window.confirm("Are you sure you want to delete this event?")) {
+      const result = await deleteEventAction(event);
       if (result.success) {
-        alert("Event created successfully!");
+        alert("Event deleted successfully!");
       } else {
-        alert("Failed to create event: " + result.error);
+        alert("Failed to delete event from the database: " + result.error);
       }
     }
-    setIsModalOpen(false)
   }
 
   return (
@@ -72,12 +69,11 @@ export default function AdminEventsTable({ initialEvents } : { initialEvents : B
       <h1 className="text-3xl font-bold mb-6 text-slate-800">Manage Events</h1>
 
       {/* Create Event Button */}
-      <button
+      <CustomButton
         onClick={() => setIsModalOpen(true)}
-        className="bg-blue-600 text-white px-4 py-2 rounded mb-6 hover:bg-blue-700 transition"
       >
-        + Create New Event
-      </button>
+        <TextSm className="bg-blue-600 text-white px-4 py-2 rounded mb-6 hover:bg-blue-800 transition">+ Create New Event</TextSm>
+      </CustomButton>
 
       <EventModal 
         isOpen={isModalOpen} 
@@ -120,26 +116,18 @@ export default function AdminEventsTable({ initialEvents } : { initialEvents : B
                 {/* Action Buttons */}
 
                 <td className="flex gap-4 py-4">
-                  <button
+                  <CustomButton
                     onClick={() => handleEditClick(event)}
-                    className="text-blue-500 hover:text-blue-700 font-medium"
+                    style={{ backgroundColor: "transparent" }}
                   >
-                    Edit
-                  </button>
-                  <button
-                    onClick={async () => {
-                      if (window.confirm("Are you sure you want to delete this event?")) {
-                        const result = await deleteEventAction(event);
-                        if (result.success) {
-                          alert("Event deleted successfully!");
-                        } else {
-                          alert("Failed to delete event from the database: " + result.error);
-                        }
-                      }
-                    }}
-                    className="text-red-500 hover:text-red-700 font-medium">
-                    Delete
-                  </button>
+                    <TextSm className="text-blue-500 hover:text-blue-800">Edit</TextSm>
+                  </CustomButton>
+                  <CustomButton
+                    onClick={() => handleDeleteEvent(event)}
+                    style={{ backgroundColor: "transparent" }}
+                  >
+                    <TextSm className="text-red-500 hover:text-red-800">Delete</TextSm>
+                  </CustomButton>
                 </td>
               </tr>
             ))}
@@ -148,7 +136,7 @@ export default function AdminEventsTable({ initialEvents } : { initialEvents : B
             {initialEvents.length === 0 && (
               <tr>
                 <td colSpan={4} className="py-8 text-center text-gray-500">
-                  No events found. Click `&quot;` + Create New Event `&quot;` to add one.
+                  {"No events found. Click \" + Create New Event \" to add one."}
                 </td>
               </tr>
             )}
