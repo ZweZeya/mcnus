@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { EventType, NewEvent, BaseEvent } from "@/model/event";
+import { TextSm } from "../common/textComponents";
 
 interface EventModalProps {
   isOpen: boolean;
@@ -29,7 +30,7 @@ export default function EventModal({ isOpen, onClose, onSave, eventToEdit }: Eve
   useEffect(() => {
     if (isOpen && eventToEdit) {
       const eventDate = new Date(eventToEdit.event_time);
-      eventDate.setMinutes(eventDate.getMinutes() - eventDate.getTimezoneOffset()); // Adjust for local time
+      eventDate.setMinutes(eventDate.getMinutes() - eventDate.getTimezoneOffset()); 
       const formattedDate = eventDate.toISOString().slice(0, 10);
 
       setFormData({
@@ -77,13 +78,6 @@ export default function EventModal({ isOpen, onClose, onSave, eventToEdit }: Eve
     };
     
     onSave(newEvent);
-    
-    // Reset form and image states after saving
-    setFormData({
-      name: "", description: "", event_time: "", type: "upcoming", registration_link: "", recap_link: ""
-    });
-    setSelectedFile(null);
-    setPreviewUrl(null);
   };
 
   return (
@@ -96,43 +90,43 @@ export default function EventModal({ isOpen, onClose, onSave, eventToEdit }: Eve
         <form onSubmit={handleSubmit} className="space-y-4">
           
           <div>
-            <label className="block text-sm font-medium mb-1">Event Name *</label>
+            <TextSm>Event Name *</TextSm>
             <input required type="text" name="name" value={formData.name} onChange={handleChange} className="w-full border rounded p-2" placeholder="e.g., Thingyan Festival" />
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1">Description</label>
+            <TextSm>Description</TextSm>
             <textarea name="description" value={formData.description} onChange={handleChange} className="w-full border rounded p-2" rows={3}></textarea>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium mb-1">Date *</label>
+              <TextSm>Date *</TextSm>
               <input required type="date" name="event_time" value={formData.event_time} onChange={handleChange} className="w-full border rounded p-2" />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">Status</label>
+              <TextSm>Status</TextSm>
               <select name="type" value={formData.type} onChange={handleChange} className="w-full border rounded p-2 bg-white">
-                <option value="upcoming">Upcoming</option>
-                <option value="past">Past</option>
+                <option value="UPCOMING">Upcoming</option>
+                <option value="PAST">Past</option>
               </select>
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium mb-1">Registration Link</label>
+              <TextSm>Registration Link</TextSm>
               <input type="url" name="registration_link" value={formData.registration_link} onChange={handleChange} className="w-full border rounded p-2" placeholder="https://..." />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">Recap Link</label>
+              <TextSm>Recap Link</TextSm>
               <input type="url" name="recap_link" value={formData.recap_link} onChange={handleChange} className="w-full border rounded p-2" placeholder="https://..." />
             </div>
           </div>
 
           {/* IMAGE UPLOAD FIELD - Inserted right above the action buttons */}
           <div>
-            <label className="block text-sm font-medium mb-1">Event Image</label>
+            <TextSm>Event Image</TextSm>
             <input 
               type="file" 
               accept="image/*" 
