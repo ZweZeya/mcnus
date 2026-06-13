@@ -66,6 +66,7 @@ const EventsClient:
                     <CustomButton
                         isSelected={eventType == EventType.UPCOMING}
                         onClick={() => handleEventTypeChange(EventType.UPCOMING)}
+                        className="cursor-pointer"
                     >
                         <TextMd>{S.upcomingEvents}</TextMd>
                     </CustomButton>
@@ -73,17 +74,18 @@ const EventsClient:
                     <CustomButton
                         isSelected={eventType == EventType.PAST}
                         onClick={() => handleEventTypeChange(EventType.PAST)}
+                        className="cursor-pointer"
                     >
                         <TextMd>{S.pastEvents}</TextMd>
                     </CustomButton>
                 </div>
 
                 <div className="flex gap-2">
-                    <CustomButton onClick={() => handlePageChange(-1)}>
+                    <CustomButton onClick={() => handlePageChange(-1)} className="cursor-pointer">
                         <FaChevronLeft size={20} />
                     </CustomButton>
 
-                    <CustomButton onClick={() => handlePageChange(1)}>
+                    <CustomButton onClick={() => handlePageChange(1)} className="cursor-pointer">
                         <FaChevronRight size={20} />
                     </CustomButton>
                 </div>
