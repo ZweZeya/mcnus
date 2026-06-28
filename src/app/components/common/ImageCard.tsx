@@ -11,12 +11,12 @@ const ImageCard: React.FC<{
     const itemPlacement = "place-items-center " + (isImageOnRight ? "md:place-items-end" : "md:place-items-start");
 
     return (
-        <ResponsiveGrid className={`${itemPlacement} md:items-center`}>
-            {!isImageOnRight && <Image src={image} alt="hero" width={500} height={500} objectFit="cover" />}
+        <ResponsiveGrid className={`${itemPlacement} md:items-center object-cover`}>
+            {!isImageOnRight && <Image src={image} alt="hero" width={500} height={500} className="object-cover"/>}
             
             <ContentBox title={title} content={content} />
 
-            {isImageOnRight && <Image src={image} alt="hero" width={500} height={500} objectFit="cover" />}
+            {isImageOnRight && <Image src={image} alt="hero" width={500} height={500} className="object-cover" />}
         </ResponsiveGrid>
     )
 }

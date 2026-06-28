@@ -12,7 +12,7 @@ const ExcoMemberCard: React.FC<{member: ExcoMember}> = ({member}) => {
     return (
         <div className="relative flex flex-col items-center gap-2">
             <div className="overflow-hidden relative border border-transparent rounded-full w-36 h-36">
-                <Image src={member.image} alt={member.name} fill objectFit="cover" />
+                <Image src={member.image} alt={member.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
             </div>
             <CaptionBubble caption={member.caption} isVisible={isCaptionVisible} />
             <Text>{member.name}</Text>

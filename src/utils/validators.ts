@@ -2,6 +2,6 @@ export const isValidDate = (date: Date): boolean => {
     return date != null && date != undefined
 }
 
-export const isNotEmptyString = (str: string): boolean => {
+export const isNotEmptyString = (str: string | null | undefined): boolean => {
     return str != null && str != undefined && str.length > 0
 }

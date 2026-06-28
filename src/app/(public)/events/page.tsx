@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 import { Suspense } from "react";
-import ContentBox from "../components/common/ContentBox";
-import Events from "../components/events/Events";
-import PageLayout from "../components/layout/PageLayout"
-import S from "../resources/strings/constantStrings";
+import ContentBox from "../../components/common/ContentBox";
+import Events from "../../components/events/Events";
+import PageLayout from "../../components/layout/PageLayout"
+import S from "../../resources/strings/constantStrings";
 
 export const metadata: Metadata = {
   title: 'Events - Myanmar Community @ NUS | Cultural Celebrations & Activities',
@@ -33,12 +33,19 @@ export const metadata: Metadata = {
   },
 }
 
-const EventsPage = () => {
+
+const EventsPage = async ({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) => {
+    const { type, page } = await searchParams
+    const eventTypeParam = Array.isArray(type) ? type[0] : type;
+    const eventPageParam = Array.isArray(page) ? page[0] : page
+
     return (
         <PageLayout>
             <ContentBox title={S.events} content="" />
             <Suspense>
-              <Events />
+
+              <Events type={eventTypeParam} page={eventPageParam}/>
+
             </Suspense>
         </PageLayout>
     )
