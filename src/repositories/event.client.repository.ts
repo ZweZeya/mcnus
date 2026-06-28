@@ -5,7 +5,7 @@ import { EventsData } from "@/services/event.client.service";
 const PAGE_SIZE = 8;
 
 export const fetchAllEvents = async (type: string): Promise<BaseEvent[]> => {
-    const { data } = await supabase
+    const { data, error } = await supabase
         .from('events')
         .select(`
             id,
@@ -19,6 +19,12 @@ export const fetchAllEvents = async (type: string): Promise<BaseEvent[]> => {
             type: event_type
         `)
         .eq('event_type', type);
+
+    if (error) {
+        console.error("Supabase error:", error);
+        return [];
+    }
+    
     return data as BaseEvent[]
 }
 
