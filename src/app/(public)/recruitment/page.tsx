@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 import ContentBox from "../../components/common/ContentBox";
-import RecruitmentCarousel from "../../components/recruitment/RecruitmentCarousel";
 import PageLayout from "../../components/layout/PageLayout";
-import Roles from "../../components/roles/Roles";
 import S from "../../resources/strings/constantStrings";
+import RecruitmentSection from "@/app/components/recruitment/RecruitmentSection";
+import Roles from "@/app/components/roles/Roles";
+import ExcoRoles from "@/app/components/roles/ExcoRoles";
 
 export const metadata: Metadata = {
   title: 'Join Our Team - Myanmar Community @ NUS | Executive Committee Recruitment',
@@ -36,9 +37,8 @@ export const metadata: Metadata = {
 const RecruitmentPage = () => {
     return (
         <PageLayout>
-            <ContentBox title={S.bePartOfMcnus} content={S.bePartOfMcnusDescription} />
-            <RecruitmentCarousel />
-            <Roles />
+            <ContentBox title={S.bePartOfMcnus} content={S.bePartOfMcnusDescription}/>
+            <RecruitmentSection subcommRoles={<Roles/>} excoRoles={<ExcoRoles/>}/>
         </PageLayout>
     );
 };

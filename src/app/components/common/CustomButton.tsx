@@ -4,7 +4,7 @@ import { CSSProperties, MouseEventHandler, PropsWithChildren } from "react"
 interface ButtonProps extends PropsWithChildren {
     className?: string
     style?: CSSProperties
-    onClick: MouseEventHandler
+    onClick?: MouseEventHandler
     isSelected?: boolean
     disabled?: boolean
 }
