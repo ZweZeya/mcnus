@@ -12,7 +12,7 @@ import { Text } from "../common/textComponents";
 import ColouredBox from "../common/ColouredBox";
 import CustomButton from "../common/CustomButton";
 import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const RecruitmentCarouselCard: React.FC<{title: string, content: string}> = ({title, content}) => {
     return (
@@ -31,21 +31,24 @@ const RecruitmentCarouselCard: React.FC<{title: string, content: string}> = ({ti
 type RecruitmentTab = 'exco' | 'subcomm'
 
 interface RecruitmentCarouselProps {
-    onTabChange: (tabItem : RecruitmentTab) => void
+    onTabChange: (tabItem : RecruitmentTab) => void,
 }
+
+const slideOrder: RecruitmentTab[] = ['exco', 'subcomm'];
   
 const RecruitmentCarousel = ({ onTabChange } : RecruitmentCarouselProps) => {
     const buttonClassName = "relative top-auto translate-y-0";
     const [api, setApi] = useState<CarouselApi>()
 
-    const slideOrder: RecruitmentTab[] = ['exco', 'subcomm'];
+    const onTabChangeRef = useRef(onTabChange)
 
     useEffect(() => {
         if (!api) return
+        
 
         const handleSelect = () => {
             const index = api.selectedScrollSnap()
-            onTabChange(slideOrder[index])
+            onTabChangeRef.current(slideOrder[index])
         }
 
         handleSelect()

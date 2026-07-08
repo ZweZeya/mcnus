@@ -34,13 +34,23 @@ export const metadata: Metadata = {
   },
 }
 
-const RecruitmentPage = () => {
-    return (
-        <PageLayout>
-            <ContentBox title={S.bePartOfMcnus} content={S.bePartOfMcnusDescription}/>
-            <RecruitmentSection subcommRoles={<Roles/>} excoRoles={<ExcoRoles/>}/>
-        </PageLayout>
-    );
+type RecruitmentPageProps = {
+  searchParams: Promise<{
+    tab?: string | string[];
+  }>;
+};
+
+const RecruitmentPage = async ({ searchParams }: RecruitmentPageProps) => {
+  const { tab } = await searchParams
+  const tabParam = Array.isArray(tab) ? tab[0] : tab;
+  const initialTab: 'exco' | 'subcomm' = tabParam === 'subcomm' ? 'subcomm' : 'exco';
+  
+  return (
+    <PageLayout>
+      <ContentBox title={S.bePartOfMcnus} content={S.bePartOfMcnusDescription} />
+      <RecruitmentSection subcommRoles={<Roles />} excoRoles={<ExcoRoles />} initialTab={initialTab} />
+    </PageLayout>
+  );
 };
 
 export default RecruitmentPage;

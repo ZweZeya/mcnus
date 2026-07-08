@@ -1,21 +1,39 @@
 'use client'
 
-import { useState } from "react"
 import RecruitmentCarousel from "./RecruitmentCarousel"
+import { useRouter, usePathname, useSearchParams } from "next/navigation"
 
 type RecruitmentTab = 'exco' | 'subcomm'
 
 interface RecruitmentSectionProps {
     subcommRoles: React.ReactNode,
-    excoRoles: React.ReactNode
+    excoRoles: React.ReactNode,
+    initialTab?: RecruitmentTab
 }
 
-const RecruitmentSection = ({ subcommRoles, excoRoles } : RecruitmentSectionProps) => {
-    const [activeTab, setActiveTab] = useState<RecruitmentTab>('exco')
+const getTabFromSearchParams = (tabParam: string | null, initialTab: RecruitmentTab) : RecruitmentTab => {
+    if (tabParam === 'exco' || tabParam === 'subcomm') {
+        return tabParam;
+    }
+    return initialTab;
+}
+
+const RecruitmentSection = ({ subcommRoles, excoRoles, initialTab = 'exco' } : RecruitmentSectionProps) => {
+    const router = useRouter()
+    const pathname = usePathname()
+    const searchParams = useSearchParams()
+    
+    const activeTab = getTabFromSearchParams(searchParams.get("tab"), initialTab)
+
+    const handleTabChange = (tabItem: RecruitmentTab) => {
+        const newSearchParams = new URLSearchParams(searchParams.toString())
+        newSearchParams.set("tab", tabItem)
+        router.replace(`${pathname}?${newSearchParams.toString()}`, { scroll: false })
+    }
 
     return (
         <>
-            <RecruitmentCarousel onTabChange={setActiveTab}/>
+            <RecruitmentCarousel onTabChange={handleTabChange}/>
             { activeTab == 'exco' ? excoRoles : subcommRoles }
         </>
     )
