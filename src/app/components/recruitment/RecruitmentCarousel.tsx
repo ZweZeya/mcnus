@@ -20,8 +20,8 @@ const RecruitmentCarouselCard: React.FC<{title: string, content: string}> = ({ti
             <ColouredContentBox title={title} className="text-center">
                 <Text>{content}</Text>
                 <div className="flex gap-5 w-full justify-center items-center mt-auto pt-5">
-                    <CustomButton className="w-40 h-10 shadow-md font-bold">Sign Up Now</CustomButton>
-                    <CustomButton className="w-40 h-10 shadow-md font-bold">Find Out More</CustomButton>
+                    <CustomButton className="w-40 h-10 shadow-md font-bold">Apply Now</CustomButton>
+                    <CustomButton className="w-40 h-10 shadow-md font-bold">View Roles</CustomButton>
                 </div>
             </ColouredContentBox>
         </CarouselItem>

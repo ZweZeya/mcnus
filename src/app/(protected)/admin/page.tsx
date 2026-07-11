@@ -2,7 +2,8 @@ import AdminCard from "@/app/components/admin/AdminCard"
 
 const AdminPage = () => {
     const adminPages = [
-        { name: "Events", to: "/admin/events"}
+        { name: "Events", to: "/admin/events" },
+        { name: "Recruitment", to: "/admin/recruitment" },
     ]
 
     return (

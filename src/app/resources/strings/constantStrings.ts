@@ -56,12 +56,12 @@ const STRING_CONSTANTS = {
     "Refer to askadmissions website and follow the steps there accordingly.",
 
   // Subcom & Exco
-  subcomTitle: "Step up as a subcommittee member",
+  subcomTitle: "Step up as a Subcommittee member",
   subcomDescription:
-    "Subcommittee recruitment for this AY is currently closed. Please follow us for more updates on future openings.",
-  excoTitle: "Step up as an ExCo member",
+    "Subcommittee recruitment for this AY is currently closed. Please follow us for more updates on future openings. In the meantime, do consider joining as a member or Exco member.",
+  excoTitle: "Step up as an Exco member",
   excoDescription:
-    "ExCo signups for this AY have been closed. Please keep a look out for recruitment for 7th MCNUS ExCo. In the meantime, do consider joining as a member or a subcommittee member.",
+    "Exco recruitment for this AY is currently closed. Please follow us for more updates on future openings. In the meantime, do consider joining as a member or subcommittee member.",
   exco: "6th MC@NUS",
   excoTermTime: "Term Time: Sept 2025 - Present",
   executiveCommittee: "Executive Committee",

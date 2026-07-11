@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { useRouter, usePathname } from "next/navigation"
 import { frangipani } from "@/app/resources/colors"
 
