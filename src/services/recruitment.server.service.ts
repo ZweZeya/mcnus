@@ -1,7 +1,7 @@
 import { RecruitmentData } from "@/model/recruitment";
 import { saveRecruitmentData } from "@/repositories/recruitment.server.repository";
 
-export const recruitmentServerService = {
+const recruitmentServerService = {
     async updateRecruitmentData(recruitmentData : RecruitmentData[]) {
         try {
             await saveRecruitmentData(recruitmentData)
@@ -10,3 +10,5 @@ export const recruitmentServerService = {
         }
     }
 }
+
+export default recruitmentServerService

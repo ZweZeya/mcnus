@@ -1,5 +1,6 @@
 'use client'
 
+import { RecruitmentData } from "@/model/recruitment"
 import RecruitmentCarousel from "./RecruitmentCarousel"
 import { useRouter, usePathname, useSearchParams } from "next/navigation"
 
@@ -8,7 +9,8 @@ type RecruitmentTab = 'exco' | 'subcomm'
 interface RecruitmentSectionProps {
     subcommRoles: React.ReactNode,
     excoRoles: React.ReactNode,
-    initialTab?: RecruitmentTab
+    initialTab?: RecruitmentTab,
+    data: RecruitmentData[] | null
 }
 
 const getTabFromSearchParams = (tabParam: string | null, initialTab: RecruitmentTab) : RecruitmentTab => {
@@ -18,7 +20,7 @@ const getTabFromSearchParams = (tabParam: string | null, initialTab: Recruitment
     return initialTab;
 }
 
-const RecruitmentSection = ({ subcommRoles, excoRoles, initialTab = 'exco' } : RecruitmentSectionProps) => {
+const RecruitmentSection = ({ subcommRoles, excoRoles, initialTab = 'exco', data } : RecruitmentSectionProps) => {
     const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()
@@ -33,7 +35,7 @@ const RecruitmentSection = ({ subcommRoles, excoRoles, initialTab = 'exco' } : R
 
     return (
         <>
-            <RecruitmentCarousel onTabChange={handleTabChange}/>
+            <RecruitmentCarousel onTabChange={handleTabChange} data={data}/>
             { activeTab == 'exco' ? excoRoles : subcommRoles }
         </>
     )

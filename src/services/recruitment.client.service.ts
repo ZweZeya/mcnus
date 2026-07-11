@@ -1,7 +1,7 @@
 import { RecruitmentData } from "@/model/recruitment"
 import { fetchRecruitmentData } from "@/repositories/recruitment.client.repository"
 
-export const recruitmentClientService = {
+const recruitmentClientService = {
     async getRecruitmentData() : Promise<RecruitmentData[] | null> {
         try {
              const recruitmentData = await fetchRecruitmentData()
@@ -17,3 +17,5 @@ export const recruitmentClientService = {
 
     }
 }
+
+export default recruitmentClientService

@@ -5,6 +5,8 @@ import S from "../../resources/strings/constantStrings";
 import RecruitmentSection from "@/app/components/recruitment/RecruitmentSection";
 import Roles from "@/app/components/roles/Roles";
 import ExcoRoles from "@/app/components/roles/ExcoRoles";
+import recruitmentClientService from "@/services/recruitment.client.service";
+import { RecruitmentData } from "@/model/recruitment";
 
 export const metadata: Metadata = {
   title: 'Join Our Team - Myanmar Community @ NUS | Executive Committee Recruitment',
@@ -44,11 +46,18 @@ const RecruitmentPage = async ({ searchParams }: RecruitmentPageProps) => {
   const { tab } = await searchParams
   const tabParam = Array.isArray(tab) ? tab[0] : tab;
   const initialTab: 'exco' | 'subcomm' = tabParam === 'subcomm' ? 'subcomm' : 'exco';
+
+  let dbData : RecruitmentData[] | null = [];
+  try {
+    dbData = await recruitmentClientService.getRecruitmentData();
+  } catch (error) {
+    console.error("Failed to load recruitment live links:", error);
+  }
   
   return (
     <PageLayout>
       <ContentBox title={S.bePartOfMcnus} content={S.bePartOfMcnusDescription} />
-      <RecruitmentSection subcommRoles={<Roles />} excoRoles={<ExcoRoles />} initialTab={initialTab} />
+      <RecruitmentSection data={dbData} subcommRoles={<Roles />} excoRoles={<ExcoRoles />} initialTab={initialTab} />
     </PageLayout>
   );
 };
