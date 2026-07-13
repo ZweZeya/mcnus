@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useTransition } from "react";
 import { ExternalLink, Link2, Save } from "lucide-react";
 import { frangipani, navy } from "@/app/resources/colors";
+import { updateRecruitmentDataAction } from "@/actions/recruitment.actions";
 
 type RecruitmentPageKey = "exco" | "subcomm";
 
@@ -43,6 +44,8 @@ const AdminRecruitmentControls = ({
 }: AdminRecruitmentControlsProps) => {
   const [settings, setSettings] = useState(initialRecruitmentSettings);
   const [lastSavedAt, setLastSavedAt] = useState<Date | null>(null);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [isPending, startTransition] = useTransition();
 
   const openCount = useMemo(
     () => settings.filter((setting) => setting.isOpen).length,
@@ -61,7 +64,25 @@ const AdminRecruitmentControls = ({
   };
 
   const handleSave = () => {
-    setLastSavedAt(new Date());
+    const recruitmentData = settings.map((setting) => ({
+      page_name: setting.id,
+      is_open: setting.isOpen,
+      primary_button_url: setting.primaryButtonLink || null,
+      secondary_button_url: setting.secondaryButtonLink || null,
+    }));
+
+    setSaveError(null);
+
+    startTransition(async () => {
+      const result = await updateRecruitmentDataAction(recruitmentData);
+
+      if (result.success) {
+        setLastSavedAt(new Date());
+        return;
+      }
+
+      setSaveError(result.error || "Failed to update recruitment data");
+    });
   };
 
   return (
@@ -84,14 +105,21 @@ const AdminRecruitmentControls = ({
             <button
               type="button"
               onClick={handleSave}
+              disabled={isPending}
               className="inline-flex h-10 items-center gap-2 rounded-md px-4 text-sm font-semibold text-white shadow-sm transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2"
               style={{ backgroundColor: navy }}
             >
               <Save className="h-4 w-4" aria-hidden="true" />
-              Save Changes
+              {isPending ? "Saving..." : "Save Changes"}
             </button>
           </div>
         </div>
+
+        {saveError && (
+          <div className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-800">
+            {saveError}
+          </div>
+        )}
 
         {lastSavedAt && (
           <div className="rounded-md border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">
