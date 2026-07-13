@@ -6,7 +6,7 @@ import { frangipani, navy } from "@/app/resources/colors";
 
 type RecruitmentPageKey = "exco" | "subcomm";
 
-type RecruitmentSettings = {
+export type RecruitmentSettings = {
   id: RecruitmentPageKey;
   title: string;
   description: string;
@@ -34,8 +34,14 @@ const initialSettings: RecruitmentSettings[] = [
   },
 ];
 
-const AdminRecruitmentControls = () => {
-  const [settings, setSettings] = useState(initialSettings);
+type AdminRecruitmentControlsProps = {
+  initialRecruitmentSettings?: RecruitmentSettings[];
+};
+
+const AdminRecruitmentControls = ({
+  initialRecruitmentSettings = initialSettings,
+}: AdminRecruitmentControlsProps) => {
+  const [settings, setSettings] = useState(initialRecruitmentSettings);
   const [lastSavedAt, setLastSavedAt] = useState<Date | null>(null);
 
   const openCount = useMemo(
