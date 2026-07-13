@@ -36,7 +36,7 @@ const STRING_CONSTANTS = {
   // Join Section
   bePartOfCommunity: "Be part of this wholesome community!",
   bePartOfCommunityDescription:
-    "Whether as a member, a subcommittee volunteer, or part of our ExCo, we welcome everyone who shares a passion for Myanmar culture and community. Join us in celebrating our heritage, supporting one another, and creating unforgettable experiences together!",
+    "Whether as a member, a subcommittee volunteer, or part of our Exco, we welcome everyone who shares a passion for Myanmar culture and community. Join us in celebrating our heritage, supporting one another, and creating unforgettable experiences together!",
   bePartOfMcnus: "Be part of MCNUS",
   bePartOfMcnusDescription: "It's free!",
 
@@ -57,10 +57,14 @@ const STRING_CONSTANTS = {
 
   // Subcom & Exco
   subcomTitle: "Step up as a Subcommittee member",
-  subcomDescription:
+  subcomOpenDescription:
+    "Subcommittee recruitment is now open. Join us in building a stronger Myanmar community at NUS. Apply Now!",
+  subcomClosedDescription:
     "Subcommittee recruitment for this AY is currently closed. Please follow us for more updates on future openings. In the meantime, do consider joining as a member or Exco member.",
   excoTitle: "Step up as an Exco member",
-  excoDescription:
+  excoOpenDescription:
+    "Exco recruitment is now open. Take on a leadership role and help shape the events, initiatives, and direction of MC@NUS. Apply Now!",
+  excoClosedDescription:
     "Exco recruitment for this AY is currently closed. Please follow us for more updates on future openings. In the meantime, do consider joining as a member or subcommittee member.",
   exco: "6th MC@NUS",
   excoTermTime: "Term Time: Sept 2025 - Present",

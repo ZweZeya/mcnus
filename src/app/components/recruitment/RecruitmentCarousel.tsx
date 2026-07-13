@@ -16,7 +16,7 @@ import { useState, useRef } from "react";
 import { RecruitmentData } from "@/model/recruitment";
 
 const RecruitmentCarouselCard: React.FC<{ title: string, content: string, data: RecruitmentData | undefined }> = ({ title, content, data }) => {
-    const { primary_button_url, secondary_button_url } = data || {};
+    const { is_open, primary_button_url, secondary_button_url } = data || {};
 
     const handleClick = (link: string | null | undefined) => {
         if (link) {
@@ -28,14 +28,16 @@ const RecruitmentCarouselCard: React.FC<{ title: string, content: string, data: 
         <CarouselItem>
             <ColouredContentBox title={title} className="text-center">
                 <Text>{content}</Text>
-                <div className="flex gap-5 w-full justify-center items-center mt-auto pt-5">
-                    <CustomButton className="w-40 h-10 shadow-md font-bold" onClick={() => handleClick(primary_button_url)}>
-                        Apply Now
-                    </CustomButton>
-                    <CustomButton className="w-40 h-10 shadow-md font-bold" onClick={() => handleClick(secondary_button_url)}>
-                        View Roles
-                    </CustomButton>
-                </div>
+                {is_open && (
+                    <div className="flex gap-5 w-full justify-center items-center mt-auto pt-5">
+                        <CustomButton className="w-40 h-10 shadow-md font-bold" onClick={() => handleClick(primary_button_url)}>
+                            Apply Now
+                        </CustomButton>
+                        <CustomButton className="w-40 h-10 shadow-md font-bold" onClick={() => handleClick(secondary_button_url)}>
+                            View Roles
+                        </CustomButton>
+                    </div>
+                )}
             </ColouredContentBox>
         </CarouselItem>
     )
@@ -49,6 +51,14 @@ interface RecruitmentCarouselProps {
 }
 
 const slideOrder: RecruitmentTab[] = ['exco', 'subcomm'];
+
+const getRecruitmentDescription = (
+    data: RecruitmentData | undefined,
+    openDescription: string,
+    closedDescription: string
+) => {
+    return data?.is_open ? openDescription : closedDescription;
+}
   
 const RecruitmentCarousel = ({ onTabChange, data } : RecruitmentCarouselProps) => {
     const buttonClassName = "relative top-auto translate-y-0";
@@ -81,8 +91,16 @@ const RecruitmentCarousel = ({ onTabChange, data } : RecruitmentCarouselProps) =
             <Carousel className="flex items-center" setApi={setApi}>
                 <CarouselPrevious className={`left-auto ${buttonClassName}`}/>
                 <CarouselContent>
-                    <RecruitmentCarouselCard title={S.excoTitle} content={S.excoDescription} data={excoData}/>
-                    <RecruitmentCarouselCard title={S.subcomTitle} content={S.subcomDescription} data={subcommData}/>
+                    <RecruitmentCarouselCard
+                        title={S.excoTitle}
+                        content={getRecruitmentDescription(excoData, S.excoOpenDescription, S.excoClosedDescription)}
+                        data={excoData}
+                    />
+                    <RecruitmentCarouselCard
+                        title={S.subcomTitle}
+                        content={getRecruitmentDescription(subcommData, S.subcomOpenDescription, S.subcomClosedDescription)}
+                        data={subcommData}
+                    />
                 </CarouselContent>
                 <CarouselNext className={`right-auto ${buttonClassName}`}/>
             </Carousel>
