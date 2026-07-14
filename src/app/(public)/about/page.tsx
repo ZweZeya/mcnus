@@ -4,6 +4,7 @@ import ContentBox from "../../components/common/ContentBox";
 import PageLayout from "../../components/layout/PageLayout"
 import S from "../../resources/strings/constantStrings";
 import { darkerGrey } from "../../resources/colors";
+import EntranceAnimation from "../../components/common/EntranceAnimation";
 
 export const metadata: Metadata = {
   title: 'About Us - Myanmar Community @ NUS | Our Mission & Vision',
@@ -36,8 +37,12 @@ export const metadata: Metadata = {
 const AboutPage = () => {
     return (
         <PageLayout>
-            <ContentBox title={S.exco} content={S.excoTermTime} contentStyle={{color: darkerGrey}} />
-            <ExcoDetails />
+            <EntranceAnimation>
+                <ContentBox title={S.exco} content={S.excoTermTime} contentStyle={{color: darkerGrey}} />
+            </EntranceAnimation>
+            <EntranceAnimation className="w-full" delay={0.08}>
+                <ExcoDetails />
+            </EntranceAnimation>
         </PageLayout>
     )
 }

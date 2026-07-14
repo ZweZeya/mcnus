@@ -4,6 +4,7 @@ import ContentBox from "../../components/common/ContentBox";
 import Events from "../../components/events/Events";
 import PageLayout from "../../components/layout/PageLayout"
 import S from "../../resources/strings/constantStrings";
+import EntranceAnimation from "../../components/common/EntranceAnimation";
 
 export const metadata: Metadata = {
   title: 'Events - Myanmar Community @ NUS | Cultural Celebrations & Activities',
@@ -41,12 +42,14 @@ const EventsPage = async ({ searchParams }: { searchParams: Promise<{ [key: stri
 
     return (
         <PageLayout>
-            <ContentBox title={S.events} content="" />
-            <Suspense>
-
-              <Events type={eventTypeParam} page={eventPageParam}/>
-
-            </Suspense>
+            <EntranceAnimation>
+              <ContentBox title={S.events} content="" />
+            </EntranceAnimation>
+            <EntranceAnimation className="w-full" delay={0.06}>
+              <Suspense>
+                <Events type={eventTypeParam} page={eventPageParam}/>
+              </Suspense>
+            </EntranceAnimation>
         </PageLayout>
     )
 }

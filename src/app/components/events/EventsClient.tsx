@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import { EventsData } from "@/services/event.client.service";
 import { FaChevronLeft} from "react-icons/fa6"
 import { FaChevronRight } from "react-icons/fa6"
+import EntranceAnimation from "../common/EntranceAnimation";
 
 const EventsClient: 
     React.FC<{
@@ -118,9 +119,17 @@ const EventsGrid: React.FC<{
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
             {events.map((event, index) => {
                 if (activeTab === EventType.UPCOMING) {
-                    return <UpcomingEventCard key={index} event={event} onClick={onClick}/>
+                    return (
+                        <EntranceAnimation key={event.id} delay={Math.min(index, 5) * 0.05}>
+                            <UpcomingEventCard event={event} onClick={onClick}/>
+                        </EntranceAnimation>
+                    )
                 } else if (activeTab === EventType.PAST) {
-                    return <PastEventCard key={index} event={event} onClick={onClick}/>
+                    return (
+                        <EntranceAnimation key={event.id} delay={Math.min(index, 5) * 0.05}>
+                            <PastEventCard event={event} onClick={onClick}/>
+                        </EntranceAnimation>
+                    )
                 }
                 return null
             })}
