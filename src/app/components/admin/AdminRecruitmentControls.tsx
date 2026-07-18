@@ -87,7 +87,7 @@ const AdminRecruitmentControls = ({
   };
 
   return (
-    <div className="min-h-[70vh] bg-slate-50 px-4 py-8 text-slate-900 md:px-8">
+    <div className="min-h-[70vh] px-4 py-8 text-slate-900 md:px-8">
       <EntranceAnimation>
         <div className="mx-auto flex max-w-6xl flex-col gap-6">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">

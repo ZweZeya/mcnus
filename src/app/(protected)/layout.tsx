@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import { robotoMono } from "../resources/font";
-import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
-import { navy } from "../resources/colors";
+import { cream, navy } from "../resources/colors";
 import AdminHeader from "../components/admin/AdminHeader";
 
 export const metadata: Metadata = {
@@ -34,7 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${robotoMono.variable} antialiased min-h-screen flex flex-col`}
-        style={{ color: navy }}
+        style={{ color: navy, backgroundColor: cream }}
         suppressHydrationWarning={true}
       >
         <AdminHeader/>

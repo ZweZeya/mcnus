@@ -1,6 +1,7 @@
 import AdminRecruitmentControls, {
   RecruitmentSettings,
 } from "@/app/components/admin/AdminRecruitmentControls";
+import PageLayout from "@/app/components/layout/PageLayout";
 import { RecruitmentData } from "@/model/recruitment";
 import recruitmentClientService from "@/services/recruitment.client.service";
 
@@ -57,10 +58,10 @@ export default async function AdminRecruitmentPage() {
   const initialRecruitmentSettings = buildRecruitmentSettings(recruitmentData);
 
   return (
-    <main>
+    <PageLayout>
       <AdminRecruitmentControls
         initialRecruitmentSettings={initialRecruitmentSettings}
       />
-    </main>
+    </PageLayout>
   );
 }
