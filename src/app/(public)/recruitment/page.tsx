@@ -7,6 +7,7 @@ import Roles from "@/app/components/roles/Roles";
 import ExcoRoles from "@/app/components/roles/ExcoRoles";
 import recruitmentClientService from "@/services/recruitment.client.service";
 import { RecruitmentData } from "@/model/recruitment";
+import EntranceAnimation from "../../components/common/EntranceAnimation";
 
 export const metadata: Metadata = {
   title: 'Join Our Team - Myanmar Community @ NUS | Executive Committee Recruitment',
@@ -56,8 +57,13 @@ const RecruitmentPage = async ({ searchParams }: RecruitmentPageProps) => {
   
   return (
     <PageLayout>
-      <ContentBox title={S.bePartOfMcnus} content={S.bePartOfMcnusDescription} />
-      <RecruitmentSection data={dbData} subcommRoles={<Roles />} excoRoles={<ExcoRoles />} initialTab={initialTab} />
+      <EntranceAnimation>
+        <ContentBox title={S.bePartOfMcnus} content={S.bePartOfMcnusDescription} />
+      </EntranceAnimation>
+      
+      <EntranceAnimation>
+        <RecruitmentSection data={dbData} subcommRoles={<Roles />} excoRoles={<ExcoRoles />} initialTab={initialTab} />
+      </EntranceAnimation>
     </PageLayout>
   );
 };

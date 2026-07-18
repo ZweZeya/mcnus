@@ -6,6 +6,7 @@ import ExcoMemberCard from './ExcoMemberCard';
 import { ExcoMember } from '@/model/exco';
 import { useEffect, useState } from 'react';
 import Loading from "../common/Loading";
+import EntranceAnimation from "../common/EntranceAnimation";
 
 const ExcoDetails = ()  => {
     const [members, setMembers] = useState<ExcoMember[]>([]);
@@ -17,7 +18,7 @@ const ExcoDetails = ()  => {
                 setMembers(data)
                 setIsFirstTimeLoading(false)
             })
-        }, 3000)
+        },  1500)
 
         return () => clearInterval(interval)
     }, [isFirstTimeLoading])
@@ -25,7 +26,11 @@ const ExcoDetails = ()  => {
     return (
         <ColouredContentBox className="w-full text-center" title={S.executiveCommittee}>
             <div className="w-full h-full flex flex-wrap justify-center gap-10">
-                { isFirstTimeLoading ? <Loading /> : members.map((e, i) => <ExcoMemberCard key={i} member={e} />) }
+                { isFirstTimeLoading ? <Loading /> : members.map((e, i) => (
+                    <EntranceAnimation key={i} delay={Math.min(i, 5) * 0.06}>
+                        <ExcoMemberCard member={e} />
+                    </EntranceAnimation>
+                )) }
             </div>
         </ColouredContentBox>
     )

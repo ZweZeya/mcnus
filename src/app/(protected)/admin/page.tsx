@@ -1,4 +1,5 @@
 import AdminCard from "@/app/components/admin/AdminCard"
+import EntranceAnimation from "@/app/components/common/EntranceAnimation"
 import { frangipani, navy } from "@/app/resources/colors"
 
 const AdminPage = () => {
@@ -20,6 +21,7 @@ const AdminPage = () => {
     return (
         <main className="min-h-[72vh] bg-slate-50 px-4 py-8 text-slate-900 md:px-8">
             <div className="mx-auto flex max-w-6xl flex-col gap-8">
+                <EntranceAnimation>
                 <section className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
                     <div className="border-b border-slate-100 px-6 py-6 md:px-8">
                         <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
@@ -44,7 +46,8 @@ const AdminPage = () => {
                     </div>
 
                     <div className="grid gap-5 p-6 md:grid-cols-2 md:p-8">
-                        {adminPages.map((page) => (
+                        {adminPages.map((page, i) => (
+                            <EntranceAnimation key={page.to} delay={i * 0.06}>
                             <AdminCard
                                 key={page.to}
                                 name={page.name}
@@ -52,9 +55,11 @@ const AdminPage = () => {
                                 description={page.description}
                                 icon={page.icon}
                             />
+                            </EntranceAnimation>
                         ))}
                     </div>
                 </section>
+                </EntranceAnimation>
             </div>
         </main>
     )

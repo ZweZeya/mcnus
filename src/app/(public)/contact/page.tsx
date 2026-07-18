@@ -4,6 +4,7 @@ import ContactDetails from "../../components/contact/ContactDetails";
 import Faqs from "../../components/contact/Faqs";
 import PageLayout from "../../components/layout/PageLayout"
 import S from "../../resources/strings/constantStrings";
+import EntranceAnimation from "../../components/common/EntranceAnimation";
 
 export const metadata: Metadata = {
   title: 'Contact Us - Myanmar Community @ NUS | Get In Touch',
@@ -36,9 +37,15 @@ export const metadata: Metadata = {
 const ContactPage = () => {
     return (
         <PageLayout>
-            <ContentBox title={S.contactTitle} content={S.contactDescription} />
-            <Faqs />
-            <ContactDetails />
+            <EntranceAnimation>
+                <ContentBox title={S.contactTitle} content={S.contactDescription} />
+            </EntranceAnimation>
+            <EntranceAnimation className="w-full" delay={0.06}>
+                <Faqs />
+            </EntranceAnimation>
+            <EntranceAnimation className="w-full">
+                <ContactDetails />
+            </EntranceAnimation>
         </PageLayout>
     )
 }
