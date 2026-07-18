@@ -1,35 +1,42 @@
-"use client"
+"use client";
 
-import { PropsWithChildren, useEffect, useRef } from "react"
-import { motion, useAnimation, useInView } from "framer-motion"
+import { motion, useReducedMotion } from "framer-motion";
+import { PropsWithChildren } from "react";
 
-const EntranceAnimation = (props: PropsWithChildren) => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true });
-    const control = useAnimation();
-  
-    useEffect(() => {
-      if (isInView) {
-        control.start("visible");
+interface EntranceAnimationProps extends PropsWithChildren {
+  className?: string;
+  delay?: number;
+  distance?: number;
+}
+
+// Reveal for page sections and list items. 
+const EntranceAnimation = ({
+  children,
+  className = "",
+  delay = 0,
+  distance = 18,
+}: EntranceAnimationProps) => {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <motion.div
+      className={className}
+      initial={shouldReduceMotion ? false : { opacity: 0, y: distance }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={
+        shouldReduceMotion
+          ? { duration: 0 }
+          : {
+              duration: 0.55,
+              delay,
+              ease: [0.22, 1, 0.36, 1],
+            }
       }
-    }, [isInView]);
-  
-    return (
-      <div ref={ref} style={{padding: 0, margin: 0}}>
-        <motion.div 
-          style={{padding: 0, margin: 0}}
-          variants={{
-            hidden: { opacity: 0, y: 1 },
-            visible: { opacity: 1, y: 0 }
-          }}
-          initial="hidden"
-          animate={control}
-          transition={{ duration: 0.5, delay: 0.25 }}
-        >
-          {props.children}
-        </motion.div>
-      </div>
-    );
-  };
+    >
+      {children}
+    </motion.div>
+  );
+};
 
-export default EntranceAnimation
+export default EntranceAnimation;
