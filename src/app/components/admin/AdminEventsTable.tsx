@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { BaseEvent, NewEvent } from "@/model/event";
+import { BaseEvent, EventType, NewEvent } from "@/model/event";
 import EventModal from "./EventModal";
 import { deleteEventAction, createEventAction, updateEventAction } from "@/actions/event.actions";
 import CustomButton from "../common/CustomButton";
@@ -107,7 +107,7 @@ export default function AdminEventsTable({ initialEvents } : { initialEvents : B
 
                 {/* Show Event Type (e.g., UPCOMING / PAST) */}
                 <td className="py-4">
-                  <span className={`px-2 py-1 rounded text-xs font-semibold ${String(event.type).toUpperCase() === "UPCOMING" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                  <span className={`px-2 py-1 rounded text-xs font-semibold ${event.type === EventType.UPCOMING ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
                     }`}>
                     {String(event.type).toUpperCase()}
                   </span>
