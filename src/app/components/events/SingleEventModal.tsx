@@ -43,7 +43,7 @@ const SingleEventModal: React.FC<{ eventId: number, onClose: () => void}> = ({ e
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
             <div className="absolute inset-0 bg-black/65 flex items-center justify-center">
-                <div className="relative w-full max-w-lg rounded-2xl shadow-2xl z-10  h-auto overflow-hidden" style={{ backgroundColor: grey}}>
+                <div className="relative w-full max-w-lg scale-[0.80] rounded-2xl shadow-2xl z-10 h-auto overflow-hidden sm:scale-100" style={{ backgroundColor: grey}}>
                     <div className="absolute top-0 right-0 z-50">
                         <IoCloseCircle size={45} onClick={onClose} className="cursor-pointer hover:opacity-100 opacity-50"/>
                     </div>
@@ -62,10 +62,10 @@ const SingleEventModal: React.FC<{ eventId: number, onClose: () => void}> = ({ e
                         </div>
                         <div className="flex flex-col flex-1 p-1">
                             <div className="flex flex-col items-start">
-                                <h1 className="text-4xl font-semibold line-clamp-2 text-left">{event.name}</h1>
-                                <div style={{ color: darkerGrey }} className="mt-1 mb-4 text-xl">{isDateTbc ? S.dateToBeConfirmed : formatDate(event.event_time)}</div>
+                                <h1 className="text-3xl sm:text-4xl font-semibold line-clamp-2 text-left">{event.name}</h1>
+                                <div style={{ color: darkerGrey }} className="mt-1 mb-2 text-xl">{isDateTbc ? S.dateToBeConfirmed : formatDate(event.event_time)}</div>
                             </div>
-                            <div className="text-left text-lg pb-4">
+                            <div className="text-left text-lg pb-4 whitespace-pre-wrap">
                                 {event.description}
                             </div>
                             <div className="flex flex-col gap-3">
