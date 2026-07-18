@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { BaseEvent, NewEvent } from "@/model/event";
+import { BaseEvent, EventType, NewEvent } from "@/model/event";
 import EventModal from "./EventModal";
 import { deleteEventAction, createEventAction, updateEventAction } from "@/actions/event.actions";
 import CustomButton from "../common/CustomButton";
@@ -71,6 +71,7 @@ export default function AdminEventsTable({ initialEvents } : { initialEvents : B
       {/* Create Event Button */}
       <CustomButton
         onClick={() => setIsModalOpen(true)}
+        style={{ backgroundColor: "transparent" }}
       >
         <TextSm className="bg-blue-600 text-white px-4 py-2 rounded mb-6 hover:bg-blue-800 transition">+ Create New Event</TextSm>
       </CustomButton>
@@ -83,7 +84,7 @@ export default function AdminEventsTable({ initialEvents } : { initialEvents : B
       />
 
       {/* Events Table */}
-      <div className="bg-white shadow-sm rounded-lg p-4 text-black overflow-x-auto">
+      <div className="bg-white shadow-md rounded-lg p-4 text-black overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="border-b-2 border-gray-200">
@@ -107,7 +108,7 @@ export default function AdminEventsTable({ initialEvents } : { initialEvents : B
 
                 {/* Show Event Type (e.g., UPCOMING / PAST) */}
                 <td className="py-4">
-                  <span className={`px-2 py-1 rounded text-xs font-semibold ${String(event.type).toUpperCase() === "UPCOMING" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                  <span className={`px-2 py-1 rounded text-xs font-semibold ${event.type === EventType.UPCOMING ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
                     }`}>
                     {String(event.type).toUpperCase()}
                   </span>

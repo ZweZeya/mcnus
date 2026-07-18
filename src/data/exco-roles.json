@@ -1,0 +1,22 @@
+[
+    {
+        "name": "President",
+        "icon": "/president.png",
+        "description": "Lead vision, events and external representation."
+    },
+    {
+        "name": "Vice President",
+        "icon": "/vp.png",
+        "description": "Assist leadership and operations."
+    },
+    {
+        "name": "Secretary",
+        "icon": "/secretary.png",
+        "description": "Manage admin, finances and logistics."
+    },
+    {
+        "name": "Marketing Director",
+        "icon": "/marketing.png",
+        "description": "Grow social media and engagement."
+    }
+]

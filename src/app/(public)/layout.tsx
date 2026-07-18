@@ -3,7 +3,7 @@ import "../globals.css";
 import { robotoMono } from "../resources/font";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
-import { navy } from "../resources/colors";
+import { navy, cream } from "../resources/colors";
 
 export const metadata: Metadata = {
   title: 'Myanmar Community @ NUS | Cultural Events & Student Support',
@@ -33,7 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${robotoMono.variable} antialiased min-h-screen flex flex-col`}
-        style={{ color: navy }}
+        style={{ color: navy, backgroundColor: cream }}
         suppressHydrationWarning={true}
       >
         <Navbar />

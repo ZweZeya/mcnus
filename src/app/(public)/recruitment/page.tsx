@@ -1,9 +1,12 @@
 import { Metadata } from "next";
 import ContentBox from "../../components/common/ContentBox";
-import RecruitmentCarousel from "../../components/recruitment/RecruitmentCarousel";
 import PageLayout from "../../components/layout/PageLayout";
-import Roles from "../../components/roles/Roles";
 import S from "../../resources/strings/constantStrings";
+import RecruitmentSection from "@/app/components/recruitment/RecruitmentSection";
+import Roles from "@/app/components/roles/Roles";
+import ExcoRoles from "@/app/components/roles/ExcoRoles";
+import recruitmentClientService from "@/services/recruitment.client.service";
+import { RecruitmentData } from "@/model/recruitment";
 import EntranceAnimation from "../../components/common/EntranceAnimation";
 
 export const metadata: Metadata = {
@@ -34,20 +37,35 @@ export const metadata: Metadata = {
   },
 }
 
-const RecruitmentPage = () => {
-    return (
-        <PageLayout>
-            <EntranceAnimation>
-                <ContentBox title={S.bePartOfMcnus} content={S.bePartOfMcnusDescription} />
-            </EntranceAnimation>
-            <EntranceAnimation className="w-full" delay={0.06}>
-                <RecruitmentCarousel />
-            </EntranceAnimation>
-            <EntranceAnimation>
-                <Roles />
-            </EntranceAnimation>
-        </PageLayout>
-    );
+type RecruitmentPageProps = {
+  searchParams: Promise<{
+    tab?: string | string[];
+  }>;
+};
+
+const RecruitmentPage = async ({ searchParams }: RecruitmentPageProps) => {
+  const { tab } = await searchParams
+  const tabParam = Array.isArray(tab) ? tab[0] : tab;
+  const initialTab: 'exco' | 'subcomm' = tabParam === 'subcomm' ? 'subcomm' : 'exco';
+
+  let dbData : RecruitmentData[] | null = [];
+  try {
+    dbData = await recruitmentClientService.getRecruitmentData();
+  } catch (error) {
+    console.error("Failed to load recruitment live links:", error);
+  }
+  
+  return (
+    <PageLayout>
+      <EntranceAnimation>
+        <ContentBox title={S.bePartOfMcnus} content={S.bePartOfMcnusDescription} />
+      </EntranceAnimation>
+      
+      <EntranceAnimation>
+        <RecruitmentSection data={dbData} subcommRoles={<Roles />} excoRoles={<ExcoRoles />} initialTab={initialTab} />
+      </EntranceAnimation>
+    </PageLayout>
+  );
 };
 
 export default RecruitmentPage;

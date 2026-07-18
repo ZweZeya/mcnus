@@ -15,7 +15,7 @@ const defaultForm = {
   name: "",
   description: "",
   event_time: "",
-  type: "UPCOMING",
+  type: "upcoming",
   registration_link: "",
   recap_link: "",
 };
@@ -107,8 +107,8 @@ export default function EventModal({ isOpen, onClose, onSave, eventToEdit }: Eve
             <div>
               <TextSm>Status</TextSm>
               <select name="type" value={formData.type} onChange={handleChange} className="w-full border rounded p-2 bg-white">
-                <option value="UPCOMING">Upcoming</option>
-                <option value="PAST">Past</option>
+                <option value={EventType.UPCOMING}>Upcoming</option>
+                <option value={EventType.PAST}>Past</option>
               </select>
             </div>
           </div>

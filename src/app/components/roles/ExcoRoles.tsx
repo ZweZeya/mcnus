@@ -3,8 +3,8 @@ import path from "path";
 import RoleCard, { Role } from "./RoleCard";
 import S from "@/app/resources/strings/constantStrings";
 
-const Roles = async () => {
-    const filePath = path.join(process.cwd(), "src/data/roles.json");
+const ExcoRoles = async () => {
+    const filePath = path.join(process.cwd(), "src/data/exco-roles.json");
     const file = await fs.readFile(filePath, "utf8");
     const roles: Role[] = JSON.parse(file);
 
@@ -20,4 +20,4 @@ const Roles = async () => {
     );
 };
 
-export default Roles;
+export default ExcoRoles;

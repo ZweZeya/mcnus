@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Roboto_Mono, Dynalight } from 'next/font/google'
+import { Roboto_Mono, Dynalight, Fraunces } from 'next/font/google'
 import "../globals.css";
 
 export const robotoMono = Roboto_Mono({
@@ -25,4 +25,12 @@ export const geistMono = localFont({
 export const dynalight = Dynalight({
     subsets: ['latin'],
     weight: '400',
+});
+
+export const fraunces = Fraunces({
+    subsets: ['latin'],
+    variable: '--font-fraunces',
+    weight: ['300', '400', '500', '600', '700', '900'],
+    style: ['normal', 'italic'],
+    display: 'swap',
 });
