@@ -26,7 +26,7 @@ const RecruitmentCarouselCard: React.FC<{ title: string, content: string, data: 
 
     return (
         <CarouselItem>
-            <ColouredContentBox title={title} className="text-center">
+            <ColouredContentBox title={title} className="text-center shadow-none">
                 <Text>{content}</Text>
                 {is_open && (
                     <div className="flex gap-3 md:gap-5 justify-center items-center mt-auto pt-5">
@@ -87,7 +87,7 @@ const RecruitmentCarousel = ({ onTabChange, data } : RecruitmentCarouselProps) =
     const subcommData = data?.find(item => item.page_name === 'subcomm');
 
     return (
-        <ColouredBox className="w-sm sm:w-full">
+        <ColouredBox className="w-sm sm:w-full shadow-md">
             <Carousel className="flex items-center" setApi={setApi}>
                 <CarouselPrevious className={`left-auto ${buttonClassName}`}/>
                 <CarouselContent>
