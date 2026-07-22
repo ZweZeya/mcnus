@@ -7,10 +7,22 @@ const ContactDetails = () => {
     return (
         <ResponsiveGrid>
             <ColouredContentBox className="h-full" title={S.unansweredQuestions}>
-                <Text>{S.emailUs}</Text>
+                <Text>
+                    Email us at {" "} 
+                    <a href={`mailto:${S.emailUs}`} className="text-blue-600 hover:text-blue-800">
+                        {S.emailUs}
+                    </a>
+                    {" "}or slide into our dms.
+                </Text>
             </ColouredContentBox>
             <ColouredContentBox className="h-full" title={S.admissioEnquiries}>
-                <Text>{S.referToAskAdmissions}</Text>
+                <Text>
+                    Refer to the {" "}
+                    <a href={S.referToAskAdmissions} className="text-blue-600 hover:text-blue-800">
+                        NUS admissions website
+                    </a>
+                    {" "} for more information
+                </Text>
             </ColouredContentBox>
         </ResponsiveGrid>
     )

@@ -50,10 +50,9 @@ const STRING_CONSTANTS = {
   // FAQs
   faqs: "FAQs",
   unansweredQuestions: "Unanswered questions?",
-  emailUs: "Email us at nus.myanmarcommunity@gmail.com or slide into our dms.",
+  emailUs: "nus.myanmarcommunity@gmail.com",
   admissioEnquiries: "For admissions-related enquiries",
-  referToAskAdmissions:
-    "Refer to askadmissions website and follow the steps there accordingly.",
+  referToAskAdmissions: "https://www.nus.edu.sg/oam/admissions/admissions",
 
   // Subcom & Exco
   subcomTitle: "Step up as a Subcommittee member",

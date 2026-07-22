@@ -61,7 +61,7 @@ const EventsClient:
     }, [activeEventId]);
 
     return (
-        <ColouredContentBox className="w-full text-center shadow-md">
+        <ColouredContentBox className="w-full text-center">
             <div className="flex justify-between items-center my-4">
                 <div className="flex gap-4">
                     <CustomButton
