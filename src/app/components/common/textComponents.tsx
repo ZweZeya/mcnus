@@ -36,7 +36,7 @@ export const Text = (props: TextProps) => {
 
 export const Title = (props: TextProps) => {
     return (
-        <p className={`${props.className} font-extrabold text-2xl md:text-4xl xl:text-7xl`} style={props.style}>
+        <p className={`${props.className} font-extrabold text-2xl md:text-5xl xl:text-7xl`} style={props.style}>
             {props.children}
         </p>
     )
@@ -44,6 +44,6 @@ export const Title = (props: TextProps) => {
 
 export const Header = (props: TextProps) => {
     return (
-        <div className={`${props.className} font-extrabold text-xl md-text-2xl xl:text-4xl`} style={props.style}>{props.children}</div>
+        <div className={`${props.className} font-extrabold text-xl md:text-3xl xl:text-4xl`} style={props.style}>{props.children}</div>
     )
 }

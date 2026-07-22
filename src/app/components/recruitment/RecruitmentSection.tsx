@@ -34,10 +34,10 @@ const RecruitmentSection = ({ subcommRoles, excoRoles, initialTab = 'exco', data
     }
 
     return (
-        <>
+        <div className="flex flex-col items-center">
             <RecruitmentCarousel onTabChange={handleTabChange} data={data}/>
             { activeTab == 'exco' ? excoRoles : subcommRoles }
-        </>
+        </div>
     )
 }
 

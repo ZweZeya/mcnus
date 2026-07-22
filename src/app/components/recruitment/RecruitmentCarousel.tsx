@@ -29,11 +29,11 @@ const RecruitmentCarouselCard: React.FC<{ title: string, content: string, data: 
             <ColouredContentBox title={title} className="text-center">
                 <Text>{content}</Text>
                 {is_open && (
-                    <div className="flex gap-5 w-full justify-center items-center mt-auto pt-5">
-                        <CustomButton className="w-40 h-10 shadow-md font-bold" onClick={() => handleClick(primary_button_url)}>
+                    <div className="flex gap-3 md:gap-5 justify-center items-center mt-auto pt-5">
+                        <CustomButton className="w-30 h-10 shadow-md font-bold" onClick={() => handleClick(primary_button_url)}>
                             Apply Now
                         </CustomButton>
-                        <CustomButton className="w-40 h-10 shadow-md font-bold" onClick={() => handleClick(secondary_button_url)}>
+                        <CustomButton className="w-30 h-10 shadow-md font-bold" onClick={() => handleClick(secondary_button_url)}>
                             View Roles
                         </CustomButton>
                     </div>
@@ -87,7 +87,7 @@ const RecruitmentCarousel = ({ onTabChange, data } : RecruitmentCarouselProps) =
     const subcommData = data?.find(item => item.page_name === 'subcomm');
 
     return (
-        <ColouredBox className="w-full">
+        <ColouredBox className="w-sm sm:w-full">
             <Carousel className="flex items-center" setApi={setApi}>
                 <CarouselPrevious className={`left-auto ${buttonClassName}`}/>
                 <CarouselContent>

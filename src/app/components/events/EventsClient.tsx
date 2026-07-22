@@ -90,14 +90,16 @@ const EventsClient:
                         <FaChevronRight size={20} />
                     </CustomButton>
                 </div>
-            </div>
-            <EventsGrid events={data.events} activeTab={eventType} onClick={handleOpenEventModal}/>
-            {
-                activeEventId && <SingleEventModal eventId={Number(activeEventId)} onClose={handleCloseEventModal}/>
-            }
-        </ColouredContentBox>
-    )
-}
+                </div>
+                <EventsGrid events={data.events} activeTab={eventType} onClick={handleOpenEventModal} />
+                {
+                    activeEventId &&
+                    <SingleEventModal eventId={Number(activeEventId)} onClose={handleCloseEventModal}
+                    />
+                }
+            </ColouredContentBox>
+        )
+    }
 
 const EventsGrid: React.FC<{
     events: BaseEvent[], 

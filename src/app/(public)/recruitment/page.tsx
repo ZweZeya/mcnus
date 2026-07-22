@@ -57,12 +57,15 @@ const RecruitmentPage = async ({ searchParams }: RecruitmentPageProps) => {
   
   return (
     <PageLayout>
-      <EntranceAnimation>
+      <EntranceAnimation delay={0.08}>
         <ContentBox title={S.bePartOfMcnus} content={S.bePartOfMcnusDescription} />
       </EntranceAnimation>
       
-      <EntranceAnimation>
-        <RecruitmentSection data={dbData} subcommRoles={<Roles />} excoRoles={<ExcoRoles />} initialTab={initialTab} />
+      <EntranceAnimation delay={0.16}>
+        <RecruitmentSection data={dbData}
+          subcommRoles={<EntranceAnimation delay={0.24}><Roles /></EntranceAnimation>}
+          excoRoles={<EntranceAnimation delay={0.24}><ExcoRoles /></EntranceAnimation>} 
+          initialTab={initialTab} />
       </EntranceAnimation>
     </PageLayout>
   );

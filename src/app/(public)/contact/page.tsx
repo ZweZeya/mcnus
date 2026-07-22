@@ -37,13 +37,13 @@ export const metadata: Metadata = {
 const ContactPage = () => {
     return (
         <PageLayout>
-            <EntranceAnimation>
+            <EntranceAnimation delay={0.08}>
                 <ContentBox title={S.contactTitle} content={S.contactDescription} />
             </EntranceAnimation>
-            <EntranceAnimation className="w-full" delay={0.06}>
+            <EntranceAnimation className="w-full" delay={0.16}>
                 <Faqs />
             </EntranceAnimation>
-            <EntranceAnimation className="w-full">
+            <EntranceAnimation className="w-full" delay={0.24}>
                 <ContactDetails />
             </EntranceAnimation>
         </PageLayout>
