@@ -47,7 +47,8 @@ type RecruitmentTab = 'exco' | 'subcomm'
 
 interface RecruitmentCarouselProps {
     onTabChange: (tabItem : RecruitmentTab) => void,
-    data: RecruitmentData[] | null
+    data: RecruitmentData[] | null,
+    activeTab: RecruitmentTab
 }
 
 const slideOrder: RecruitmentTab[] = ['exco', 'subcomm'];
@@ -60,11 +61,20 @@ const getRecruitmentDescription = (
     return data?.is_open ? openDescription : closedDescription;
 }
   
-const RecruitmentCarousel = ({ onTabChange, data } : RecruitmentCarouselProps) => {
+const RecruitmentCarousel = ({ onTabChange, data, activeTab } : RecruitmentCarouselProps) => {
     const buttonClassName = "relative top-auto translate-y-0";
     const [api, setApi] = useState<CarouselApi>()
 
     const onTabChangeRef = useRef(onTabChange)
+
+    useEffect(() => {
+        if (!api) return
+
+        const targetIndex = slideOrder.indexOf(activeTab)
+        if (targetIndex !== -1 && api.selectedScrollSnap() !== targetIndex) {
+            api.scrollTo(targetIndex, true) // true = jump immediately without transition on load
+        }
+    }, [api, activeTab])
 
     useEffect(() => {
         if (!api) return
