@@ -72,7 +72,7 @@ const RecruitmentCarousel = ({ onTabChange, data, activeTab } : RecruitmentCarou
 
         const targetIndex = slideOrder.indexOf(activeTab)
         if (targetIndex !== -1 && api.selectedScrollSnap() !== targetIndex) {
-            api.scrollTo(targetIndex, true) // true = jump immediately without transition on load
+            api.scrollTo(targetIndex, true) 
         }
     }, [api, activeTab])
 
