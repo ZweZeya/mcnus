@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { Suspense } from "react";
 import ContentBox from "../../components/common/ContentBox";
 import Events from "../../components/events/Events";
 import PageLayout from "../../components/layout/PageLayout"
@@ -42,13 +41,11 @@ const EventsPage = async ({ searchParams }: { searchParams: Promise<{ [key: stri
 
     return (
         <PageLayout>
-            <EntranceAnimation>
+            <EntranceAnimation delay={0.08}>
               <ContentBox title={S.events} content="" />
             </EntranceAnimation>
-            <EntranceAnimation className="w-full" delay={0.06}>
-              <Suspense>
+            <EntranceAnimation className="w-full" delay={0.16}>
                 <Events type={eventTypeParam} page={eventPageParam}/>
-              </Suspense>
             </EntranceAnimation>
         </PageLayout>
     )

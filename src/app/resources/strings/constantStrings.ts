@@ -18,7 +18,7 @@ const STRING_CONSTANTS = {
   motto: "Connecting NUS through Myanmar Culture",
   whoWeAre: "Who We Are",
   whoWeAreDescription:
-    "We are a community of current NUS Myanmar students and alumni that aim to provide NUS Myanmar students that organises events and celebrations that bring us closer to our roots.",
+    "We are a community of current NUS Myanmar students and alumni dedicated to organising events and celebrations that bring us closer to our Burmese roots.",
   missionTitle: "Mission",
   mission:
     "To support Burmese students and engage the NUS community through cultural exchange, academic collaboration, and inclusive initiatives.",
@@ -50,10 +50,9 @@ const STRING_CONSTANTS = {
   // FAQs
   faqs: "FAQs",
   unansweredQuestions: "Unanswered questions?",
-  emailUs: "Email us at nus.myanmarcommunity@gmail.com or slide into our dms.",
+  emailUs: "nus.myanmarcommunity@gmail.com",
   admissioEnquiries: "For admissions-related enquiries",
-  referToAskAdmissions:
-    "Refer to askadmissions website and follow the steps there accordingly.",
+  referToAskAdmissions: "https://www.nus.edu.sg/oam/admissions/admissions",
 
   // Subcom & Exco
   subcomTitle: "Step up as a Subcommittee member",

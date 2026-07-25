@@ -25,7 +25,10 @@ const RecruitmentSection = ({ subcommRoles, excoRoles, initialTab = 'exco', data
     const pathname = usePathname()
     const searchParams = useSearchParams()
     
-    const activeTab = getTabFromSearchParams(searchParams.get("tab"), initialTab)
+    const tabFromUrl = getTabFromSearchParams(searchParams.get("tab"), initialTab);
+    const activeTab = (tabFromUrl === 'exco' || tabFromUrl === 'subcomm') 
+        ? tabFromUrl 
+        : initialTab;
 
     const handleTabChange = (tabItem: RecruitmentTab) => {
         const newSearchParams = new URLSearchParams(searchParams.toString())
@@ -34,10 +37,10 @@ const RecruitmentSection = ({ subcommRoles, excoRoles, initialTab = 'exco', data
     }
 
     return (
-        <>
-            <RecruitmentCarousel onTabChange={handleTabChange} data={data}/>
+        <div className="flex flex-col items-center">
+            <RecruitmentCarousel onTabChange={handleTabChange} data={data} activeTab={activeTab}/>
             { activeTab == 'exco' ? excoRoles : subcommRoles }
-        </>
+        </div>
     )
 }
 

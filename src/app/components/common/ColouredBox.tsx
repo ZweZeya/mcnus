@@ -9,7 +9,7 @@ const ColouredBox = (props: ColouredBoxProps) => {
     const { children, className, style } = props;
 
     return (
-        <div className={`p-5 rounded-2xl ${className}`} style={{backgroundColor: grey, ...style}}>{children}</div>
+        <div className={`p-4 rounded-2xl ${className}`} style={{backgroundColor: grey, ...style}}>{children}</div>
     )
 }
 

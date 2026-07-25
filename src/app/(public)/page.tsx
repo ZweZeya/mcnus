@@ -9,19 +9,19 @@ import { Separator } from "@/components/ui/separator"
 export default function Home() {
     return (
         <PageLayout>
-            <EntranceAnimation className="w-full" distance={12}>
+            <EntranceAnimation className="w-full" distance={12} delay={0.08}>
                 <Hero />
             </EntranceAnimation>
             <Separator />
-            <EntranceAnimation className="w-full">
+            <EntranceAnimation className="w-full" delay={0.08}>
                 <ImageCard image="/mission.png" title={S.missionTitle} content={S.mission} />
             </EntranceAnimation>
             <Separator />
-            <EntranceAnimation className="w-full">
+            <EntranceAnimation className="w-full" delay={0.08}>
                 <ImageCard image="/vision.png" title={S.visionTitle} content={S.vision} isImageOnRight />
             </EntranceAnimation>
             <Separator />
-            <EntranceAnimation className="w-full">
+            <EntranceAnimation className="w-full" delay={0.08}>
                 <JoinUs />
             </EntranceAnimation>
         </PageLayout>
