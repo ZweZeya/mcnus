@@ -14,6 +14,7 @@ import { EventsData } from "@/services/event.client.service";
 import { FaChevronLeft} from "react-icons/fa6"
 import { FaChevronRight } from "react-icons/fa6"
 import EntranceAnimation from "../common/EntranceAnimation";
+import { AnimatePresence } from "framer-motion";
 
 const EventsClient: 
     React.FC<{
@@ -92,11 +93,13 @@ const EventsClient:
                 </div>
                 </div>
                 <EventsGrid events={data.events} activeTab={eventType} onClick={handleOpenEventModal} />
+                <AnimatePresence>
                 {
                     activeEventId &&
                     <SingleEventModal eventId={Number(activeEventId)} onClose={handleCloseEventModal}
                     />
                 }
+                </AnimatePresence>
             </ColouredContentBox>
         )
     }

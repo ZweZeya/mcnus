@@ -9,6 +9,7 @@ import { formatDate } from "@/utils/dateUtils";
 import { Button } from "@/components/ui/button";
 import { GoLinkExternal } from "react-icons/go";
 import { IoCloseCircle } from "react-icons/io5";
+import { motion } from "framer-motion";
 
 const SingleEventModal: React.FC<{ eventId: number, onClose: () => void}> = ({ eventId, onClose }) => {
     const [event, setEvent] = useState<BaseEvent | null>(null)
@@ -41,7 +42,12 @@ const SingleEventModal: React.FC<{ eventId: number, onClose: () => void}> = ({ e
 
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
+        <motion.div 
+            className="fixed inset-0 z-50 flex items-center justify-center" 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+        >
             <div className="absolute inset-0 bg-black/65 flex items-center justify-center">
                 <div className="relative w-full max-w-lg scale-[0.80] rounded-2xl shadow-2xl z-10 h-auto overflow-hidden sm:scale-100" style={{ backgroundColor: grey}}>
                     <div className="absolute top-0 right-0 z-50">
@@ -90,7 +96,7 @@ const SingleEventModal: React.FC<{ eventId: number, onClose: () => void}> = ({ e
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
