@@ -7,7 +7,7 @@ import { TextSm } from "../common/textComponents";
 const PastEventCard: React.FC<{ event: BaseEvent, onClick: (id : number) => void }> = ({ event, onClick }) => {
 
     return (
-         <div className="w-full rounded-xl shadow-md overflow-hidden bg-white text-left flex flex-col hover:scale-105 hover:shadow-xl" onClick={() => onClick(event.id)}>
+         <div className="w-full rounded-xl shadow-md overflow-hidden bg-white text-left flex flex-col hover:scale-105 hover:shadow-xl cursor-pointer" onClick={() => onClick(event.id)}>
             {/* Image container with aspect ratio */}
             <div className="relative w-full pb-[100%]">
                 {event.image_url ?
