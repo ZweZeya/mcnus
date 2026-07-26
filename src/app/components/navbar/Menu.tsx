@@ -10,8 +10,9 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
-import { useRouter } from "next/navigation"; 
+import { useRouter, usePathname } from "next/navigation"; 
 import S from "@/app/resources/strings/constantStrings"; 
+import { frangipani, white } from "../../resources/colors"
 
 export interface MenuItem {
     name: string;
@@ -20,9 +21,16 @@ export interface MenuItem {
 
 const Menu: React.FC<{items: MenuItem[]}> = ({items}) => {
     const router = useRouter();
+    const pathname = usePathname();
 
     const menuElements = items.map((e, i) => 
-        <DropdownMenuItem onClick={() => router.push(e.to)} key={i}>{e.name}</DropdownMenuItem>
+        <DropdownMenuItem 
+        key={i}
+        style={{
+            backgroundColor: pathname == e.to ? frangipani : white
+        }}
+        onClick={() => router.push(e.to)}
+    >{e.name}</DropdownMenuItem>
     );
 
     return (
