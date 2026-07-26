@@ -12,6 +12,7 @@ export interface RippleEffectProps extends PropsWithChildren {
     className?: string
     style?: CSSProperties
     onClick?: MouseEventHandler
+    rippleColor?: string
 }
 
 const RippleEffect: React.FC<RippleEffectProps> = ({
@@ -19,11 +20,14 @@ const RippleEffect: React.FC<RippleEffectProps> = ({
     className,
     style,
     onClick,
+    rippleColor = "rgba(0, 0, 0, 0.2)",
 }) => {
     const [ripple, setRipple] = useState<Ripple | null>(null);
 
-    const handleClick: MouseEventHandler = (event) => {
-        const element = event.currentTarget as HTMLElement
+    const handlePointerDown = (
+        event: React.PointerEvent<HTMLDivElement>
+    ) => {
+        const element = event.currentTarget
         const rect = element.getBoundingClientRect()
         const size = Math.max(rect.width, rect.height) * 2
 
@@ -32,15 +36,14 @@ const RippleEffect: React.FC<RippleEffectProps> = ({
             y: event.clientY - rect.top - size / 2,
             size,
         })
-
-        onClick?.(event)
     }
 
     return (
         <div
             className={`relative overflow-hidden bg-transparent ${className ?? ""}`}
             style={style}
-            onClick={handleClick}
+            onPointerDown={handlePointerDown}
+            onClick={onClick}
         >
             {children}
             {ripple && (
@@ -52,6 +55,7 @@ const RippleEffect: React.FC<RippleEffectProps> = ({
                         height: ripple.size,
                         left: ripple.x,
                         top: ripple.y,
+                        backgroundColor: rippleColor,
                     }}
                     onAnimationEnd={() => setRipple(null)}
                 />

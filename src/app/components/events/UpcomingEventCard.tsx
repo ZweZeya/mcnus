@@ -5,12 +5,13 @@ import { TextSm } from "../common/textComponents";
 import { BaseEvent } from "@/model/event";
 import S from "@/app/resources/strings/constantStrings";
 import { isValidDate } from "@/utils/validators";
+import RippleEffect from "../common/RippleEfect";
 
 const UpcomingEventCard: React.FC<{ event: BaseEvent, onClick: (id : number) => void }> = ({ event, onClick }) => {
     const isDateTbc = !isValidDate(event.event_time)
 
     return (
-        <div className="w-full rounded-xl shadow-md overflow-hidden bg-white text-left flex flex-col hover:scale-105 hover:shadow-xl cursor-pointer" onClick={() => onClick(event.id)} >
+        <RippleEffect className="w-full rounded-xl shadow-md overflow-hidden bg-white text-left flex flex-col hover:scale-105 hover:shadow-xl cursor-pointer" onClick={() => onClick(event.id)} >
             {/* Image container with aspect ratio */}
             <div className="relative w-full pb-[100%]">
                 {event.image_url ? 
@@ -28,7 +29,7 @@ const UpcomingEventCard: React.FC<{ event: BaseEvent, onClick: (id : number) => 
                 <h2 className="text-sm sm:text-base font-semibold line-clamp-2">{event.name}</h2>
                 <TextSm style={{color: darkerGrey}} className="mt-1 mb-4">{isDateTbc ? S.dateToBeConfirmed : formatDate(event.event_time)}</TextSm>
             </div>
-        </div>
+        </RippleEffect>
     );
 };
 

@@ -5,3 +5,4 @@ export const grey = "#EAE5E5";
 export const darkerGrey = "#495057"
 export const black = "#000000"
 export const cream = "#FBF4E7"
+export const lightNavy = "#1D5A7D";
