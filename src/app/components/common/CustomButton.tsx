@@ -12,7 +12,7 @@ interface ButtonProps extends PropsWithChildren {
 
 const CustomButton: React.FC<ButtonProps> = (props) => {
     return (
-        <RippleEffect className={props.className} onClick={props.onClick}>
+        <RippleEffect className="rounded-lg" onClick={props.onClick}>
             <button 
                 style={{
                     color: props.isSelected ? white : navy,

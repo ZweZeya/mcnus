@@ -38,7 +38,7 @@ const RippleEffect: React.FC<RippleEffectProps> = ({
 
     return (
         <div
-            className={`relative overflow-hidden ${className ?? ""}`}
+            className={`relative overflow-hidden bg-transparent ${className ?? ""}`}
             style={style}
             onClick={handleClick}
         >
