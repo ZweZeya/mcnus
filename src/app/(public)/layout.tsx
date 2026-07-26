@@ -4,6 +4,7 @@ import { robotoMono } from "../resources/font";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import { navy, cream } from "../resources/colors";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: 'Myanmar Community @ NUS | Cultural Events & Student Support',
@@ -39,6 +40,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
