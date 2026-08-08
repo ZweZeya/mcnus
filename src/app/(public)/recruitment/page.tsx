@@ -63,8 +63,8 @@ const RecruitmentPage = async ({ searchParams }: RecruitmentPageProps) => {
       
       <EntranceAnimation delay={0.16}>
         <RecruitmentSection data={dbData}
-          subcommRoles={<EntranceAnimation delay={0.24}><Roles /></EntranceAnimation>}
-          excoRoles={<EntranceAnimation delay={0.24}><ExcoRoles /></EntranceAnimation>} 
+          subcommRoles={<Roles />}
+          excoRoles={<ExcoRoles />} 
           initialTab={initialTab} />
       </EntranceAnimation>
     </PageLayout>
