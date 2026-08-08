@@ -98,7 +98,7 @@ const RecruitmentCarousel = ({ onTabChange, data, activeTab } : RecruitmentCarou
 
     return (
         <ColouredBox className="w-sm sm:w-full shadow-md">
-            <Carousel className="flex items-center" setApi={setApi}>
+            <Carousel className="flex items-center" setApi={setApi} opts={{ loop: true }}>
                 <CarouselPrevious className={`left-auto ${buttonClassName}`}/>
                 <CarouselContent>
                     <RecruitmentCarouselCard
