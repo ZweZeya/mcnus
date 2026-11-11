@@ -5,6 +5,7 @@ import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import { navy, cream } from "../resources/colors";
 import { Analytics } from "@vercel/analytics/next"
+import { NavigationProvider } from "../components/common/NavigationLoader";
 
 export const metadata: Metadata = {
   title: 'Myanmar Community @ NUS | Cultural Events & Student Support',
@@ -37,9 +38,11 @@ export default function RootLayout({
         style={{ color: navy, backgroundColor: cream }}
         suppressHydrationWarning={true}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <NavigationProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </NavigationProvider>
         <Analytics />
       </body>
     </html>

@@ -1,9 +1,8 @@
 [
-    {"name": "Shwe Yati Oo", "role": "President", "image": "/bella.jpg", "caption": "23:59 🏃🏻‍♀️‍➡️🏃🏻‍♀️‍➡️"},
-    {"name": "Win Htut Khaung Soe", "role": "Vice President", "image": "/ss.jpg", "caption": "Live when young"},
-    {"name": "Win Paing Oo", "role": "Vice President", "image": "/win.jpg", "caption": "Sup"},
-    {"name": "Khant Lin Thant", "role": "General Secretary", "image": "/lin_thant.jpg", "caption": "Ambitious"},
-    {"name": "Nant Kyi Sin Lin", "role": "Publicity Director", "image": "/starlyn.jpg", "caption": "One Day or Day One"},
-    {"name": "Chaw Thiri May", "role": "Publicity Director", "image": "/may.jpg", "caption": "I love playing violin"},
-    {"name": "Saw Yoon Nwe", "role": "Publicity Director", "image": "/lily.jpg", "caption": "Behind it all"}
+    {"name": "Yee Su Thar", "role": "President", "image": "/yee.png", "caption": "Ehhh?"},
+    {"name": "Hnin Rati Khaing", "role": "Vice President", "image": "/rati.png", "caption": "Rati ready"},
+    {"name": "Min Phyo Thura", "role": "Vice President", "image": "/myrios.png", "caption": "67"},
+    {"name": "Min Thet Khine", "role": "Secretary", "image": "/kevin.png", "caption": "Can is can"},
+    {"name": "Min Kyal Sin Thant", "role": "Publicity Director", "image": "/john.png", "caption": "Do you mind..?"},
+    {"name": "Phyu Thet Htar", "role": "Publicity Director", "image": "/thet_htar.png", "caption": "On cruise"}
 ]
