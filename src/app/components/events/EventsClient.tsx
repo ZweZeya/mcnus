@@ -8,6 +8,7 @@ import { Text, TextMd } from "../common/textComponents";
 import CustomButton from "../common/CustomButton";
 import ColouredContentBox from "../common/ColouredContentBox"
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useNavigate } from "../common/NavigationLoader";
 import SingleEventModal from "./SingleEventModal";
 import { useEffect } from "react";
 import { EventsData } from "@/services/event.client.service";
@@ -22,17 +23,18 @@ const EventsClient:
         eventType: EventType
 }> = ({ data, eventType }) => {
     const router = useRouter()
+    const navigate = useNavigate()
     const pathname = usePathname()
     const searchParams = useSearchParams()
 
     const handleEventTypeChange = (newEventType: EventType) => {
-        router.push(`${pathname}?type=${newEventType}`)
+        navigate.push(`${pathname}?type=${newEventType}`)
     }
 
     const handlePageChange = (direction: number) => {
         const newFirstPage = data.firstPage + direction * data.pageSize;
         if (newFirstPage < 0 || newFirstPage >= data.totalCount) return;
-        router.push(`${pathname}?type=${eventType}&page=${data.index + direction}`)
+        navigate.push(`${pathname}?type=${eventType}&page=${data.index + direction}`)
     }
 
     const activeEventId = searchParams.get("id")
