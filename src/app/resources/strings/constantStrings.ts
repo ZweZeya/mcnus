@@ -65,8 +65,8 @@ const STRING_CONSTANTS = {
     "Exco recruitment is now open. Take on a leadership role and help shape the events, initiatives, and direction of MC@NUS. Apply Now!",
   excoClosedDescription:
     "Exco recruitment for this AY is currently closed. Please follow us for more updates on future openings. In the meantime, do consider joining as a member or subcommittee member.",
-  exco: "6th MC@NUS",
-  excoTermTime: "Term Time: Sept 2025 - Present",
+  exco: "7th MC@NUS",
+  excoTermTime: "Term Time: Sept 2026 - Present",
   executiveCommittee: "Executive Committee",
 
   // Events
