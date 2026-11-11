@@ -1,5 +1,5 @@
 import { frangipani } from "@/app/resources/colors";
-import NavItem from "./NavItem";
+import NavLinks from "./NavLinks";
 import Logo from "../Logo";
 import S from "@/app/resources/strings/constantStrings";
 import Link from "next/link";
@@ -21,8 +21,8 @@ const Navbar = () => {
                 <Logo size={120} />
             </Link>
             <div className="ml-auto h-full flex items-center">
-                <div className="gap-5 items-center h-full hidden md:flex">
-                    {menuItems.map((e, i) => <NavItem key={i} name={e.name} to={e.to} />)}
+                <div className="items-center h-full hidden md:flex">
+                    <NavLinks items={menuItems} />
                 </div>
                 <div className="md:hidden">
                     <Menu items={miniNavMenuItems} />
